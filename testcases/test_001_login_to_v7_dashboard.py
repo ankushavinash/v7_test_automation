@@ -1,12 +1,11 @@
-
-
-#@flaky()
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
+from flaky import flaky
 
 
+@flaky()
 class TestLoginToV7Dashboard:
     # log variable instantiation
     logger = LogGen.loggen()

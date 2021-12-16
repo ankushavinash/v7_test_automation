@@ -1,16 +1,13 @@
-import time
-
-from flaky import flaky
 from selenium.webdriver.common.by import By
-
 from pageobjects.HomePage import HomePage
 from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.customLogger import LogGen
 from utilities.browserUtilis import BrowserUtilities
+from flaky import flaky
 
 
-#@flaky()
+@flaky()
 class TestCreateRelease:
     # log variable instantiation
     logger = LogGen.loggen()

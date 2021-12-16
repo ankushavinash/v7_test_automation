@@ -4,8 +4,10 @@ from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
+from flaky import flaky
 
 
+@flaky()
 class TestUpdateRelease:
     # log variable instantiation
     logger = LogGen.loggen()

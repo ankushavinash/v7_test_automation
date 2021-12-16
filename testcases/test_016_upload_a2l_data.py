@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
 from pageobjects.ReleasePage import ReleasePage
@@ -7,8 +5,11 @@ from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 from pathlib import Path
+from flaky import flaky
 
-class TestCareAKVforA2LData:
+
+@flaky()
+class TestUploadA2LData:
     # log variable instantiation
     logger = LogGen.loggen()
 
