@@ -174,7 +174,6 @@ class ReleasePage:
     # argument : title, description, date, v8 user, project write access user
     # return :
     def update_release(self, new_title, new_description, new_date, new_v8_user, new_project_write_access_user):
-
         self.set_title(new_title)
         self.set_description(new_description)
         self.set_release_date(new_date)
@@ -226,9 +225,9 @@ class ReleasePage:
     # this method is use to  add comment
     # argument : add comment
     # return :
-    def set_comment(self, comment):
-        random_number = self.bu.generate_random_number()
-        self.bu.send_keys((By.ID, self.textbox_comment_id), comment + " : " + random_number)
+    def set_comment(self, upload_comment):
+        #random_number = self.bu.generate_random_number()
+        self.bu.send_keys((By.ID, self.textbox_comment_id), upload_comment)
 
     a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
     # author : ankush
@@ -236,10 +235,10 @@ class ReleasePage:
     # this method is use to upload a2l file
     # argument :
     # return :
-    def upload_a2l_data(self, file_path):
-        # root_path = str(Path(__file__).parent.parent)
-        # file = "C:\\Users\\anavina\\PycharmProjects\\v7_test_automation\\testdata\\t07.a2l"
-        self.bu.send_keys((By.XPATH, self.a2l_file_upload_xpath), file_path)
+    def upload_a2l_data(self, a2l_file_path):
+        self.bu.send_keys((By.XPATH, self.a2l_file_upload_xpath), a2l_file_path)
+        time.sleep(8)
+
 
 
 

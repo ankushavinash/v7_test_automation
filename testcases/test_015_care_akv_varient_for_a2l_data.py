@@ -31,8 +31,8 @@ class TestCareAKVForA2LData:
         care_group = str(xlUtilis.read_data(test_data_path, 'tc_005', 2, 1))
         care_akv_varient = str(xlUtilis.read_data(test_data_path, 'tc_005', 2, 2))
         hp.search_project(project)
-        rp.fill_all_information(title, description, date, v8, project_write_access)
-        rp.click_ok()
+        release_id = rp.create_release(title, description, date, v8, project_write_access)
+        self.logger.info("***************create Release successful.Release ID: " + release_id + " ***************")
 
         self.logger.info("*******************Select Care AKV Vareint for a2l Data************************")
         rp.select_care_akv_varient_for_a2l_data(care_akv_varient)
