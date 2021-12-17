@@ -38,11 +38,15 @@ class TestUpdateRelease:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful.Release ID: " + release_id + " ***************")
 
+        # Click on update button to update the Release information
         self.logger.info("****************update release**********************")
+        # Click on update button to update the Release information
         rp.click_update()
+        # Update the Release details
         rp.update_release(new_title, new_description, new_date, new_v8, new_project_write_access)
+        #  Click ok to confirm update the release details
         rp.click_ok()
-
+        # Validation for release update
         if bu.is_displayed((By.ID, 'itemID')):
             text = bu.get_text((By.ID, 'itemID'))
             self.logger.info("******Update release successful. Release ID : " + text + "*******")

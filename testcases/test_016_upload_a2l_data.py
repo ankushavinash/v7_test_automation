@@ -31,7 +31,7 @@ class TestUploadA2LData:
         v8 = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 4))
         project_write_access = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 5))
         care_group = str(xlUtilis.read_data(test_data_path, 'tc_005', 2, 1))
-        care_akv_varient = str(xlUtilis.read_data(test_data_path, 'tc_005', 2, 2))
+        care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_005', 2, 2))
         upload_comment = str(xlUtilis.read_data(test_data_path, 'tc_016', 2, 1))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_016', 2, 2))
         root_path = str(Path(__file__).parent.parent)
@@ -41,16 +41,17 @@ class TestUploadA2LData:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful.Release ID: " + release_id + " ***************")
 
-        # Select care akv varient for a2l data
-        rp.select_care_akv_varient_for_a2l_data(care_akv_varient)
-        rp.click_ok()
+        # Select care akv variant for a2l data
+        rp.select_care_akv_variant_for_a2l_data(care_akv_variant)
+
+        # Validation for Care akv variant selection
         if bu.is_displayed((By.XPATH, "//*[@id='F14155']")):
             text = bu.get_text((By.XPATH, "//*[@id='F14155']"))
-            self.logger.info("******015_care_akv_varient_for_a2l_data : " + text + "*******")
-            assert True, "015_care_akv_varient_for_a2l_data : " + text
+            self.logger.info("******015_care_akv_variant_for_a2l_data : " + text + "*******")
+            assert True, "015_care_akv_variant_for_a2l_data : " + text
         else:
-            self.logger.info("******015_care_akv_vareint_for_a2l_data unsuccessful*******")
-            assert False, "015_care_akv_varient_for_a2l_data unsuccessful. AKV Varient not selected"
+            self.logger.info("******015_care_akv_variant_for_a2l_data unsuccessful*******")
+            assert False, "015_care_akv_variant_for_a2l_data unsuccessful. AKV Variant not selected"
 
         self.logger.info("*******************Add Upload Comment************************")
         rp.set_comment(upload_comment)

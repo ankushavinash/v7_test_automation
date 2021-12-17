@@ -32,19 +32,13 @@ class TestCreateRelease:
 
         self.logger.info("*****create release*********")
 
+        # Search for project
         hp.search_project(project)
+        # Fill all the details to create Release
         rp.fill_all_information(title, description, date, v8, project_write_access)
-
-        #####################Step by Step################################
-        # rp.set_title(title)
-        # rp.set_description(description)
-        # rp.set_release_date(date)
-        # rp.select_v8(v8)
-        # rp.select_project_write_access(project_write_access)
-        #################################################################
-
+        # Click on OK to create Release
         rp.click_ok()
-
+        # Validation for Release creation
         if bu.is_displayed((By.ID, 'itemID')):
             text = bu.get_text((By.ID, 'itemID'))
             self.logger.info("******create release successful. Release ID : " + text + "*******")

@@ -208,17 +208,18 @@ class ReleasePage:
 
     # author : ankush
     # since : 2021-12-15
-    # this method is select care akv varient for a2l data
-    # argument : select care akv varient for a2l data
+    # this method is select care akv variant for a2l data
+    # argument : select care akv variant for a2l data
     # return :
-    def select_care_akv_varient_for_a2l_data(self, care_akv_varient):
+    def select_care_akv_variant_for_a2l_data(self, care_akv_variant):
         self.bu.click((By.LINK_TEXT, self.link_upload_a2l_data_linktext))
         self.bu.click((By.XPATH, self.button_care_akv_varient_for_a2l_data_xpath))
-        self.bu.send_keys((By.XPATH, self.textbox_search_care_akv_varient_for_a2l_data_xpath), care_akv_varient)
+        self.bu.send_keys((By.XPATH, self.textbox_search_care_akv_varient_for_a2l_data_xpath), care_akv_variant)
         if self.bu.is_selected((By.XPATH, self.checkbox_care_akv_varient_for_a2l_data_xpath)):
             pass
         else:
             self.bu.click((By.XPATH, self.checkbox_care_akv_varient_for_a2l_data_xpath))
+        self.click_ok()
 
     # author : ankush
     # since : 2021-12-15

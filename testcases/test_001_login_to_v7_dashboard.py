@@ -20,8 +20,11 @@ class TestLoginToV7Dashboard:
 
         # Test data setup
         application = "V4..V8 Admin"
+
+        # Search for V7 Release Application
         hp.search_application(application)
 
+        # validation of V7 Release Application Dashboard
         if bu.is_displayed((By.ID, "j_projLPCaption")):
             text = bu.get_text((By.ID, "j_projLPCaption"))
             self.logger.info("******001_login_to_v7_dashboard successful. Dashboard info : " + text + "*******")
