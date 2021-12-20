@@ -103,3 +103,18 @@
 12/16/2021 06:13:27 PM: INFO: ********test_003_release_csv_import : started********
 12/16/2021 06:13:27 PM: INFO: *****create release*********
 12/16/2021 06:14:03 PM: INFO: *****Upload CSV file*********
+12/17/2021 04:31:50 PM: INFO: ********test_001_create_release : started********
+12/17/2021 04:31:50 PM: INFO: *****create release*********
+12/17/2021 04:32:05 PM: INFO: ******create release successful. Release ID : 1767787:*******
+12/17/2021 04:32:05 PM: INFO: *****test_002_create_release  : passed*******
+12/17/2021 04:32:05 PM: INFO: *****test_002_create_release : completed ********
+12/20/2021 04:48:04 PM: INFO: ********test_001_create_release : started********
+12/20/2021 04:48:05 PM: INFO: *****create release*********
+12/20/2021 04:48:26 PM: INFO: ******create release successful. Release ID : 1772175:*******
+12/20/2021 04:48:26 PM: INFO: *****test_002_create_release  : passed*******
+12/20/2021 04:48:26 PM: INFO: *****test_002_create_release : completed ********
+12/20/2021 05:02:22 PM: INFO: ********test_001_create_release : started********
+12/20/2021 05:02:22 PM: INFO: *****create release*********
+12/20/2021 05:02:40 PM: INFO: ******create release successful. Release ID : 1772194:*******
+12/20/2021 05:02:40 PM: INFO: *****test_002_create_release  : passed*******
+12/20/2021 05:02:40 PM: INFO: *****test_002_create_release : completed ********
