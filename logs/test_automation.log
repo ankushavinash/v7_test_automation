@@ -118,3 +118,8 @@
 12/20/2021 05:02:40 PM: INFO: ******create release successful. Release ID : 1772194:*******
 12/20/2021 05:02:40 PM: INFO: *****test_002_create_release  : passed*******
 12/20/2021 05:02:40 PM: INFO: *****test_002_create_release : completed ********
+12/20/2021 05:19:11 PM: INFO: ********test_001_create_release : started********
+12/20/2021 05:19:11 PM: INFO: *****create release*********
+12/20/2021 05:19:26 PM: INFO: ******create release successful. Release ID : 1772207:*******
+12/20/2021 05:19:26 PM: INFO: *****test_002_create_release  : passed*******
+12/20/2021 05:19:26 PM: INFO: *****test_002_create_release : completed ********

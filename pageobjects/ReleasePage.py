@@ -219,7 +219,6 @@ class ReleasePage:
             pass
         else:
             self.bu.click((By.XPATH, self.checkbox_care_akv_varient_for_a2l_data_xpath))
-        self.click_ok()
 
     # author : ankush
     # since : 2021-12-15

@@ -8,11 +8,11 @@ from flaky import flaky
 
 
 @flaky()
-class TestReleaseCsvImport:
+class TestCareAkvVariantForA2lData:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_015_release_csv_import(self, setup):
+    def test_006_care_akv_variant_for_a2l_data(self, setup):
         self.logger.info("********test_005_release_csv_import : started********")
 
         # Setup
@@ -38,6 +38,8 @@ class TestReleaseCsvImport:
         self.logger.info("*******************Select Care AKV Vareint for a2l Data************************")
         # select care akv variant for a2l data
         rp.select_care_akv_variant_for_a2l_data(care_akv_variant)
+        # Click on ok to select care akv variant for a2l data
+        self.click_ok()
 
         # Validation for Care akv variant selection
         if bu.is_displayed((By.XPATH, "//*[@id='F14155']")):

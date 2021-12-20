@@ -9,11 +9,11 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-class TestCareAKVImport:
+class TestCareAKVVariant:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_005_care_akv_import(self, setup):
+    def test_005_care_akv_variant(self, setup):
         self.logger.info("********test_005_care akv import to release : started********")
 
         # Setup
@@ -37,8 +37,9 @@ class TestCareAKVImport:
         rp.fill_all_information(title, description, date, v8, project_write_access)
         rp.click_ok()
 
-        rp.select_care_akv_varient_for_a2l_data(care_akv_varient)
+        rp.select_care_akv_variant_for_a2l_data(care_akv_varient)
         rp.click_ok()
+
         if bu.is_displayed((By.XPATH, "//*[@id='F14155']")):
             text = bu.get_text((By.XPATH, "//*[@id='F14155']"))
             self.logger.info("******015_care_akv_varient_for_a2l_data : " + text + "*******")
