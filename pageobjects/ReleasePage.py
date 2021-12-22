@@ -185,7 +185,8 @@ class ReleasePage:
     # this method is use to click care akv varient
     # argument : select care group from drop down
     # return :
-    def click_care_akv_varient(self):
+    def click_care_akv_variant(self):
+        self.click_workarea()
         self.bu.click((By.XPATH, self.button_care_akv_varient_xpath))
 
     # author : ankush
@@ -201,7 +202,7 @@ class ReleasePage:
     # this method is select care akv varient
     # argument : select care akv varient
     # return :
-    def select_care_akv_varient(self, care_akv_varient):
+    def select_care_akv_variant(self, care_akv_varient):
         self.bu.send_keys((By.XPATH, self.textbox_search_care_akv_varient_xpath), care_akv_varient)
         self.bu.click((By.XPATH, self.button_search_care_akv_varient_class))
         self.bu.select(By.XPATH, self.listbox_care_akv_varient_xpath, care_akv_varient)
@@ -221,12 +222,32 @@ class ReleasePage:
             self.bu.click((By.XPATH, self.checkbox_care_akv_varient_for_a2l_data_xpath))
 
     # author : ankush
+    # since : 2021-12-21
+    # this method is select care akv variant for a2l data and click on ok
+    # argument : select care akv variant for a2l data
+    # return :
+    def search_and_select_care_akv_variant_for_a2l_data(self, care_akv_variant):
+        self.bu.click((By.LINK_TEXT, self.link_upload_a2l_data_linktext))
+        self.bu.click((By.XPATH, self.button_care_akv_varient_for_a2l_data_xpath))
+        self.bu.send_keys((By.XPATH, self.textbox_search_care_akv_varient_for_a2l_data_xpath), care_akv_variant)
+        if self.bu.is_selected((By.XPATH, self.checkbox_care_akv_varient_for_a2l_data_xpath)):
+            pass
+        else:
+            self.bu.click((By.XPATH, self.checkbox_care_akv_varient_for_a2l_data_xpath))
+        self.click_ok()
+
+        if self.bu.is_displayed((By.ID, 'F14155')):
+            text = self.bu.get_text((By.ID, 'F14155'))
+            return text
+        else:
+            assert False, "Care akv Variant for a2l data data selection unsuccessful. care akv variant not displayed"
+
+    # author : ankush
     # since : 2021-12-15
     # this method is use to  add comment
     # argument : add comment
     # return :
     def set_comment(self, upload_comment):
-        #random_number = self.bu.generate_random_number()
         self.bu.send_keys((By.ID, self.textbox_comment_id), upload_comment)
 
     a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"

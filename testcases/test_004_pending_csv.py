@@ -31,9 +31,11 @@ class TestReleaseCSVImport:
         lp.search_project(project)
         rp.set_title(title)
         rp.click_ok()
+        rp.click_workarea()
         self.logger.info("*****Upload CSV file*********")
         rp.click_CSV_upload()
         self.logger.info("*****click on csv upload*********")
+        time.sleep(10)
 
         #"//input[@id='File']"
         bu.file_upload(file)
