@@ -39,6 +39,9 @@ class ReleasePage:
     checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[4]/td[1]/input"
     textbox_comment_id = "a2luploadcomment"
     a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
+    button_select_a2l_data_xpath = "//*[@id='Button19']"
+    textbox_search_user_comment_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
+    radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[2]/td[1]/input"
 
     def __init__(self, driver):
         self.driver = driver
@@ -261,7 +264,7 @@ class ReleasePage:
         time.sleep(8)
 
     # author : ankush
-    # since : 2021-12-15
+    # since : 2021-12-23
     # this method is use to upload a2l file
     # argument :
     # return :
@@ -276,8 +279,25 @@ class ReleasePage:
         else:
             assert False, "Care AKV Variant selection unsuccessful. Care AKV Variant is not displayed"
 
+    # author : ankush
+    # since : 2021-12-23
+    # this method is use to click on a2l data button
+    # argument :
+    # return :
+    def click_a2l_data(self):
+        self.bu.click((By.XPATH, self.button_select_a2l_data_xpath))
 
-
+    # author : ankush
+    # since : 2021-12-23
+    # this method is use to select existing a2l data
+    # argument :
+    # return :
+    def select_a2l_data(self, user_comment):
+        self.bu.send_keys((By.XPATH, self.textbox_search_user_comment_xpath), user_comment)
+        if self.bu.is_selected((By.XPATH, self.radiobutton_a2l_data_xpath)):
+            pass
+        else:
+            self.bu.click((By.XPATH, self.radiobutton_a2l_data_xpath))
 
 
 

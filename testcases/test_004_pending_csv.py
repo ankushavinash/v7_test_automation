@@ -37,15 +37,15 @@ class TestReleaseCSVImport:
         self.logger.info("*****click on csv upload*********")
         time.sleep(10)
 
+
         #"//input[@id='File']"
-        bu.file_upload(file)
+        #bu.file_upload(file)
         self.logger.info("*****file uploaded successful*********")
 
-        time.sleep(10)
 
 
-        self.logger.info("*****test_003_Import_CSV_to_release  : passed*******")
-        self.logger.info("*****test_003_Import_CSV_to_release : completed ********")
+        self.logger.info("*****test_004_Import_CSV_to_release  : passed*******")
+        self.logger.info("*****test_004_Import_CSV_to_release : completed ********")
 
 
 
