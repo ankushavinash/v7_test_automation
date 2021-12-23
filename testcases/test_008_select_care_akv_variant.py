@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.common.by import By
 from pathlib import Path
 from pageobjects.HomePage import HomePage
@@ -48,7 +46,6 @@ class TestCareAKVVariant:
         rp.select_care_akv_variant(care_akv_variant)
         # click on OK
         rp.click_ok()
-
         # care akv variant validation
         if bu.is_displayed((By.XPATH, "//*[@id='F13688']")):
             text = bu.get_text((By.XPATH, "//*[@id='F13688']"))
@@ -58,28 +55,5 @@ class TestCareAKVVariant:
             self.logger.info("******Care AKV Variant selected unsuccessful*******")
             assert False, "Care AKV Variant selection unsuccessful. Care AKV Variant is not displayed"
 
-
-        self.logger.info("*****Select A2L Data*********")
-        # click on select a2l data
-        driver.find_element_by_xpath("//*[@id='Button19']").click()
-        # search for proper a2l data
-        driver.find_element_by_xpath("//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input").send_keys("Test A2L Data")
-        # click on checkbox
-        if driver.find_element_by_xpath("//*[@id='mrx2table']/tbody/tr[2]/td[1]/input").is_selected() :
-            pass
-        else:
-            driver.find_element_by_xpath("//*[@id='mrx2table']/tbody/tr[2]/td[1]/input").click()
-        # click on ok
-        rp.click_ok()
-        # Precheck care and a2l data
-        driver.find_element_by_xpath("//*[@id='Button22']").click()
-        # validation of selected a2l file
-        if bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/p")):
-            text = bu.get_text((By.XPATH, "//*[@id='v7rpcc']/p"))
-            self.logger.info("******a2l file is selected. : " + text + "*******")
-            assert True, "a2l file selection successful. : " + text
-        else:
-            self.logger.info("******a2l file is selected unsuccessful*******")
-            assert False, "a2l file selection unsuccessful. a2l data is not displayed"
-
-        rp.click_ok()
+        self.logger.info("*****test_008_care_akv_variant  : passed*******")
+        self.logger.info("*****test_008_care_akv_variant : completed ********")

@@ -13,7 +13,7 @@ class TestCareAkvVariantForA2lData:
     logger = LogGen.loggen()
 
     def test_006_care_akv_variant_for_a2l_data(self, setup):
-        self.logger.info("********test_006_release_csv_import : started********")
+        self.logger.info("********test_006_care_akv_variant_for_a2l_data : started********")
 
         # Setup
         driver = setup[0]

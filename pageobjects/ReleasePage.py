@@ -38,6 +38,7 @@ class ReleasePage:
     textbox_search_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
     checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[4]/td[1]/input"
     textbox_comment_id = "a2luploadcomment"
+    a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -202,10 +203,10 @@ class ReleasePage:
     # this method is select care akv varient
     # argument : select care akv varient
     # return :
-    def select_care_akv_variant(self, care_akv_varient):
-        self.bu.send_keys((By.XPATH, self.textbox_search_care_akv_varient_xpath), care_akv_varient)
+    def select_care_akv_variant(self, care_akv_variant):
+        self.bu.send_keys((By.XPATH, self.textbox_search_care_akv_varient_xpath), care_akv_variant)
         self.bu.click((By.XPATH, self.button_search_care_akv_varient_class))
-        self.bu.select(By.XPATH, self.listbox_care_akv_varient_xpath, care_akv_varient)
+        self.bu.select(By.XPATH, self.listbox_care_akv_varient_xpath, care_akv_variant)
 
     # author : ankush
     # since : 2021-12-15
@@ -250,7 +251,6 @@ class ReleasePage:
     def set_comment(self, upload_comment):
         self.bu.send_keys((By.ID, self.textbox_comment_id), upload_comment)
 
-    a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
     # author : ankush
     # since : 2021-12-15
     # this method is use to upload a2l file
@@ -259,6 +259,24 @@ class ReleasePage:
     def upload_a2l_data(self, a2l_file_path):
         self.bu.send_keys((By.XPATH, self.a2l_file_upload_xpath), a2l_file_path)
         time.sleep(8)
+
+    # author : ankush
+    # since : 2021-12-15
+    # this method is use to upload a2l file
+    # argument :
+    # return :
+    def set_care_akv_variant(self, care_group, care_akv_variant):
+        self.click_care_akv_variant()
+        self.select_care_group(care_group)
+        self.select_care_akv_variant(care_akv_variant)
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='F13688']")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='F13688']"))
+            return text
+        else:
+            assert False, "Care AKV Variant selection unsuccessful. Care AKV Variant is not displayed"
+
+
 
 
 

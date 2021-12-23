@@ -106,7 +106,6 @@ def pytest_metadata(metadata):
     metadata.pop("Packages", None)
     metadata.pop("Platform", None)
 
-
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin("html")

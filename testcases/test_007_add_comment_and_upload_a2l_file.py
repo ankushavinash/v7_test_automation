@@ -43,11 +43,9 @@ class TestAddCommentAndUploadA2lFile:
         self.logger.info("***************Care akv variant for a2l data selection successful: AKV Variant name: " + care_akv_variant_name + " ***************")
 
         # Add comment
-        self.logger.info("*******************Add Upload Comment************************")
+        self.logger.info("*******************Add Comment and Upload a2l data************************")
         rp.set_comment(upload_comment)
-
         # Upload a2l file
-        self.logger.info("*******************Upload a2l Data************************")
         rp.upload_a2l_data(a2l_file)
 
         # Upload Comment validation
