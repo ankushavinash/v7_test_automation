@@ -42,6 +42,7 @@ class ReleasePage:
     button_select_a2l_data_xpath = "//*[@id='Button19']"
     textbox_search_user_comment_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
     radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[2]/td[1]/input"
+    button_precheck_care_and_a2l_data_xpath = "//*[@id='Button22']"
 
     def __init__(self, driver):
         self.driver = driver
@@ -289,15 +290,37 @@ class ReleasePage:
 
     # author : ankush
     # since : 2021-12-23
-    # this method is use to select existing a2l data
+    # this method is use to select existing a2l data from list(based on filtering user comment selecting a2l file)
     # argument :
     # return :
-    def select_a2l_data(self, user_comment):
+    def select_a2l_data_from_list(self, user_comment):
         self.bu.send_keys((By.XPATH, self.textbox_search_user_comment_xpath), user_comment)
         if self.bu.is_selected((By.XPATH, self.radiobutton_a2l_data_xpath)):
             pass
         else:
             self.bu.click((By.XPATH, self.radiobutton_a2l_data_xpath))
 
+    # author : ankush
+    # since : 2021-12-24
+    # this method is use to select existing a2l data(based on filtering user comment selecting a2l file)
+    # argument :
+    # return :
+    def select_a2l_data(self, user_comment):
+        self.click_a2l_data()
+        self.select_a2l_data_from_list(user_comment)
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='F14154']")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='F14154']"))
+            return text
+        else:
+            assert False, "a2l data selection unsuccessful. a2l file is not displayed"
+
+    # author : ankush
+    # since : 2021-12-24
+    # this method is use to select existing a2l data(based on filtering user comment selecting a2l file)
+    # argument :
+    # return :
+    def click_precheck_care_and_a2l_data(self):
+        self.bu.click((By.XPATH, self.button_precheck_care_and_a2l_data_xpath))
 
 

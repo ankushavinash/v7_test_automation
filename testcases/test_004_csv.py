@@ -35,12 +35,20 @@ class TestReleaseCSVImport:
         self.logger.info("*****Upload CSV file*********")
         rp.click_CSV_upload()
         self.logger.info("*****click on csv upload*********")
-        time.sleep(10)
+        time.sleep(6)
+        self.logger.info(driver.current_window_handle) # CW
+        handles = driver.window_handles
+        for handle in handles:
+            driver.switch_to_window(handle)
+            self.logger.info(driver.title)
+        upload_xpath = "//input[@name='Filetext']"
+
+        driver.quit()
 
 
         #"//input[@id='File']"
         #bu.file_upload(file)
-        self.logger.info("*****file uploaded successful*********")
+        #self.logger.info("*****file uploaded successful*********")
 
 
 

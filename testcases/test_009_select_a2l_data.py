@@ -41,7 +41,7 @@ class TestSelectA2lData:
         # click on select a2l data
         rp.click_a2l_data()
         # click on checkbox
-        rp.select_a2l_data(a2l_file_name)
+        rp.select_a2l_data_from_list(a2l_file_name)
         # click on ok
         rp.click_ok()
         # validation of selected a2l file
