@@ -1,0 +1,27 @@
+12/24/2021 10:40:40 AM: INFO: ********test_010_care akv variant to release : started********
+12/24/2021 10:40:55 AM: INFO: ***************create Release successful. Release ID: 1776740 ***************
+12/24/2021 10:41:12 AM: INFO: ********care akv variant selection successful. Variant name: TEST AKV Variant _kraoliv_************
+12/24/2021 10:41:19 AM: INFO: ********a2l file selection successful. A2l File name : t06.a2l*****************
+12/24/2021 10:41:21 AM: INFO: ******a2l file is selection successful. Confirmation message displayed : A confirmation will be required for each of the below listed SW and part modules.*******
+12/24/2021 10:41:21 AM: INFO: *****test_010_select_a2l_data  : passed*******
+12/24/2021 10:41:21 AM: INFO: *****test_010_select_a2l_data : completed ********
+12/24/2021 11:13:11 AM: INFO: ********test_003_release_csv_import : started********
+12/24/2021 11:13:11 AM: INFO: *****create release*********
+12/24/2021 11:13:39 AM: INFO: *****Upload CSV file*********
+12/24/2021 11:13:39 AM: INFO: *****click on csv upload*********
+12/24/2021 11:13:49 AM: INFO: *****test_004_Import_CSV_to_release  : passed*******
+12/24/2021 11:13:49 AM: INFO: *****test_004_Import_CSV_to_release : completed ********
+12/24/2021 11:22:44 AM: INFO: ********test_003_release_csv_import : started********
+12/24/2021 11:22:44 AM: INFO: *****create release*********
+12/24/2021 11:23:12 AM: INFO: *****Upload CSV file*********
+12/24/2021 11:23:12 AM: INFO: *****click on csv upload*********
+12/24/2021 11:23:18 AM: INFO: CDwindow-5D126CE746A057919B0421A7C2F5DF60
+12/24/2021 11:23:18 AM: INFO: SBM - 1776745: V7 Test
+12/24/2021 11:27:47 AM: INFO: 
+12/24/2021 11:27:49 AM: INFO: *****test_004_Import_CSV_to_release  : passed*******
+12/24/2021 11:27:49 AM: INFO: *****test_004_Import_CSV_to_release : completed ********
+12/27/2021 06:13:42 PM: INFO: ********test_003_update_release : started********
+12/27/2021 06:14:15 PM: INFO: ***************create Release successful.Release ID: 1777653 ***************
+12/27/2021 06:18:02 PM: INFO: ********test_003_update_release : started********
+12/27/2021 06:24:20 PM: INFO: ********test_003_update_release : started********
+12/27/2021 06:24:53 PM: INFO: ***************create Release successful.Release ID: 1777654 ***************
