@@ -47,5 +47,4 @@ class TestUpdateRelease:
         # click on ok
         rp.click_ok()
         # validation
-
         s = driver.find_element_by_id("issuedetailsLabel").text
