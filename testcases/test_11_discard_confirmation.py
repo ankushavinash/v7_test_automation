@@ -37,7 +37,6 @@ class TestUpdateRelease:
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful.Release ID: " + release_id + " ***************")
-
         # click on Discard Button
         driver.find_element_by_id("TransitionId_4061").click()
         # Enter release letter comment
