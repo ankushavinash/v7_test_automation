@@ -8,12 +8,12 @@ from flaky import flaky
 
 
 @flaky()
-class TestUpdateRelease:
+class TestDiscardRelease:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_011_update_release(self, setup):
-        self.logger.info("********test_003_update_release : started********")
+    def test_018_discard_release(self, setup):
+        self.logger.info("********test_018_discard_release : started********")
 
         # Setup
         driver = setup[0]
@@ -34,17 +34,30 @@ class TestUpdateRelease:
         new_date = str(xlUtilis.read_data(test_data_path, 'tc_003', 2, 3))
         new_v8 = str(xlUtilis.read_data(test_data_path, 'tc_003', 2, 4))
         new_project_write_access = str(xlUtilis.read_data(test_data_path, 'tc_003', 2, 5))
+        release_letter_comment = str(xlUtilis.read_data(test_data_path, 'tc_018', 2, 1))
+        internal_comment = str(xlUtilis.read_data(test_data_path, 'tc_018', 2, 2))
+
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful.Release ID: " + release_id + " ***************")
 
         # click on Discard Button
-        driver.find_element_by_id("TransitionId_4061").click()
+        rp.click_dicard()
         # Enter release letter comment
-        driver.find_element_by_xpath("//*[@id='F14387']").send_keys("Release letter comment automation test")
+        rp.set_release_letter_comment(release_letter_comment)
         # Enter internal comment
-        driver.find_element_by_id("H11204").send_keys("Internal comment automation test")
+        rp.set_internal_comment(internal_comment)
         # click on ok
         rp.click_ok()
-        # validation
-        s = driver.find_element_by_id("issuedetailsLabel").text
+
+        # Discard validation
+        if bu.is_displayed((By.ID, "itemDisplayName")):
+            text = bu.get_text((By.ID, "itemDisplayName"))
+            self.logger.info("**********Discard release successful. Status : " + text + "**************")
+            assert True, "Discard release successful. Status : " + text
+        else:
+            self.logger.info("*********Discard release unsuccessful***********")
+            assert False, "Discard release unsuccessful. Inactive not displayed"
+
+        self.logger.info("*****test_018_discard_release  : passed*******")
+        self.logger.info("*****test_018_discard_release : completed ********")

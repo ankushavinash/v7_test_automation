@@ -43,6 +43,8 @@ class ReleasePage:
     textbox_search_user_comment_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
     radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[2]/td[1]/input"
     button_precheck_care_and_a2l_data_xpath = "//*[@id='Button22']"
+    textbox_internal_comment_id = "H11204"
+    textbox_release_letter_comment_xpath = "//*[@id='F14387']"
 
     def __init__(self, driver):
         self.driver = driver
@@ -323,4 +325,27 @@ class ReleasePage:
     def click_precheck_care_and_a2l_data(self):
         self.bu.click((By.XPATH, self.button_precheck_care_and_a2l_data_xpath))
 
+    # author : ankush
+    # since : 2021-12-28
+    # this method is use to click on discard button
+    # argument :
+    # return :
+    button_discard_id = "TransitionId_4061"
+    def click_dicard(self):
+        self.bu.click((By.ID, self.button_discard_id))
 
+    # author : ankush
+    # since : 2021-12-28
+    # this method is use to set release letter comment
+    # argument :
+    # return :
+    def set_release_letter_comment(self, release_letter_comment):
+        self.bu.send_keys((By.XPATH, self.textbox_release_letter_comment_xpath), release_letter_comment)
+
+    # author : ankush
+    # since : 2021-12-28
+    # this method is use to set release letter comment
+    # argument :
+    # return :
+    def set_internal_comment(self, internal_comment):
+        self.bu.send_keys((By.ID, self.textbox_internal_comment_id), internal_comment)
