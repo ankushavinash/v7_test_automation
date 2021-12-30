@@ -6,11 +6,11 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-class TestImportAkvFromCareAndStartConfirmation:
+class TestUploadDataChildConfirmation:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_011_import_akv_from_care_and_start_confirmation(self, setup):
+    def test_014_upload_data_child_confirmation(self, setup):
         self.logger.info("********test_010_care akv variant to release : started********")
 
         # Setup
@@ -62,3 +62,7 @@ class TestImportAkvFromCareAndStartConfirmation:
 
         # validation
         text = driver.find_element_by_xpath("//*[@id='F11159.wrapper']/table/tbody/tr/td[1]").text
+
+        driver.find_element_by_link_text("Child Confirmations").click()
+
+        driver.find_element_by_xpath("//*[@id='ReportOutput']/tbody/tr[3]/td[2]/span/a").click()

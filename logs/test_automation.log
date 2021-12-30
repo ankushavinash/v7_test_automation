@@ -73,3 +73,13 @@
 12/29/2021 05:30:21 PM: INFO: ********care akv variant selection successful. Variant name: TEST AKV Variant _kraoliv_************
 12/29/2021 05:30:32 PM: INFO: ********a2l file selection successful. A2l File name : t06.a2l*****************
 12/29/2021 05:30:42 PM: INFO: ******a2l file is selection successful. Confirmation message displayed : A confirmation will be required for each of the below listed SW and part modules.*******
+12/30/2021 09:08:13 AM: INFO: ********test_010_care akv variant to release : started********
+12/30/2021 09:08:48 AM: INFO: ***************create Release successful. Release ID: 1778436 ***************
+12/30/2021 09:09:11 AM: INFO: ********care akv variant selection successful. Variant name: TEST AKV Variant _kraoliv_************
+12/30/2021 09:09:29 AM: INFO: ********a2l file selection successful. A2l File name : t06.a2l*****************
+12/30/2021 09:09:39 AM: INFO: ******a2l file is selection successful. Confirmation message displayed : A confirmation will be required for each of the below listed SW and part modules.*******
+12/30/2021 09:20:42 AM: INFO: ********test_010_care akv variant to release : started********
+12/30/2021 09:21:13 AM: INFO: ***************create Release successful. Release ID: 1778447 ***************
+12/30/2021 09:21:45 AM: INFO: ********care akv variant selection successful. Variant name: TEST AKV Variant _kraoliv_************
+12/30/2021 09:21:58 AM: INFO: ********a2l file selection successful. A2l File name : t06.a2l*****************
+12/30/2021 09:22:03 AM: INFO: ******a2l file is selection successful. Confirmation message displayed : A confirmation will be required for each of the below listed SW and part modules.*******
