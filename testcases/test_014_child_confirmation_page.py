@@ -62,7 +62,5 @@ class TestUploadDataChildConfirmation:
 
         # validation
         text = driver.find_element_by_xpath("//*[@id='F11159.wrapper']/table/tbody/tr/td[1]").text
-
         driver.find_element_by_link_text("Child Confirmations").click()
-
         driver.find_element_by_xpath("//*[@id='ReportOutput']/tbody/tr[3]/td[2]/span/a").click()
