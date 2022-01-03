@@ -66,3 +66,9 @@ class TestDemo:
 
         self.logger.info("*****test_009_select_a2l_data  : passed*******")
         self.logger.info("*****test_009_select_a2l_data : completed ********")
+
+
+
+# scroll handling
+        # ele = driver.find_element_by_id("F14153_label")
+        # driver.execute_script("arguments[0].scrollIntoView();", ele)

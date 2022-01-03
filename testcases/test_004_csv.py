@@ -31,19 +31,51 @@ class TestReleaseCSVImport:
         lp.search_project(project)
         rp.set_title(title)
         rp.click_ok()
-        rp.click_workarea()
-        self.logger.info("*****Upload CSV file*********")
-        rp.click_CSV_upload()
-        self.logger.info("*****click on csv upload*********")
-        time.sleep(6)
-        self.logger.info(driver.current_window_handle) # CW
-        handles = driver.window_handles
-        for handle in handles:
-            driver.switch_to_window(handle)
-            self.logger.info(driver.title)
-        upload_xpath = "//input[@name='Filetext']"
+        if driver.find_element_by_xpath("//a[text()='Workarea']").is_selected():
+            pass
+        else:
+           driver.find_element_by_xpath("//a[text()='Workarea']").click()
 
-        driver.quit()
+        #rp.click_workarea()
+        self.logger.info("*****Upload CSV file*********")
+
+        parent_widnow = driver.current_window_handle
+        print("Parent window name is : ", parent_widnow)
+        print("Main window title : ", driver.title)
+        rp.click_CSV_upload()
+        print("*****click on csv upload*********")
+        time.sleep(6)
+
+        child_windows = driver.window_handles
+        print("Print all window : ",  type(child_windows))
+
+        for child in child_windows:
+            print(child)
+            if parent_widnow != child:
+                driver.switch_to.window(child)
+                time.sleep(3)
+                if driver.find_element_by_xpath("//*[@id='Title']").is_displayed():
+                    driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
+                else:
+                    driver.quit()
+                # driver.switch_to.frame("utiltop")
+                # #print("title is: ", driver.title)
+                # driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
+
+
+
+        # self.logger.info(driver.current_window_handle) # CW
+        # handles = driver.window_handles
+        # for handle in handles:
+        #     driver.switch_to.window(handle)
+        #     #driver.switch_to_window(handle)
+        #     self.logger.info(driver.title)
+        #     driver.find_element_by_class_name("frmTxt").send_keys("Automation Upload test")
+        #     upload_xpath = "//input[@name='Filetext']"
+        #     driver.find_element_by_xpath(upload_xpath).send_keys("C:\\Users\\anavina\\PycharmProjects\\v7_test_automation\\testdata\\csvTestData.csv")
+        # time.sleep(10)
+
+        #driver.quit()
 
 
         #"//input[@id='File']"

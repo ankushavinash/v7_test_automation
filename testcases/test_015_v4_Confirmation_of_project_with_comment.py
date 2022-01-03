@@ -1,17 +1,23 @@
+import time
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.expected_conditions import element_to_be_clickable
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pageobjects.HomePage import HomePage
 from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class TestUploadDataChildConfirmation:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_014_upload_data_child_confirmation(self, setup):
-        self.logger.info("********test_010_care akv variant to release : started********")
+    def test_015_upload_data_child_confirmation(self, setup):
+        self.logger.info("********test_015_care akv variant to release : started********")
 
         # Setup
         driver = setup[0]
@@ -45,7 +51,7 @@ class TestUploadDataChildConfirmation:
         if bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/p")):
             text = bu.get_text((By.XPATH, "//*[@id='v7rpcc']/p"))
             self.logger.info(
-                "******a2l file is selection successful. Confirmation message displayed : " + text + "*******")
+                "******a2l file selection successful. Confirmation message displayed : " + text + "*******")
             assert True, "a2l file selection successful. Confirmation message displayed : " + text
         else:
             self.logger.info("******a2l file is selected unsuccessful*******")
@@ -62,5 +68,48 @@ class TestUploadDataChildConfirmation:
 
         # validation
         text = driver.find_element_by_xpath("//*[@id='F11159.wrapper']/table/tbody/tr/td[1]").text
+        # Parent window
+        parent_window = driver.current_window_handle
         driver.find_element_by_link_text("Child Confirmations").click()
+
+        # time.sleep(5)
+        # switch to frame
+        driver.switch_to.frame("4ea6d89b-d573-4aa9-bfe5-1209284765c4")
+        #click on item id of user confirmation
         driver.find_element_by_xpath("//*[@id='ReportOutput']/tbody/tr[3]/td[2]/span/a").click()
+
+        #window handling
+        child_windows = driver.window_handles
+        print("Print all window : ", type(child_windows))
+
+        for child in child_windows:
+            print(child)
+            if parent_window != child:
+                driver.switch_to.window(child)
+
+        driver.switch_to.frame("ViewFrame")
+        driver.find_element_by_xpath("//*[@id='ConfirmationButton']").click()
+        time.sleep(10)
+        driver.find_element_by_id("SELECT_F12584").click()
+        time.sleep(7)
+        #driver.find_element_by_xpath("//*[@id='ucmatrix']/tbody/tr[1]/th[6]/span[1]").click()
+
+        locator = "//*[@id='ucmatrix']/tbody/tr[2]/td[6]/p[1]/span[1]"
+
+
+        # wait = WebDriverWait(driver, 10)
+        # wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
+
+        driver.find_element_by_xpath(locator).click()
+
+        rp.click_ok()
+        # validation
+        s = driver.find_element_by_xpath("//*[@id='ucmatrix']/tbody/tr[2]/td[6]/p[2]").text
+        self.logger.info(s)
+
+
+        driver.switch_to.window(parent_window)
+
+
+
+

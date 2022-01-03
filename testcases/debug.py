@@ -1,4 +1,5 @@
 import time
+from webbrowser import Chrome
 
 from selenium.webdriver.common.by import By
 
@@ -14,11 +15,13 @@ from utilities.browserUtilis import BrowserUtilities
 from msedge.selenium_tools import EdgeOptions, Edge
 from pathlib import Path
 
+
 # root_path = str(Path(__file__).parent.parent)
 # file = "\\testdata\\upload_test_automation.a2l"
 # file_path = root_path + file
 # print(file_path)
 driver = Edge(executable_path='C:\\Users\\anavina\\PycharmProjects\\v7_test_automation\\utilities\\driver\\msedgedriver.exe')
+
 driver.get("https://smtcat0007prj.rd.corpintra.net/workcenter/")
 rp = ReleasePage(driver)
 hp = HomePage(driver)
@@ -26,14 +29,27 @@ bu = BrowserUtilities(driver)
 bu.login_application("anavina", "Password@12345")
 hp.search_project("V7 Release Administration")
 rp.set_title("automation test")
-#driver.switch_to.frame("issuedetails-frame-iframe")
-#driver.find_element_by_id("F11160").send_keys("abcd")
+driver.switch_to.frame("issuedetails-frame-iframe")
+driver.find_element_by_id("F11160").send_keys("abcd")
 rp.click_ok()
 
 rp.click_CSV_upload()
 
-
-
+parent_widnow = driver.current_window_handle
+print("Parent window name is : ", parent_widnow)
+print("Main window title : ", driver.title)
+rp.click_CSV_upload()
+print("*****click on csv upload*********")
+# time.sleep(6)
+#
+# child_windows = driver.window_handles
+# print("Print all window : ", type(child_windows))
+#
+# for child in child_windows:
+#     print(child)
+#     if parent_widnow != child:
+#         driver.switch_to.window(child)
+#
 
 
 #driver.switch_to.frame("issuedetails-frame-iframe")
