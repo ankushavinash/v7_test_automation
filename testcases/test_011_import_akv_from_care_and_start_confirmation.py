@@ -11,7 +11,7 @@ class TestImportAkvFromCareAndStartConfirmation:
     logger = LogGen.loggen()
 
     def test_011_import_akv_from_care_and_start_confirmation(self, setup):
-        self.logger.info("********test_010_care akv variant to release : started********")
+        self.logger.info("********test_011_import_akv_from_care_and_start_confirmation_to_release : started********")
 
         # Setup
         driver = setup[0]
@@ -38,27 +38,20 @@ class TestImportAkvFromCareAndStartConfirmation:
         self.logger.info("********care akv variant selection successful. Variant name: " + akv_variant + "************")
         a2l_file = rp.select_a2l_data(a2l_file_name)
         self.logger.info("********a2l file selection successful. A2l File name : " + a2l_file + "*****************")
+        precheck_data = rp.click_precheck_care_a2l_data()
+        self.logger.info("********precheck confirmation successful : " + precheck_data + "*****************")
 
-        # Pre-check care and a2l data
-        rp.click_precheck_care_and_a2l_data()
-        # Pre-check validation of selected a2l file
-        if bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/p")):
-            text = bu.get_text((By.XPATH, "//*[@id='v7rpcc']/p"))
-            self.logger.info(
-                "******a2l file is selection successful. Confirmation message displayed : " + text + "*******")
-            assert True, "a2l file selection successful. Confirmation message displayed : " + text
+        # click on import AKV from care and start confirmation
+        rp.click_import_akv_from_care_and_start_confirmation_override_v8()
+
+        # Validation for successful import akv from care and start confirmation
+        if bu.is_displayed((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]")):
+            text = bu.get_text((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]"))
+            self.logger.info("******011_import AKV from care is successful : " + text + "*******")
+            assert True, "011_import AKV from care is successful : " + text
         else:
-            self.logger.info("******a2l file is selected unsuccessful*******")
-            assert False, "a2l file selection unsuccessful. a2l data is not displayed"
+            self.logger.info("******011_import AKV from care is unsuccessful*******")
+            assert False, "011_import AKV from care is unsuccessful. import unsuccessful"
 
-        rp.click_ok()
-
-        # click on start confirmation
-        driver.find_element_by_xpath("//*[@id='Button14']").click()
-        rp.click_ok()
-        driver.find_element_by_xpath("//*[@id='Button14']").click()
-        driver.find_element_by_id("SELECT_F13842").click()
-        rp.click_ok()
-
-        # validation
-        text = driver.find_element_by_xpath("//*[@id='F11159.wrapper']/table/tbody/tr/td[1]").text
+        self.logger.info("*****test_011_import_akv_from_care_and_start_confirmation_to_release : passed*******")
+        self.logger.info("*****test_011_import_akv_from_care_and_start_confirmation_to_release : completed ********")

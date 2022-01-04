@@ -1,5 +1,6 @@
 import time
 
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
@@ -45,6 +46,9 @@ class ReleasePage:
     button_precheck_care_and_a2l_data_xpath = "//*[@id='Button22']"
     textbox_internal_comment_id = "H11204"
     textbox_release_letter_comment_xpath = "//*[@id='F14387']"
+    button_import_akv_from_care_and_start_confirmation_xpath = "//*[@id='Button14']"
+    checkbox_override_v8_id = "SELECT_F13842"
+    link_child_confirmation_linktext = "Child Confirmations"
 
     def __init__(self, driver):
         self.driver = driver
@@ -349,3 +353,66 @@ class ReleasePage:
     # return :
     def set_internal_comment(self, internal_comment):
         self.bu.send_keys((By.ID, self.textbox_internal_comment_id), internal_comment)
+
+    # author : ankush
+    # since : 2022-01-04
+    # this method is use to precheck care and a2l data
+    # argument :
+    # return :
+    def click_precheck_care_a2l_data(self):
+        self.bu.click((By.XPATH, self.button_precheck_care_and_a2l_data_xpath))
+        if self.bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/p")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='v7rpcc']/p"))
+            return text
+        else:
+            assert False, "a2l file selection unsuccessful. a2l data is not displayed"
+
+    # author : ankush
+    # since : 2022-01-04
+    # this method is use to click on import AKV from care and start confirmation while overriding v8
+    # argument :
+    # return :
+    def click_import_akv_from_care_and_start_confirmation_override_v8(self):
+        self.click_ok()
+        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
+        self.click_ok()
+        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
+        self.bu.click((By.ID, self.checkbox_override_v8_id))
+        self.click_ok()
+
+    # author : ankush
+    # since : 2021-12-06
+    # this method is to click on child confirmation link
+    # argument :
+    # return :
+    #locator_visibility_xpath = "//*[@id='reporttitleCell']"
+    def click_child_confirmation(self):
+        self.bu.click((By.LINK_TEXT, self.link_child_confirmation_linktext))
+        # by_locator = (By.XPATH, self.locator_visibility_xpath)
+        # try:
+        #     if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+        #         assert True, ""
+        # except TimeoutException:
+        #     assert False, "Elements is not visible"
+        # try:
+        #     WebDriverWait(self.driver, 30).until((EC.visibility_of_element_located((By.XPATH, "//*[@id='reporttitleCell']"))))
+        # except TimeoutException:
+        #     assert False, "Elements is not visible"
+
+    # author : ankush
+    # since : 2022-01-04
+    # this method is use to click on import AKV from care and start confirmation while overriding v8
+    # argument :
+    # return :
+    def click_import_akv_from_care_and_start_confirmation_override_v8_val(self):
+        self.click_ok()
+        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
+        self.click_ok()
+        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
+        self.bu.click((By.ID, self.checkbox_override_v8_id))
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]"))
+            return text
+        else:
+            assert False, "import AKV from care is unsuccessful. import unsuccessful"

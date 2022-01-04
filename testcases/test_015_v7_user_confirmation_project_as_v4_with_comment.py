@@ -12,11 +12,11 @@ from utilities.customLogger import LogGen
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class TestUploadDataChildConfirmation:
+class TestV7UserConfirmationProjectAsV4WithComment:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_015_upload_data_child_confirmation(self, setup):
+    def test_015_v7_user_confirmation_project_as_v4_with_confirmation(self, setup):
         self.logger.info("********test_015_care akv variant to release : started********")
 
         # Setup

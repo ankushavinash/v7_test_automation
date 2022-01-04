@@ -9,7 +9,7 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-class TestReleaseCSVImport:
+class ReleaseCSVImport:
     # log variable instantiation
     logger = LogGen.loggen()
 

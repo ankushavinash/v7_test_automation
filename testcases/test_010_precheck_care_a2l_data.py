@@ -11,7 +11,7 @@ class TestSelectA2lData:
     logger = LogGen.loggen()
 
     def test_010_select_a2l_data(self, setup):
-        self.logger.info("********test_010_care akv variant to release : started********")
+        self.logger.info("********test_010_select_a2l_data_to_release : started********")
 
         # Setup
         driver = setup[0]
@@ -41,6 +41,7 @@ class TestSelectA2lData:
 
         # Pre-check care and a2l data
         rp.click_precheck_care_and_a2l_data()
+
         # Pre-check validation of selected a2l file
         if bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/p")):
             text = bu.get_text((By.XPATH, "//*[@id='v7rpcc']/p"))

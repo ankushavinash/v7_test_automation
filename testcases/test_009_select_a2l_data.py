@@ -44,6 +44,7 @@ class TestSelectA2lData:
         rp.select_a2l_data_from_list(a2l_file_name)
         # click on ok
         rp.click_ok()
+
         # validation of selected a2l file
         if bu.is_displayed((By.XPATH, "//*[@id='F14154']")):
             text = bu.get_text((By.XPATH, "//*[@id='F14154']"))
