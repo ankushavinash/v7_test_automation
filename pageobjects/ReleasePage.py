@@ -1,12 +1,6 @@
 import time
-
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from utilities.browserUtilis import BrowserUtilities
-from pathlib import Path
 
 
 class ReleasePage:
@@ -268,7 +262,7 @@ class ReleasePage:
     # return :
     def upload_a2l_data(self, a2l_file_path):
         self.bu.send_keys((By.XPATH, self.a2l_file_upload_xpath), a2l_file_path)
-        time.sleep(8)
+        time.sleep(15)
 
     # author : ankush
     # since : 2021-12-23

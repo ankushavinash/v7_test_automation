@@ -50,10 +50,10 @@ class TestUpdateRelease:
         if bu.is_displayed((By.ID, 'itemID')):
             text = bu.get_text((By.ID, 'itemID'))
             self.logger.info("******Update release successful. Release ID : " + text + "*******")
-            assert True, "Release Updation successful. Release ID : " + text
+            assert True, "Release Update successful. Release ID : " + text
         else:
             self.logger.info("******Update release unsuccessful*******")
-            assert False, "Release Updation unsuccessful. Task ID not displayed"
+            assert False, "Release Update unsuccessful. Task ID not displayed"
 
         self.logger.info("*****test_003_update_release  : passed*******")
         self.logger.info("*****test_003_update_release : completed ********")

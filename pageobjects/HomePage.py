@@ -1,4 +1,3 @@
-import time
 from utilities.browserUtilis import BrowserUtilities
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC

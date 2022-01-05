@@ -1,3 +1,5 @@
+import pytest
+from flaky import flaky
 from selenium.webdriver.common.by import By
 from pathlib import Path
 from pageobjects.HomePage import HomePage
@@ -6,7 +8,7 @@ from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
-
+@flaky()
 class TestAddCommentAndUploadA2lFile:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -40,10 +42,9 @@ class TestAddCommentAndUploadA2lFile:
 
         # Select care akv variant for a2l data
         care_akv_variant_name = rp.search_and_select_care_akv_variant_for_a2l_data(care_akv_variant)
-        self.logger.info("***************Care akv variant for a2l data selection successful: AKV Variant name: " + care_akv_variant_name + " ***************")
+        self.logger.info("*********a2l data selected successful: AKV Variant name: " + care_akv_variant_name + "*******")
 
         # Add comment
-        self.logger.info("*******************Add Comment and Upload a2l data************************")
         rp.set_comment(upload_comment)
         # Upload a2l file
         rp.upload_a2l_data(a2l_file)
@@ -56,9 +57,6 @@ class TestAddCommentAndUploadA2lFile:
         else:
             self.logger.info("******Comment Validation Failed*******")
             assert False, "Comment addition unsuccessful. Comment not added"
-
-        self.logger.info("*****Comment addition  : passed*******")
-        self.logger.info("*****comment addition  : completed ********")
 
         # A2L file upload validation
         current_a2l_file_name = bu.get_text((By.LINK_TEXT, "upload_test_automation.a2l"))

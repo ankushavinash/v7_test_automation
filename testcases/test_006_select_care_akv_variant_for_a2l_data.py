@@ -8,12 +8,12 @@ from flaky import flaky
 
 
 @flaky()
-class TestCareAkvVariantForA2lData:
+class TestSelectCareAkvVariantForA2lData:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_006_care_akv_variant_for_a2l_data(self, setup):
-        self.logger.info("********test_006_care_akv_variant_for_a2l_data : started********")
+    def test_006_select_care_akv_variant_for_a2l_data(self, setup):
+        self.logger.info("********test_006_select_care_akv_variant_for_a2l_data : started********")
 
         # Setup
         driver = setup[0]
@@ -43,11 +43,11 @@ class TestCareAkvVariantForA2lData:
         # Validation for Care akv variant selection
         if bu.is_displayed((By.XPATH, "//*[@id='F14155']")):
             text = bu.get_text((By.XPATH, "//*[@id='F14155']"))
-            self.logger.info("******006_care_akv_variant_for_a2l_data : " + text + "*******")
-            assert True, "006_care_akv_variant_for_a2l_data : " + text
+            self.logger.info("******select_care_akv_variant_for_a2l_data : " + text + "*******")
+            assert True, "select_care_akv_variant_for_a2l_data : " + text
         else:
-            self.logger.info("******006_care_akv_variant_for_a2l_data unsuccessful*******")
-            assert False, "006_care_akv_variant_for_a2l_data unsuccessful. AKV Variant not selected"
+            self.logger.info("******select_care_akv_variant_for_a2l_data unsuccessful*******")
+            assert False, "select_care_akv_variant_for_a2l_data unsuccessful. AKV Variant not selected"
 
-        self.logger.info("*****test_006_care_akv_variant_for_a2l_data  : passed*******")
-        self.logger.info("*****test_006_care_akv_variant_for_a2l_data  : completed ********")
+        self.logger.info("*****test_006_select_care_akv_variant_for_a2l_data  : passed*******")
+        self.logger.info("*****test_006_select_care_akv_variant_for_a2l_data  : completed ********")

@@ -6,12 +6,12 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-class TestSelectA2lData:
+class TestPrecheckCareA2lData:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_010_select_a2l_data(self, setup):
-        self.logger.info("********test_010_select_a2l_data_to_release : started********")
+    def test_010_precheck_care_a2l_data(self, setup):
+        self.logger.info("********test_010_precheck_care_a2l_data_to_release : started********")
 
         # Setup
         driver = setup[0]
@@ -52,5 +52,5 @@ class TestSelectA2lData:
             self.logger.info("******a2l file is selected unsuccessful*******")
             assert False, "a2l file selection unsuccessful. a2l data is not displayed"
 
-        self.logger.info("*****test_010_select_a2l_data  : passed*******")
-        self.logger.info("*****test_010_select_a2l_data : completed ********")
+        self.logger.info("*****test_010_precheck_care_a2l_data  : passed*******")
+        self.logger.info("*****test_010_precheck_care_a2l_data : completed ********")

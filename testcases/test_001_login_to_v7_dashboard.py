@@ -34,7 +34,7 @@ class TestLoginToV7Dashboard:
             assert False, "001_login_to_v7_dashboard unsuccessful. Dashboard not displayed"
 
         self.logger.info("*****test_001_login_to_v7_dashboard  : passed*******")
-        self.logger.info("*****test_001_001_login_to_v7_dashboard  : completed ********")
+        self.logger.info("*****test_001_login_to_v7_dashboard  : completed ********")
 
 
 

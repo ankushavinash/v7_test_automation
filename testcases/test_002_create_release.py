@@ -13,7 +13,7 @@ class TestCreateRelease:
     logger = LogGen.loggen()
 
     def test_002_create_release(self, setup):
-        self.logger.info("********test_001_create_release : started********")
+        self.logger.info("********test_002_create_release : started********")
 
         # Setup
         driver = setup[0]

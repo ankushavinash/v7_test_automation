@@ -7,12 +7,12 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-class TestCareAKVVariant:
+class TestSelectCareAKVVariant:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_008_care_akv_variant(self, setup):
-        self.logger.info("********test_008_care akv variant to release : started********")
+    def test_008_select_care_akv_variant(self, setup):
+        self.logger.info("********test_008_select_care akv variant to release : started********")
 
         # Setup
         driver = setup[0]
@@ -52,8 +52,8 @@ class TestCareAKVVariant:
             self.logger.info("******Care AKV Variant selected. : " + text + "*******")
             assert True, "Care AKV Variant selection successful. : " + text
         else:
-            self.logger.info("******Care AKV Variant selected unsuccessful*******")
+            self.logger.info("******Care AKV Variant selection unsuccessful*******")
             assert False, "Care AKV Variant selection unsuccessful. Care AKV Variant is not displayed"
 
-        self.logger.info("*****test_008_care_akv_variant  : passed*******")
-        self.logger.info("*****test_008_care_akv_variant : completed ********")
+        self.logger.info("*****test_008_select_care_akv_variant  : passed*******")
+        self.logger.info("*****test_008_select_care_akv_variant : completed ********")

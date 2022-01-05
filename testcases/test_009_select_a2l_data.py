@@ -29,7 +29,6 @@ class TestSelectA2lData:
         project_write_access = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 5))
         care_group = str(xlUtilis.read_data(test_data_path, 'tc_006', 2, 1))
         care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_006', 2, 2))
-        comment = str(xlUtilis.read_data(test_data_path, 'tc_007', 2, 1))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_009', 2, 1))
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
