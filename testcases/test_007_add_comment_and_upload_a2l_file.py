@@ -9,6 +9,7 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 @flaky()
+@pytest.mark.smoke
 class TestAddCommentAndUploadA2lFile:
     # log variable instantiation
     logger = LogGen.loggen()

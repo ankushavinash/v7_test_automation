@@ -1,5 +1,7 @@
 import time
 
+import pytest
+from flaky import flaky
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.expected_conditions import element_to_be_clickable
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,13 +13,14 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 from selenium.webdriver.support import expected_conditions as EC
 
-
+flaky()
+@pytest.mark.smoke
 class TestV7UserConfirmationProjectAsV4WithComment:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_015_v7_user_confirmation_project_as_v4_with_confirmation(self, setup):
-        self.logger.info("********test_015_care akv variant to release : started********")
+    def test_015_confirmation_as_v4_user(self, setup):
+        self.logger.info("********test_015_confirmation_as_v4_user : started********")
 
         # Setup
         driver = setup[0]
@@ -37,6 +40,7 @@ class TestV7UserConfirmationProjectAsV4WithComment:
         care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_006', 2, 2))
         comment = str(xlUtilis.read_data(test_data_path, 'tc_007', 2, 1))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_009', 2, 1))
+
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
@@ -83,7 +87,7 @@ class TestV7UserConfirmationProjectAsV4WithComment:
 
         #window handling
         child_windows = driver.window_handles
-        print("Print all window : ", type(child_windows))
+        #print("Print all window : ", type(child_windows))
 
         for child in child_windows:
             print(child)
@@ -93,7 +97,7 @@ class TestV7UserConfirmationProjectAsV4WithComment:
                 assert "Window not found"
 
         driver.switch_to.frame("ViewFrame")
-        driver.find_element_by_xpath("//*[@id='ConfirmationButton']").click()
+        driver.find_element_by_id("ConfirmationButton").click()
         time.sleep(10)
         driver.find_element_by_id("SELECT_F12584").click()
         time.sleep(6)
@@ -107,7 +111,11 @@ class TestV7UserConfirmationProjectAsV4WithComment:
         rp.click_ok()
         # validation
         s = driver.find_element_by_xpath("//*[@id='ucmatrix']/tbody/tr[2]/td[6]/p[2]").text
-        self.logger.info(s)
+        self.logger.info("Confirmation " + s)
+
+        self.logger.info("********test_015_confirmation_as_v4_user  : passed*******")
+        self.logger.info("*********test_015_confirmation_as_v4_user  : completed ********")
+
 
 
 

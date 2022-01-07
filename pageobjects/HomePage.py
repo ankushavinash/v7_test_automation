@@ -1,7 +1,5 @@
 from utilities.browserUtilis import BrowserUtilities
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class HomePage:
@@ -13,6 +11,7 @@ class HomePage:
     dropdown_applicationGroup_class = "caretCustom"
     textbox_search_xpath = "//input[@class='search-query form-control']"
     link_v4application_xpath = "//span[@class='text s_string']"
+    dropdown_look_in_xpath = "//*[@id='j_lookInSelect']"
 
     def __init__(self, driver):
         self.driver = driver
@@ -50,64 +49,11 @@ class HomePage:
     def search_project(self, project_name):
         self.click_new()
         self.click_browse()
+        self.bu.select(By.XPATH, self.dropdown_look_in_xpath, "All Projects")
         self.set_search(project_name)
         if project_name == "V7 Release Administration":
             self.bu.click((By.ID, self.link_v7_task_id))
         self.driver.switch_to.frame("issuedetails-frame-iframe")
-
-
-    # author : venugopal
-    # since : 2021-08-09
-    # this method is click Search
-    # argument : search
-    # return :
-    def click_search_for_item_and_reports(self):
-        self.bu.click((By.ID, self.button_search_id))
-
-    # author : venugopal
-    # since : 2021-08-11
-    # this method is select search type
-    # argument : search_type
-    # return :
-    def select_search_type(self, search_type):
-        self.bu.click((By.ID, self.button_search_type_id))
-        if search_type == "Keyword":
-            self.bu.click((By.LINK_TEXT, "Keyword"))
-        elif search_type == "ID":
-            self.bu.click((By.LINK_TEXT, "ID"))
-        elif search_type == "Regex":
-            self.bu.click((By.LINK_TEXT, "Regex"))
-        else:
-            assert False, "Invalid argument"+search_type
-
-    # author : venugopal
-    # since : 2021-08-11
-    # this method is set Search
-    # argument : search
-    # return :
-    def set_search_type(self, search_parameter):
-        self.bu.send_keys((By.ID, self.text_search_type_id), search_parameter)
-
-    # author : venugopal
-    # since : 2021-08-11
-    # this method is click Search Submit
-    # argument :
-    # return :
-    def click_search_submit(self):
-        self.bu.click((By.ID, self.button_search_submit_id))
-
-    # author : venugopal
-    # since : 2021-08-31
-    # this method is to search and open the task from all items
-    # argument : item_id
-    # return :
-    def search_and_open_the_task_from_all_items(self, item_id):
-        self.click_search_for_item_and_reports()
-        self.select_search_type("ID")
-        self.set_search_type(item_id)
-        self.click_search_submit()
-        WebDriverWait(self.driver, 60).until((EC.visibility_of_element_located((By.LINK_TEXT, item_id))))
-        self.bu.click((By.LINK_TEXT, item_id))
 
     # author : ankush
     # since : 2021-12-07

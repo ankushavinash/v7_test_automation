@@ -9,11 +9,11 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-class ReleaseCSVImport:
+class TestReleaseCSVImport:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_004_release_csv_import(self, setup):
+    def test_016_release_csv_import(self, setup):
         self.logger.info("********test_003_release_csv_import : started********")
 
         # Setup
@@ -52,15 +52,34 @@ class ReleaseCSVImport:
         for child in child_windows:
             print(child)
             if parent_widnow != child:
+                print("Window found")
                 driver.switch_to.window(child)
-                time.sleep(3)
-                if driver.find_element_by_xpath("//*[@id='Title']").is_displayed():
-                    driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
-                else:
-                    driver.quit()
-                # driver.switch_to.frame("utiltop")
-                # #print("title is: ", driver.title)
-                # driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
+                #driver.execute_script("window.stop();")
+                #driver.maximize_window()
+                #time.sleep(3)
+            else:
+                print("Window not found")
+                assert "Window not found"
+
+        #driver.find_element_by_xpath("//*[@id='Title']").is_displayed():
+        # driver.execute_script("window.stop();")
+        # driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
+        #driver.switch_to.frame("utiltop")
+        #driver.switch_to.frame(driver.find_element_by_xpath(By.XPATH, "/html/frameset/frame[1]"))
+        #print("title is: ", driver.title)
+        print("Page load timeout start")
+        driver.set_page_load_timeout(4)
+        print("Page load timeout end")
+
+        print("Switch frame start")
+        driver.switch_to.frame("utiltop")
+        xpath = driver.find_element_by_xpath("/html/frameset/frame[1]")
+        driver.switch_to.frame(xpath)
+        print("Switch frame end")
+
+        driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
+        print("printing text in text box")
+        print("end1")
 
 
 
