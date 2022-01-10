@@ -31,12 +31,12 @@ driver.get("https://smtcat0007prj.rd.corpintra.net/workcenter/")
 # #hp.search_project("V7 Release Administration")
 # # rp.set_title("test")
 driver.switch_to.frame("issuedetails-frame")
-driver.find_element_by_xpath("//*[@id='F13445']").send_keys("12/08/2021")
-driver.find_element_by_id("F11160").send_keys("abc")
+# driver.find_element_by_xpath("//*[@id='F13445']").send_keys("12/08/2021")
+# driver.find_element_by_id("F11160").send_keys("abc")
 
 
 #rp.click_CSV_upload()
-driver.find_element_by_xpath("//Button[text()='Upload & Attach AKV (.csv file)']").click()
+#driver.find_element_by_xpath("//Button[text()='Upload & Attach AKV (.csv file)']").click()
 parent_widnow = driver.current_window_handle
 # print("Parent window name is : ", parent_widnow)
 # print("Main window title : ", driver.title)
@@ -51,8 +51,6 @@ for child in child_windows:
     print(child)
     if parent_widnow != child:
         driver.switch_to.window(child)
-        driver.set_page_load_timeout(3)
-        print("page loaded successfully")
         # driver.execute_script("window.stop();")
         # driver.maximize_window()
         time.sleep(3)
@@ -60,12 +58,15 @@ for child in child_windows:
         print("Window not found")
         assert "Window not found"
 
+driver.set_page_load_timeout(4)
+print("page loaded successfully")
+
 # driver.find_element_by_xpath("//*[@id='Title']").is_displayed():
 # driver.execute_script("window.stop();")
 # driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
 driver.switch_to.frame("utiltop")
 #driver.switch_to.frame(driver.find_element_by_xpath(By.XPATH, "/html/frameset/frame[1]"))
-print("title is: ", driver.title)
+#print("title is: ", driver.title)
 
 driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")
 print("end1")

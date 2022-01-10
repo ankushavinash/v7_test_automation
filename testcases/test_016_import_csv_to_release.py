@@ -73,8 +73,8 @@ class TestReleaseCSVImport:
 
         print("Switch frame start")
         driver.switch_to.frame("utiltop")
-        xpath = driver.find_element_by_xpath("/html/frameset/frame[1]")
-        driver.switch_to.frame(xpath)
+        # xpath = driver.find_element_by_xpath("/html/frameset/frame[1]")
+        # driver.switch_to.frame(xpath)
         print("Switch frame end")
 
         driver.find_element_by_xpath("//*[@id='Title']").send_keys("Automation Upload test")

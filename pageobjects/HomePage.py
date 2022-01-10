@@ -1,3 +1,5 @@
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from utilities.browserUtilis import BrowserUtilities
 from selenium.webdriver.common.by import By
 
@@ -52,6 +54,7 @@ class HomePage:
         self.bu.select(By.XPATH, self.dropdown_look_in_xpath, "All Projects")
         self.set_search(project_name)
         if project_name == "V7 Release Administration":
+            WebDriverWait(self.driver, 30).until((EC.element_to_be_clickable((By.ID, self.link_v7_task_id))))
             self.bu.click((By.ID, self.link_v7_task_id))
         self.driver.switch_to.frame("issuedetails-frame-iframe")
 
