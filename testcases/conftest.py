@@ -56,13 +56,13 @@ def setup(browser, environment, headless):
         bu = BrowserUtilities(driver)
         bu.launch_application(driver, url)
 
-        # Launch Application
-        login_id = str(xlUtilis.read_data(excel_path, 'Login', 2, 1))
-        password = str(xlUtilis.read_data(excel_path, 'Login', 2, 2))
-        bu.login_application(login_id, password)
+        # Login Steps removed and will be used at test script level
+        # login_id = str(xlUtilis.read_data(excel_path, 'Login', 2, 2))
+        # password = str(xlUtilis.read_data(excel_path, 'Login', 2, 3))
+        # bu.login_application(login_id, password)
         yield [driver, url, excel_path]
-        #driver.close()
-        #driver.quit()
+        driver.close()
+        driver.quit()
 
 
 # phrasing and fetching data from command

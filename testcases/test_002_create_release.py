@@ -1,4 +1,3 @@
-import pytest
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
 from pageobjects.ReleasePage import ReleasePage
@@ -6,10 +5,9 @@ from utilities import xlUtilis
 from utilities.customLogger import LogGen
 from utilities.browserUtilis import BrowserUtilities
 from flaky import flaky
-from selenium.webdriver.support.ui import Select
 
-@flaky()
-@pytest.mark.smoke
+
+@flaky(max_runs=3, min_passes=1)
 class TestCreateRelease:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -31,8 +29,12 @@ class TestCreateRelease:
         date = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 3))
         v8 = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 4))
         project_write_access = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 5))
+        normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
+        password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
+        bu.login_application(normal_user, password)
 
         self.logger.info("*****create release*********")
+
         # Search for project
         hp.search_project(project)
         # Fill all the details to create Release

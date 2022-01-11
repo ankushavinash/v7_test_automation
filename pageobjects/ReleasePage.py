@@ -43,6 +43,7 @@ class ReleasePage:
     button_import_akv_from_care_and_start_confirmation_xpath = "//*[@id='Button14']"
     checkbox_override_v8_id = "SELECT_F13842"
     link_child_confirmation_linktext = "Child Confirmations"
+    button_discard_complete_confirmation_id = "TransitionId_4065"
 
     def __init__(self, driver):
         self.driver = driver
@@ -410,3 +411,11 @@ class ReleasePage:
             return text
         else:
             assert False, "import AKV from care is unsuccessful. import unsuccessful"
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on discard button
+    # argument :
+    # return :
+    def click_dicard_complete_confirmation(self):
+        self.bu.click((By.ID, self.button_discard_complete_confirmation_id))

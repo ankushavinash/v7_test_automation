@@ -8,12 +8,12 @@ from flaky import flaky
 
 
 @flaky(max_runs=3, min_passes=1)
-class TestDiscardReleaseInPreparationState:
+class TestDiscardCompleteConfirmationInPreparationState:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_004_discard_release_in_preparation_state(self, setup):
-        self.logger.info("********test_004_discard_release_in_preparation_state : started********")
+    def test_005_discard_complete_confirmation_in_preparation_state(self, setup):
+        self.logger.info("********test_005_discard_complete_confirmation_in_preparation_state : started********")
 
         # Setup
         driver = setup[0]
@@ -39,7 +39,7 @@ class TestDiscardReleaseInPreparationState:
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
 
         # click on Discard Button
-        rp.click_dicard()
+        rp.click_dicard_complete_confirmation()
         # Enter release letter comment
         rp.set_release_letter_comment(release_letter_comment)
         # Enter internal comment
@@ -56,5 +56,5 @@ class TestDiscardReleaseInPreparationState:
             self.logger.info("*********Discard release unsuccessful***********")
             assert False, "Discard release unsuccessful. Inactive not displayed"
 
-        self.logger.info("*****test_004_discard_release_in_preparation_state  : passed*******")
-        self.logger.info("*****test_004_discard_release_in_preparation_state : completed ********")
+        self.logger.info("*****test_005_discard_complete_confirmation_in_preparation_state  : passed*******")
+        self.logger.info("*****test_005_discard_complete_confirmation_in_preparation_state : completed ********")

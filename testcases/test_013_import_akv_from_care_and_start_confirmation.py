@@ -10,7 +10,7 @@ class TestImportAkvFromCareAndStartConfirmation:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_011_import_akv_from_care_and_start_confirmation(self, setup):
+    def test_014_import_akv_from_care_and_start_confirmation(self, setup):
         self.logger.info("********test_011_import_akv_from_care_and_start_confirmation_to_release : started********")
 
         # Setup
@@ -31,6 +31,9 @@ class TestImportAkvFromCareAndStartConfirmation:
         care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_006', 2, 2))
         comment = str(xlUtilis.read_data(test_data_path, 'tc_007', 2, 1))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_009', 2, 1))
+        normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
+        password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
+        bu.login_application(normal_user, password)
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")

@@ -1,11 +1,12 @@
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
+from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 from flaky import flaky
 
 
-@flaky()
+@flaky(max_runs=3, min_passes=1)
 class TestLoginToV7Dashboard:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -15,11 +16,15 @@ class TestLoginToV7Dashboard:
 
         # Setup
         driver = setup[0]
+        test_data_path = setup[2]
         hp = HomePage(driver)
         bu = BrowserUtilities(driver)
 
         # Test data setup
         application = "V4..V8 Admin"
+        normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
+        password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
+        bu.login_application(normal_user, password)
 
         # Search for V7 Release Application
         hp.search_application(application)

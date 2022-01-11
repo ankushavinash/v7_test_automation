@@ -1,11 +1,10 @@
 import time
-
 import win32com.client
 import psutil
 import os
 
 
-def check_for_dmp_email_in_outlook(subject):
+def check_for_v7_email_in_outlook(subject):
     duration = 0
     found = False
     outlook = win32com.client.Dispatch("Outlook.Application").GetNameSpace("MAPI")
@@ -17,8 +16,9 @@ def check_for_dmp_email_in_outlook(subject):
         actual_subject = message.Subject
         if subject == actual_subject:
             found = True
-            message.UnRead = False
-            message.Delete()
+            print(message)
+            #message.UnRead = False
+            #message.Delete()
             break
     return found
 

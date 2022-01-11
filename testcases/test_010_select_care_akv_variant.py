@@ -1,3 +1,4 @@
+from flaky import flaky
 from selenium.webdriver.common.by import By
 from pathlib import Path
 from pageobjects.HomePage import HomePage
@@ -7,12 +8,13 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
+@flaky(max_runs=3, min_passes=1)
 class TestSelectCareAKVVariant:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_008_select_care_akv_variant(self, setup):
-        self.logger.info("********test_008_select_care akv variant to release : started********")
+    def test_010_care_akv_variant(self, setup):
+        self.logger.info("********test_010_select_care akv variant to release : started********")
 
         # Setup
         driver = setup[0]
@@ -34,11 +36,13 @@ class TestSelectCareAKVVariant:
         root_path = str(Path(__file__).parent.parent)
         file_path = "\\testdata\\upload_test_automation.a2l"
         a2l_file = root_path + file_path
+        normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
+        password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
+        bu.login_application(normal_user, password)
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
 
-        self.logger.info("*****Care AKV Variant to release*********")
         rp.click_care_akv_variant()
         # select care group : TEST
         rp.select_care_group(care_group)
@@ -52,8 +56,8 @@ class TestSelectCareAKVVariant:
             self.logger.info("******Care AKV Variant selected. : " + text + "*******")
             assert True, "Care AKV Variant selection successful. : " + text
         else:
-            self.logger.info("******Care AKV Variant selection unsuccessful*******")
+            self.logger.info("******Care AKV Variant selected unsuccessful*******")
             assert False, "Care AKV Variant selection unsuccessful. Care AKV Variant is not displayed"
 
-        self.logger.info("*****test_008_select_care_akv_variant  : passed*******")
-        self.logger.info("*****test_008_select_care_akv_variant : completed ********")
+        self.logger.info("*****test_010_select_care_akv_variant  : passed*******")
+        self.logger.info("*****test_010_select_care_akv_variant : completed ********")

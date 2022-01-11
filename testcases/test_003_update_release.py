@@ -7,7 +7,7 @@ from utilities.customLogger import LogGen
 from flaky import flaky
 
 
-@flaky()
+@flaky(max_runs=3, min_passes=1)
 class TestUpdateRelease:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -34,9 +34,12 @@ class TestUpdateRelease:
         new_date = str(xlUtilis.read_data(test_data_path, 'tc_003', 2, 3))
         new_v8 = str(xlUtilis.read_data(test_data_path, 'tc_003', 2, 4))
         new_project_write_access = str(xlUtilis.read_data(test_data_path, 'tc_003', 2, 5))
+        normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
+        password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
+        bu.login_application(normal_user, password)
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
-        self.logger.info("***************create Release successful.Release ID: " + release_id + " ***************")
+        self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
 
         # Click on update button to update the Release information
         self.logger.info("****************update release**********************")

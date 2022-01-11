@@ -13,7 +13,7 @@ class TestReleaseCSVImport:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_016_release_csv_import(self, setup):
+    def test_006_release_csv_import(self, setup):
         self.logger.info("********test_003_release_csv_import : started********")
 
         # Setup
