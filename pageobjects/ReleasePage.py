@@ -31,12 +31,12 @@ class ReleasePage:
     link_upload_a2l_data_linktext = "Upload A2L Data"
     button_care_akv_varient_for_a2l_data_xpath = "//*[@id='Button20']"
     textbox_search_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
-    checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[4]/td[1]/input"
+    checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[140]/td[1]/input"
     textbox_comment_id = "a2luploadcomment"
     a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
     button_select_a2l_data_xpath = "//*[@id='Button19']"
     textbox_search_user_comment_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
-    radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[2]/td[1]/input"
+    radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[275]/td[1]/input"
     button_precheck_care_and_a2l_data_xpath = "//*[@id='Button22']"
     textbox_internal_comment_id = "H11204"
     textbox_release_letter_comment_xpath = "//*[@id='F14387']"
@@ -367,12 +367,9 @@ class ReleasePage:
     # this method is use to click on import AKV from care and start confirmation while overriding v8
     # argument :
     # return :
-    def click_import_akv_from_care_and_start_confirmation_override_v8(self):
+    def click_import_akv_from_care_and_start_confirmation(self):
         self.click_ok()
         self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
-        self.click_ok()
-        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
-        self.bu.click((By.ID, self.checkbox_override_v8_id))
         self.click_ok()
 
     # author : ankush
@@ -380,31 +377,17 @@ class ReleasePage:
     # this method is to click on child confirmation link
     # argument :
     # return :
-    #locator_visibility_xpath = "//*[@id='reporttitleCell']"
     def click_child_confirmation(self):
         self.bu.click((By.LINK_TEXT, self.link_child_confirmation_linktext))
-        # by_locator = (By.XPATH, self.locator_visibility_xpath)
-        # try:
-        #     if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
-        #         assert True, ""
-        # except TimeoutException:
-        #     assert False, "Elements is not visible"
-        # try:
-        #     WebDriverWait(self.driver, 30).until((EC.visibility_of_element_located((By.XPATH, "//*[@id='reporttitleCell']"))))
-        # except TimeoutException:
-        #     assert False, "Elements is not visible"
 
     # author : ankush
     # since : 2022-01-04
     # this method is use to click on import AKV from care and start confirmation while overriding v8
     # argument :
     # return :
-    def click_import_akv_from_care_and_start_confirmation_override_v8_val(self):
+    def click_import_akv_from_care_and_start_confirmation_val(self):
         self.click_ok()
         self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
-        self.click_ok()
-        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
-        self.bu.click((By.ID, self.checkbox_override_v8_id))
         self.click_ok()
         if self.bu.is_displayed((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]")):
             text = self.bu.get_text((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]"))
