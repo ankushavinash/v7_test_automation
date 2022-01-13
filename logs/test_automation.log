@@ -365,3 +365,37 @@
 01/11/2022 11:18:10 AM: INFO: **********Discard release successful. Status : Discarded**************
 01/11/2022 11:18:10 AM: INFO: *****test_004_discard_release_in_preparation_state  : passed*******
 01/11/2022 11:18:10 AM: INFO: *****test_004_discard_release_in_preparation_state : completed ********
+01/12/2022 10:52:15 AM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 10:52:15 AM: INFO: *****create release*********
+01/12/2022 01:52:14 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 01:52:14 PM: INFO: *****create release*********
+01/12/2022 01:54:22 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 01:54:22 PM: INFO: *****create release*********
+01/12/2022 02:07:06 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 02:07:06 PM: INFO: *****create release*********
+01/12/2022 02:08:16 PM: INFO: *****Upload CSV file*********
+01/12/2022 02:33:00 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 02:33:00 PM: INFO: *****create release*********
+01/12/2022 02:34:10 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 02:34:10 PM: INFO: *****create release*********
+01/12/2022 02:35:27 PM: INFO: *****Upload CSV file*********
+01/12/2022 02:42:55 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 02:42:55 PM: INFO: *****create release*********
+01/12/2022 02:44:06 PM: INFO: *****Upload CSV file*********
+01/12/2022 02:46:03 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 02:46:03 PM: INFO: *****create release*********
+01/12/2022 02:47:13 PM: INFO: *****Upload CSV file*********
+01/12/2022 04:43:09 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 04:43:09 PM: INFO: *****create release*********
+01/12/2022 04:44:17 PM: INFO: *****Upload CSV file*********
+01/12/2022 04:47:57 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 04:47:58 PM: INFO: *****create release*********
+01/12/2022 04:49:06 PM: INFO: *****Upload CSV file*********
+01/12/2022 04:55:36 PM: INFO: ********test_003_release_csv_import : started********
+01/12/2022 04:55:36 PM: INFO: *****create release*********
+01/12/2022 04:56:36 PM: INFO: *****Upload CSV file*********
+01/13/2022 10:27:23 AM: INFO: ********test_003_release_csv_import : started********
+01/13/2022 10:27:23 AM: INFO: *****create release*********
+01/13/2022 10:32:54 AM: INFO: ********test_003_release_csv_import : started********
+01/13/2022 10:32:54 AM: INFO: *****create release*********
+01/13/2022 10:34:03 AM: INFO: *****Upload CSV file*********

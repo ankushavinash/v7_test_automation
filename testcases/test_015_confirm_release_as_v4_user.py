@@ -41,7 +41,7 @@ class TestV7UserConfirmationProjectAsV4WithComment:
         comment = str(xlUtilis.read_data(test_data_path, 'tc_007', 2, 1))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_009', 2, 1))
         normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
-        password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
+        password = str(xlUtilis.read_data(test_data_path, 'Login', 3, 3))
         bu.login_application(normal_user, password)
 
         hp.search_project(project)

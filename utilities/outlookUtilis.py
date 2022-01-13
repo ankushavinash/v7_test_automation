@@ -17,7 +17,7 @@ def check_for_v7_email_in_outlook(subject):
         if subject == actual_subject:
             found = True
             print(message)
-            #message.UnRead = False
+            message.UnRead = False
             #message.Delete()
             break
     return found
