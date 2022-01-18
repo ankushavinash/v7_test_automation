@@ -1,3 +1,4 @@
+import pytest
 from flaky import flaky
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
@@ -7,6 +8,8 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
+@pytest.mark.smoke
+@pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
 class TestPrecheckCareA2lData:
     # log variable instantiation
@@ -48,8 +51,8 @@ class TestPrecheckCareA2lData:
         rp.click_precheck_care_and_a2l_data()
 
         # Pre-check validation of selected a2l file
-        if bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/p")):
-            text = bu.get_text((By.XPATH, "//*[@id='v7rpcc']/p"))
+        if bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/table/tbody/tr[1]/th[1]")):
+            text = bu.get_text((By.XPATH, "//*[@id='v7rpcc']/table/tbody/tr[1]/th[1]"))
             self.logger.info(
                 "******a2l file is selection successful. Confirmation message displayed : " + text + "*******")
             assert True, "a2l file selection successful. Confirmation message displayed : " + text

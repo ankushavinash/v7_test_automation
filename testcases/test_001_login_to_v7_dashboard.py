@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
 from utilities import xlUtilis
@@ -6,6 +7,8 @@ from utilities.customLogger import LogGen
 from flaky import flaky
 
 
+@pytest.mark.smoke
+@pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
 class TestLoginToV7Dashboard:
     # log variable instantiation

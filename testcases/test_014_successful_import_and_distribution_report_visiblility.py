@@ -1,5 +1,5 @@
-import time
-
+import pytest
+from flaky import flaky
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
 from pageobjects.ReleasePage import ReleasePage
@@ -8,6 +8,8 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
+@pytest.mark.regression
+@flaky(max_runs=3, min_passes=1)
 class TestDistributionReportVisibility:
     # log variable instantiation
     logger = LogGen.loggen()

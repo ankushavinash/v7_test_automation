@@ -176,7 +176,7 @@ class BrowserUtilities:
     # return : true / false
     def is_not_displayed(self, by, locator):
         try:
-            status = not(self.driver.find_element(by, locator).is_displayed())
+            status = not (self.driver.find_element(by, locator).is_displayed())
         except NoSuchElementException:
             status = True
         return bool(status)
@@ -349,3 +349,16 @@ class BrowserUtilities:
             assert False, "Locator " + str(by_locator) + "not found"
         except ElementClickInterceptedException:
             assert False, "Locator " + str(by_locator) + "not click able"
+
+    # author : ankush
+    # since : 2022-01-117
+    # this method is to switch to child window
+    # argument :
+    # return :
+    def switch_to_child_window(self, parent_window):
+        child_windows = self.driver.window_handles
+        for child in child_windows:
+            if parent_window != child:
+                self.driver.switch_to.window(child)
+            else:
+                assert "Window not found"

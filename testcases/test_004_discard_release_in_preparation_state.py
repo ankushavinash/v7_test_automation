@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
 from pageobjects.ReleasePage import ReleasePage
@@ -7,6 +8,8 @@ from utilities.customLogger import LogGen
 from flaky import flaky
 
 
+@pytest.mark.smoke
+@pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
 class TestDiscardReleaseInPreparationState:
     # log variable instantiation
@@ -39,7 +42,7 @@ class TestDiscardReleaseInPreparationState:
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
 
         # click on Discard Button
-        rp.click_dicard()
+        rp.click_discard()
         # Enter release letter comment
         rp.set_release_letter_comment(release_letter_comment)
         # Enter internal comment
@@ -48,8 +51,9 @@ class TestDiscardReleaseInPreparationState:
         rp.click_ok()
 
         # Discard validation
-        if bu.is_displayed((By.ID, "itemDisplayName")):
-            text = bu.get_text((By.ID, "itemDisplayName"))
+        driver.switch_to_frame("schFrame")
+        if bu.is_displayed((By.XPATH, "//*[@id='schdata']/tbody/tr/td[8]/table//tr[2]/td/b")):
+            text = bu.get_text((By.XPATH, "//*[@id='schdata']/tbody/tr/td[8]/table//tr[2]/td/b"))
             self.logger.info("**********Discard release successful. Status : " + text + "**************")
             assert True, "Discard release successful. Status : " + text
         else:

@@ -1,5 +1,9 @@
 import time
+
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from utilities.browserUtilis import BrowserUtilities
 
 
@@ -44,6 +48,11 @@ class ReleasePage:
     checkbox_override_v8_id = "SELECT_F13842"
     link_child_confirmation_linktext = "Child Confirmations"
     button_discard_complete_confirmation_id = "TransitionId_4065"
+    button_v4_user_confirm_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[6]/span[1]"
+    button_confirmation_button_id = "ConfirmationButton"
+    link_User_confirmation_record_v4_user_xpath = "//*[@id='ReportOutput']/tbody/tr[3]/td[2]/span/a"
+    button_discard_id = "TransitionId_4061"
+    button_v4_user_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[6]/span[2]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -329,8 +338,7 @@ class ReleasePage:
     # this method is use to click on discard button
     # argument :
     # return :
-    button_discard_id = "TransitionId_4061"
-    def click_dicard(self):
+    def click_discard(self):
         self.bu.click((By.ID, self.button_discard_id))
 
     # author : ankush
@@ -353,11 +361,11 @@ class ReleasePage:
     # since : 2022-01-04
     # this method is use to precheck care and a2l data
     # argument :
-    # return :
+    # return : precheck care a2l data
     def click_precheck_care_a2l_data(self):
         self.bu.click((By.XPATH, self.button_precheck_care_and_a2l_data_xpath))
-        if self.bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/p")):
-            text = self.bu.get_text((By.XPATH, "//*[@id='v7rpcc']/p"))
+        if self.bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/table/tbody/tr[1]/th[1]")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='v7rpcc']/table/tbody/tr[1]/th[1]"))
             return text
         else:
             assert False, "a2l file selection unsuccessful. a2l data is not displayed"
@@ -400,5 +408,90 @@ class ReleasePage:
     # this method is use to click on discard button
     # argument :
     # return :
-    def click_dicard_complete_confirmation(self):
+    def click_discard_complete_confirmation(self):
         self.bu.click((By.ID, self.button_discard_complete_confirmation_id))
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  v4 user confirmation project as v4 user
+    # argument :
+    # return :
+    def click_user_confirmation_project_v4_user(self):
+        parent_window = self.driver.current_window_handle
+        self.driver.switch_to.frame("4ea6d89b-d573-4aa9-bfe5-1209284765c4")
+        self.bu.click((By.XPATH, self.link_User_confirmation_record_v4_user_xpath))
+        self.bu.switch_to_child_window(parent_window)
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  confirmation button
+    # argument :
+    # return :
+    def click_confirmation_or_reject_button(self):
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_confirmation_button_id))
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  confirmation button of modules as v4 user
+    # argument :
+    # return :
+    def confirm_modules_as_v4_user(self):
+        by_locator = (By.XPATH, self.button_v4_user_confirm_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                self.bu.click((By.XPATH, self.button_v4_user_confirm_button_xpath))
+                assert True, "V4 Confirmation button displayed"
+        except TimeoutException:
+            assert False, "V4 Confirmation button not displayed"
+
+    # author : ankush
+    # since : 2022-01-18
+    # this method is use to confirm module as v4 user
+    # argument :
+    # return :
+    def confirm_release_as_v4_user(self):
+        self.click_child_confirmation()
+        self.click_user_confirmation_project_v4_user()
+        self.click_confirmation_or_reject_button()
+        self.confirm_modules_as_v4_user()
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[6]/p[2]")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[6]/p[2]"))
+            return text
+        else:
+            assert False, "confirm release as v4 user unsuccessful."
+
+    # author : ankush
+    # since : 2022-01-18
+    # this method is use to discard confirmation as v4 user
+    # argument :
+    # return :
+    def discard_complete_confirmation(self, release_letter_comment, internal_comment):
+        self.click_discard_complete_confirmation()
+        self.set_release_letter_comment(release_letter_comment)
+        self.set_internal_comment(internal_comment)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  confirmation button
+    # argument :
+    # return :
+    def click_reject_button(self):
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_confirmation_button_id))
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  confirmation button of modules as v4 user
+    # argument :
+    # return :
+    def reject_modules_as_v4_user(self):
+        by_locator = (By.XPATH, self.button_v4_user_reject_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                self.bu.click((By.XPATH, self.button_v4_user_reject_button_xpath))
+                assert True, "V4 reject button displayed"
+        except TimeoutException:
+            assert False, "V4 reject button not displayed"

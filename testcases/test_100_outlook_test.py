@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 
 class TestOutlook:
 
-    def test_099_outlook_test(self):
+    def test_100_outlook_test(self):
         outlook = win32com.client.Dispatch('outlook.application')
         # mapi = outlook.GetNamespace("MAPI")
         # for account in mapi.Accounts:

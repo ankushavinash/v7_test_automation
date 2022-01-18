@@ -1,3 +1,4 @@
+import pytest
 from flaky import flaky
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
@@ -7,6 +8,7 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
+@pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
 class TestSelectA2lData:
     # log variable instantiation

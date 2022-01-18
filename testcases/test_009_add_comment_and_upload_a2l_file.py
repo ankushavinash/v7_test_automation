@@ -9,6 +9,7 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
+@pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
 class TestAddCommentAndUploadA2lFile:
     # log variable instantiation
