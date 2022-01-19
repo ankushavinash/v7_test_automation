@@ -116,6 +116,12 @@ driver.find_element_by_link_text("Workarea").click()
 
 
 
-# scroll handling
-        # ele = driver.find_element_by_id("F14153_label")
-        # driver.execute_script("arguments[0].scrollIntoView();", ele)
+# ---------------------  scroll handling ---------#
+# ele = driver.find_element_by_id("F14153_label")
+# driver.execute_script("arguments[0].scrollIntoView();", ele)
+
+
+# --------Storing data to excel ----------------- #
+# value = driver.find_element_by_id("issue_id").get_attribute("value")
+# self.logger.info("Text is : " + value)
+# xlUtilis.write_data(test_data_path, 'release_id', 2, 1, value)

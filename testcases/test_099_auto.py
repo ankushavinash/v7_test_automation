@@ -10,6 +10,7 @@ from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.customLogger import LogGen
 from utilities.browserUtilis import BrowserUtilities
+from utilities.xlUtilis import *
 from flaky import flaky
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -38,7 +39,6 @@ class TestCreateRelease:
         normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 2, 2))
         password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
         bu.login_application(normal_user, password)
-        application = "V4..V8 Admin"
 
         self.logger.info("*****create release*********")
 
@@ -48,14 +48,11 @@ class TestCreateRelease:
         rp.fill_all_information(title, description, date, v8, project_write_access)
         # Click on OK to create Release
         rp.click_ok()
-        # Validation for Release creation
-        text = bu.get_text((By.ID, 'itemID'))
-        #driver.find_element_by_id("itemID").send_keys(Keys.COMMAND + 'r')
-        #driver.find_element_by_xpath("//*[@id='TransitionId_4061']").send_keys(Keys.F5)
-        # time.sleep(10)
-        # driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 'r')
-        driver.execute_script("window.location.reload();")
-        #
+
+        release_id = driver.find_element_by_id("issue_id").get_attribute("value")
+        xlUtilis.write_data(test_data_path, 'release_id', 2, 1, release_id)
+
+
         # hp.click_search_for_item_and_reports()
         # hp.select_search_type("ID")
         # hp.set_search_type(text)

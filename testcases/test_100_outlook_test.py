@@ -8,7 +8,7 @@ import os
 from datetime import datetime, timedelta
 
 
-class TestOutlook:
+class Outlook:
 
     def test_100_outlook_test(self):
         outlook = win32com.client.Dispatch('outlook.application')
