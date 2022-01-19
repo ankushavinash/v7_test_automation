@@ -53,6 +53,7 @@ class ReleasePage:
     link_User_confirmation_record_v4_user_xpath = "//*[@id='ReportOutput']/tbody/tr[3]/td[2]/span/a"
     button_discard_id = "TransitionId_4061"
     button_v4_user_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[6]/span[2]"
+    button_v8_confirmation_id = "TransitionId_4063"
 
     def __init__(self, driver):
         self.driver = driver
@@ -495,3 +496,14 @@ class ReleasePage:
                 assert True, "V4 reject button displayed"
         except TimeoutException:
             assert False, "V4 reject button not displayed"
+
+    # author : ankush
+    # since : 2022-01-20
+    # this method is use to confirm release as v8 user
+    # argument :
+    # return :
+    def confirm_release_as_v8_user(self, internal_comment):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_v8_confirmation_id))
+        self.set_internal_comment(internal_comment)
+        self.click_ok()

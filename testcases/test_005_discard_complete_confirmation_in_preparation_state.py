@@ -51,7 +51,7 @@ class TestDiscardCompleteConfirmationInPreparationState:
         rp.click_ok()
 
         # Discard validation
-        driver.switch_to_frame("schFrame")
+        driver.switch_to.frame("schFrame")
         if bu.is_displayed((By.XPATH, "//*[@id='schdata']/tbody/tr/td[8]/table//tr[2]/td/b")):
             text = bu.get_text((By.XPATH, "//*[@id='schdata']/tbody/tr/td[8]/table//tr[2]/td/b"))
             self.logger.info("**********Discard release successful. Status : " + text + "**************")

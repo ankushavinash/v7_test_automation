@@ -1,0 +1,9 @@
+01/19/2022 03:59:45 PM: INFO: ***************create Release successful. Release ID: 1812442 ***************
+01/19/2022 04:00:24 PM: INFO: ********care akv variant selection successful. Variant name: v7_care_akv_variant_automation_test************
+01/19/2022 04:00:38 PM: INFO: ********a2l file selection successful. A2l File name : V7AutomationTest.a2l*****************
+01/19/2022 04:00:41 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+01/19/2022 04:01:02 PM: INFO: ********import AKV from care is successful : V8C*****************
+01/19/2022 04:01:27 PM: INFO: ******confirm release as v4 user successful : Decided by v7_automation_v4_user [v7_automation_v4_user]*******
+01/19/2022 04:01:27 PM: INFO: ********test_016_confirmation_as_v4_user  : passed*******
+01/19/2022 04:01:27 PM: INFO: *********test_016_confirmation_as_v4_user  : completed ********
+01/19/2022 04:02:16 PM: INFO: *******test_019_v8_user_confirmation_of_v4_confirmed_release : started*******
