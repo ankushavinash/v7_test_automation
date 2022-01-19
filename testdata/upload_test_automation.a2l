@@ -1,0 +1,27 @@
+ASAP2_VERSION 1 51
+/begin PROJECT
+   A2L-Import-Test
+   "Test_of_A2L_Import"
+   /begin MODULE
+      Test_Module
+      "Module_used_for_Test"	  
+		/begin FUNCTION
+			M0
+			"Module 0"
+			/begin DEF_CHARACTERISTIC
+			  L0_0 L0_1 L0_2 L0_3 L0_4
+			/end DEF_CHARACTERISTIC
+			FUNCTION_VERSION "1.0.1"
+		/end FUNCTION
+
+		/begin FUNCTION
+			M1
+			"Module 1"
+			/begin DEF_CHARACTERISTIC
+			  L1_0 L1_1 L1_2
+			/end DEF_CHARACTERISTIC
+			FUNCTION_VERSION "1.0.4"
+		/end FUNCTION
+
+   /end MODULE
+/end PROJECT
