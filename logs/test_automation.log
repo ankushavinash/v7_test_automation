@@ -1,9 +1,22 @@
-01/19/2022 03:59:45 PM: INFO: ***************create Release successful. Release ID: 1812442 ***************
-01/19/2022 04:00:24 PM: INFO: ********care akv variant selection successful. Variant name: v7_care_akv_variant_automation_test************
-01/19/2022 04:00:38 PM: INFO: ********a2l file selection successful. A2l File name : V7AutomationTest.a2l*****************
-01/19/2022 04:00:41 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
-01/19/2022 04:01:02 PM: INFO: ********import AKV from care is successful : V8C*****************
-01/19/2022 04:01:27 PM: INFO: ******confirm release as v4 user successful : Decided by v7_automation_v4_user [v7_automation_v4_user]*******
-01/19/2022 04:01:27 PM: INFO: ********test_016_confirmation_as_v4_user  : passed*******
-01/19/2022 04:01:27 PM: INFO: *********test_016_confirmation_as_v4_user  : completed ********
-01/19/2022 04:02:16 PM: INFO: *******test_019_v8_user_confirmation_of_v4_confirmed_release : started*******
+01/20/2022 11:51:36 AM: WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))': /session/1e7e14bd59136c9a28ff8e9207a1ef11/screenshot
+01/20/2022 11:51:52 AM: WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))': /session/080eb100bb14229099874b60a9269e7c/screenshot
+01/20/2022 11:53:14 AM: WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))': /session/da0adf42c6b20e7e47af69e9761d9bb0/screenshot
+01/20/2022 11:53:55 AM: WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))': /session/e4c2c283aa13f71b2e31158f3084f0ef/screenshot
+01/20/2022 11:55:01 AM: INFO: ********test_002_create_release : started********
+01/20/2022 11:55:40 AM: INFO: *****create release*********
+01/20/2022 11:56:36 AM: INFO: ******create release successful. Release ID : 1819117:*******
+01/20/2022 11:56:36 AM: INFO: *****test_002_create_release  : passed*******
+01/20/2022 11:56:36 AM: INFO: *****test_002_create_release : completed ********
+01/20/2022 12:01:42 PM: INFO: ********test_016_confirmation_as_v4_user : started********
+01/20/2022 12:03:21 PM: INFO: ***************create Release successful. Release ID: 1819118 ***************
+01/20/2022 12:04:17 PM: INFO: ********care akv variant selection successful. Variant name: v7_care_akv_variant_automation_test************
+01/20/2022 12:04:42 PM: INFO: ********a2l file selection successful. A2l File name : V7AutomationTest.a2l*****************
+01/20/2022 12:04:49 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+01/20/2022 12:05:26 PM: INFO: ********import AKV from care is successful : V8C*****************
+01/20/2022 12:06:29 PM: INFO: ******confirm release as v4 user successful : Decided by v7_automation_v4_user [v7_automation_v4_user]*******
+01/20/2022 12:06:29 PM: INFO: ********test_016_confirmation_as_v4_user  : passed*******
+01/20/2022 12:06:29 PM: INFO: *********test_016_confirmation_as_v4_user  : completed ********
+01/20/2022 12:07:27 PM: INFO: *******test_019_v8_user_confirmation_of_v4_confirmed_release : started*******
+01/20/2022 12:10:05 PM: INFO: *******V8 user confirmation successful. Status : Everything Confirmed**********
+01/20/2022 12:10:05 PM: INFO: ******test_019_v8_user_confirmation_of_v4_confirmed_release : passed******
+01/20/2022 12:10:05 PM: INFO: ******test_019_v8_user_confirmation_of_v4_confirmed_release : completed ******

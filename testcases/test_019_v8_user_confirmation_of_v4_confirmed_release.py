@@ -6,16 +6,20 @@ from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
+# ---------------------------------------------------------------------------------- #
+#   Precondition: test_016 must be executed before test_019                        #
+#   Note: Release must be created and confirmed by V4 before V8 confirmation       #
+from testcases.support import TestConfirmationReleaseAsV4User
+#   Above line will help in create and confirm release as v4 user
+# ---------------------------------------------------------------------------------- #
 
 
+@pytest.mark.regression
+@flaky(max_runs=3, min_passes=1)
 class TestV8UserConfirmationOfV4ConfirmedRelease:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    # ---------------------------------------------------------------------------------- #
-    #     Precondition: test_016 must be executed before test_019                        #
-    #     Note: Release must be created and confirmed by V4 before V8 confirmation       #
-    # ---------------------------------------------------------------------------------- #
     def test_019_v8_user_confirmation_of_v4_confirmed_release(self, setup):
         self.logger.info("*******test_019_v8_user_confirmation_of_v4_confirmed_release : started*******")
 
