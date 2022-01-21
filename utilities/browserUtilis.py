@@ -353,7 +353,7 @@ class BrowserUtilities:
     # author : ankush
     # since : 2022-01-117
     # this method is to switch to child window
-    # argument :
+    # argument : parent_window
     # return :
     def switch_to_child_window(self, parent_window):
         child_windows = self.driver.window_handles

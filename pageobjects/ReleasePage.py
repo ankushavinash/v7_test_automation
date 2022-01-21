@@ -54,6 +54,7 @@ class ReleasePage:
     button_discard_id = "TransitionId_4061"
     button_v4_user_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[6]/span[2]"
     button_v8_confirmation_id = "TransitionId_4063"
+    button_v8_rejection_id = "TransitionId_4064"
 
     def __init__(self, driver):
         self.driver = driver
@@ -505,6 +506,18 @@ class ReleasePage:
     def confirm_release_as_v8_user(self, internal_comment):
         self.driver.switch_to.frame("issuedetails-frame")
         self.bu.click((By.ID, self.button_v8_confirmation_id))
+        self.set_internal_comment(internal_comment)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-01-20
+    # this method is use to reject release as v8 user
+    # argument : release letter comment and internal comment
+    # return :
+    def reject_release_as_v8_user(self, release_letter_comment, internal_comment):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_v8_rejection_id))
+        self.set_release_letter_comment(release_letter_comment)
         self.set_internal_comment(internal_comment)
         self.click_ok()
 

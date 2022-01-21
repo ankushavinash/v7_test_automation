@@ -7,10 +7,10 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 # ---------------------------------------------------------------------------------- #
-# Precondition: test_002 must be executed before test_015                        #
-# Note: Release must be created before searching of created release              #
-from testcases.support import TestCreateRelease
-# Above line will create release
+# Precondition: test_002 must be executed before test_015                            #
+# Note: Release must be created before searching of created release                  #
+from testcases.test_002_create_release import TestCreateRelease                      #
+# Above line will create release                                                     #
 # ---------------------------------------------------------------------------------- #
 
 

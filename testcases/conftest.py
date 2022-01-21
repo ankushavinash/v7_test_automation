@@ -8,6 +8,7 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.readProperties import ReadConfig
 driver = None
 
+
 # ----------------------------------------setup method run before every test-------------------------------------------
 @pytest.fixture()
 def setup(browser, environment, headless):
