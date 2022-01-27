@@ -8,8 +8,8 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-@pytest.mark.regression
-@flaky(max_runs=3, min_passes=1)
+# @pytest.mark.regression
+# @flaky(max_runs=3, min_passes=1)
 class TestDistributionReportVisibility:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -41,13 +41,12 @@ class TestDistributionReportVisibility:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
-        self.logger.info("********care akv variant selection successful. Variant name: " + akv_variant + "************")
+        self.logger.info("******akv variant selected. Variant name: " + akv_variant + " *****")
         a2l_file = rp.select_a2l_data(a2l_file_name)
-        self.logger.info("********a2l file selection successful. A2l File name : " + a2l_file + "*****************")
+        self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "*****************")
         precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful : " + precheck_data + "*****************")
-        import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_val()
-        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
+        self.logger.info("********precheck confirmation successful. Displayed : " + precheck_data + "*****************")
+        rp.click_import_akv_from_care_and_start_confirmation_val()
 
         # click on child confirmation
         rp.click_child_confirmation()
@@ -56,11 +55,11 @@ class TestDistributionReportVisibility:
         bu.switch_to_frame("3fd7565f-0120-4acc-a488-544ca02979b7")
         if bu.is_displayed((By.XPATH, "//*[@id='reporttitleCell']")):
             text = bu.get_text((By.XPATH, "//*[@id='reporttitleCell']"))
-            self.logger.info("******014_distribution report visibility successful : " + text + "*******")
-            assert True, "014_distribution report visibility successful : " + text
+            self.logger.info("****distribution report visibility successful : " + "Pass" + "*****")
+            assert True, "distribution report visibility successful : " + text
         else:
-            self.logger.info("******014_distribution report visibility unsuccessful*******")
-            assert False, "014_distribution report visibility unsuccessful."
+            self.logger.info("******distribution report visibility unsuccessful*******")
+            assert False, "distribution report visibility unsuccessful."
 
         self.logger.info("*****test_014_distribution_report_visibility_to_release : passed*******")
         self.logger.info("*****test_014_distribution_report_visibility_to_release : completed *******")

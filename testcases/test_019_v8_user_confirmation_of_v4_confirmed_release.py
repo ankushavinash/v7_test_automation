@@ -6,12 +6,6 @@ from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
-# ---------------------------------------------------------------------------------- #
-#   Precondition: test_016 must be executed before test_019                        #
-#   Note: Release must be created and confirmed by V4 before V8 confirmation       #
-from testcases.support import TestConfirmationReleaseAsV4User
-#   Above line will help in create and confirm release as v4 user
-# ---------------------------------------------------------------------------------- #
 
 
 @pytest.mark.regression
@@ -31,14 +25,41 @@ class TestV8UserConfirmationOfV4ConfirmedRelease:
         bu = BrowserUtilities(driver)
 
         # Test data setup
-        v4_approved_release_id = str(xlUtilis.read_data(test_data_path, 'release_id', 3, 2))
+        project = "V7 Release Administration"
+        title = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 1))
+        description = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 2))
+        date = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 3))
+        v8 = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 4))
+        project_write_access = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 5))
+        care_group = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 1))
+        care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 2))
+        a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_011', 2, 1))
         internal_comment = str(xlUtilis.read_data(test_data_path, 'tc_004', 2, 2))
         v8_user = str(xlUtilis.read_data(test_data_path, 'Login', 7, 2))
-        password = str(xlUtilis.read_data(test_data_path, 'Login', 7, 3))
-        bu.login_application(v8_user, password)
+        v8_password = str(xlUtilis.read_data(test_data_path, 'Login', 7, 3))
+        v4_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
+        v4_password = str(xlUtilis.read_data(test_data_path, 'Login', 3, 3))
+        bu.login_application(v4_user, v4_password)
+        main_window = driver.current_window_handle
 
-        # search for V4 approved release
-        hp.search_and_open_the_release_from_all_items(v4_approved_release_id)
+        hp.search_project(project)
+        release_id = rp.create_release(title, description, date, v8, project_write_access)
+        self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
+        akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
+        self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
+        a2l_file = rp.select_a2l_data(a2l_file_name)
+        self.logger.info("********a2l file selected. A2l File name : " + a2l_file + " **********")
+        precheck_data = rp.click_precheck_care_a2l_data()
+        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "****************")
+        import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_val()
+        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "***************")
+        v4_confirm_release = rp.user_confirmation_as_v4_user()
+        driver.switch_to.window(main_window)
+        self.logger.info("********confirm release as v4 user successful : " + v4_confirm_release + "*************")
+        rp.click_close_icon()
+        # Do logout and login again as V8 user and search for v4 confirmed release
+        v4_confirmed_release_id = hp.login_v8_user_and_search_release(v8_user, v8_password, release_id)
+        self.logger.info("********V4 confirmed release displayed. Release id : " + v4_confirmed_release_id + " *******")
 
         # confirm release as V8 user override pending confirmation
         rp.confirm_release_as_v8_user(internal_comment)

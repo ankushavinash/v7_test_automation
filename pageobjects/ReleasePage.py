@@ -11,7 +11,7 @@ class ReleasePage:
     # ---------------------------locator identifier----------------------------
     text_title_id = "F11160"
     button_ok_id = "formbtns_ok"
-    button_close_xpath = "//*[@id='issuedetails']/diFv[1]/div/button"
+    button_close_xpath = "//*[@id='issuedetails']/div[1]/div/button"
     button_cancel_xpath = "//input[@id='formbtns_cancel']"
     button_update_id = "TransitionId_4060"
     button_upload_xpath = "//Button[text()='Upload & Attach AKV (.csv file)']"
@@ -55,6 +55,9 @@ class ReleasePage:
     button_v4_user_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[6]/span[2]"
     button_v8_confirmation_id = "TransitionId_4063"
     button_v8_rejection_id = "TransitionId_4064"
+    link_User_confirmation_record_v5_user_xpath = "//*[@id='ReportOutput']/tbody/tr[4]/td[2]/span/a"
+    button_v5_user_confirm_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[1]"
+    button_v5_user_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[2]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -399,8 +402,8 @@ class ReleasePage:
         self.click_ok()
         self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
         self.click_ok()
-        if self.bu.is_displayed((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]")):
-            text = self.bu.get_text((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]"))
+        if self.bu.is_displayed((By.ID, "F11170")):
+            text = self.bu.get_text((By.ID, "F11170"))
             return text
         else:
             assert False, "import AKV from care is unsuccessful. import unsuccessful"
@@ -438,7 +441,7 @@ class ReleasePage:
     # this method is use to click on  confirmation button of modules as v4 user
     # argument :
     # return :
-    def confirm_modules_as_v4_user(self):
+    def confirm_part_modules_as_v4_user(self):
         by_locator = (By.XPATH, self.button_v4_user_confirm_button_xpath)
         try:
             if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
@@ -452,7 +455,7 @@ class ReleasePage:
     # this method is use to confirm module as v4 user
     # argument :
     # return :
-    def confirm_release_as_v4_user(self):
+    def user_confirmation_as_v4_user(self):
         self.click_child_confirmation()
         self.click_user_confirmation_project_v4_user()
         self.click_confirmation_or_reject_button()
@@ -489,7 +492,7 @@ class ReleasePage:
     # this method is use to click on  confirmation button of modules as v4 user
     # argument :
     # return :
-    def reject_modules_as_v4_user(self):
+    def reject_part_modules_as_v4_user(self):
         by_locator = (By.XPATH, self.button_v4_user_reject_button_xpath)
         try:
             if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
@@ -520,4 +523,88 @@ class ReleasePage:
         self.set_release_letter_comment(release_letter_comment)
         self.set_internal_comment(internal_comment)
         self.click_ok()
+
+    # author : ankush
+    # since : 2022-01-27
+    # this method is to close icon
+    # argument :
+    # return :
+    def click_close_icon(self):
+        self.driver.switch_to.default_content()
+        self.bu.click((By.XPATH, self.button_close_xpath))
+
+    # author : ankush
+    # since : 2022-01-27
+    # this method is use to discard confirmation as v8 user
+    # argument :
+    # return :
+    def discard_complete_confirmation_as_v8_user(self, release_letter_comment, internal_comment):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.click_discard_complete_confirmation()
+        self.set_release_letter_comment(release_letter_comment)
+        self.set_internal_comment(internal_comment)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  v4 user confirmation project as v4 user
+    # argument :
+    # return :
+    def click_user_confirmation_project_v5_user(self):
+        parent_window = self.driver.current_window_handle
+        self.driver.switch_to.frame("4ea6d89b-d573-4aa9-bfe5-1209284765c4")
+        self.bu.click((By.XPATH, self.link_User_confirmation_record_v5_user_xpath))
+        self.bu.switch_to_child_window(parent_window)
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  confirmation button of part modules as v4 user
+    # argument :
+    # return :
+    def confirm_part_modules_as_v5_user(self):
+        by_locator = (By.XPATH, self.button_v5_user_confirm_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                self.driver.find_element_by_id("SELECT_F12585").click()
+                by_tick = (By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[1]/span[1]")
+                WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
+                self.bu.click((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[1]"))
+                assert True, "V5 Confirmation button displayed"
+        except TimeoutException:
+            assert False, "V5 Confirmation button not displayed"
+
+    # author : ankush
+    # since : 2022-01-27
+    # this method is use to click on  reject button of part modules as v5 user
+    # argument :
+    # return :
+    def reject_part_modules_as_v5_user(self):
+        by_locator = (By.XPATH, self.button_v5_user_reject_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                # click on override
+                self.driver.find_element_by_id("SELECT_F12585").click()
+                by_tick = (By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[1]/span[1]")
+                WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
+                self.bu.click((By.XPATH, self.button_v5_user_reject_button_xpath))
+                assert True, "V5 reject button displayed"
+        except TimeoutException:
+            assert False, "V5 reject button not displayed"
+
+    # author : ankush
+    # since : 2022-01-18
+    # this method is use to confirm module as v5 user
+    # argument :
+    # return :
+    def user_confirmation_as_v5_user(self):
+        self.click_child_confirmation()
+        self.click_user_confirmation_project_v5_user()
+        self.click_confirmation_or_reject_button()
+        self.confirm_part_modules_as_v5_user()
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]"))
+            return text
+        else:
+            assert False, "confirm release as v5 user unsuccessful."
 

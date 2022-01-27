@@ -18,8 +18,9 @@ class BrowserUtilities:
     text_password_id = "authPWD"
     button_sign_in_id = "logonButton"
     image_header_id = "header-logo_image"
-    button_user_role_xpath = "/html[1]/body[1]/header[1]/div[1]/div[3]/div[2]/div[1]/div[1]/button[1]"
-    link_logout_link_text = "Logout"
+    image_sbm_login_page_id = "solution_name_icon"
+    button_user_role_id = "header_user_avatar"
+    link_logout_xpath = "//a[contains(text(),'Sign Out')]"
 
     # -------------------------------object initialization----------------------
     def __init__(self, driver):
@@ -42,8 +43,8 @@ class BrowserUtilities:
         except TimeoutException:
             assert False, "Launch application unsuccessful"
 
-    # author : venugopal
-    # since : 2021-08-10
+    # author : ankush
+    # since : 2021-12-01
     # this method is to click login to application
     # argument :
     # return :
@@ -58,16 +59,19 @@ class BrowserUtilities:
         except TimeoutException:
             assert False, "Login unsuccessful"
 
-    # author : venugopal
-    # since : 2021-08-10
+    # author : ankush
+    # since : 2022-01-27
     # this method is to click logout
     # argument :
     # return :
     def logout_application(self):
-        BrowserUtilities.click(self, (By.XPATH, self.button_user_role_xpath))
-        BrowserUtilities.click(self, (By.LINK_TEXT, self.link_logout_link_text))
-        current_url = self.driver.current_url
-        if not current_url.endswith("logout"):
+        BrowserUtilities.click(self, (By.ID, self.button_user_role_id))
+        BrowserUtilities.click(self, (By.XPATH, self.link_logout_xpath))
+        by_locator = (By.ID, self.image_sbm_login_page_id)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                assert True, "Logout successful"
+        except TimeoutException:
             assert False, "Logout unsuccessful"
 
     # author : venugopal

@@ -1,5 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from pageobjects.ReleasePage import ReleasePage
 from utilities.browserUtilis import BrowserUtilities
 from selenium.webdriver.common.by import By
 
@@ -129,3 +131,19 @@ class HomePage:
         self.click_search_submit()
         WebDriverWait(self.driver, 60).until((EC.visibility_of_element_located((By.LINK_TEXT, item_id))))
         self.bu.click((By.LINK_TEXT, item_id))
+
+    # author : ankush
+    # since : 2022-01-27
+    # this method is to logout and again login as v8 user
+    # argument : item_id
+    # return :
+    def login_v8_user_and_search_release(self, username, password, release_id):
+        self.bu.logout_application()
+        self.bu.login_application(username, password)
+        self.search_and_open_the_release_from_all_items(release_id)
+        if self.bu.is_displayed((By.CLASS_NAME, "highlighter")):
+            text = self.bu.get_text((By.CLASS_NAME, "highlighter"))
+            return text
+        else:
+            assert False, "V4 confirmed release displayed. unsuccessful"
+

@@ -2,20 +2,14 @@ import pytest
 from flaky import flaky
 from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
+from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
-# ---------------------------------------------------------------------------------- #
-# Precondition: test_002 must be executed before test_015                            #
-# Note: Release must be created before searching of created release                  #
-from testcases.test_002_create_release import TestCreateRelease                      #
-# Above line will create release                                                     #
-# ---------------------------------------------------------------------------------- #
 
-
-@pytest.mark.regression
-@flaky(max_runs=3, min_passes=1)
+# @pytest.mark.regression
+# @flaky(max_runs=3, min_passes=1)
 class TestSearchForCreatedRelease:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -27,13 +21,23 @@ class TestSearchForCreatedRelease:
         driver = setup[0]
         test_data_path = setup[2]
         hp = HomePage(driver)
+        rp = ReleasePage(driver)
         bu = BrowserUtilities(driver)
 
         # Test data setup
-        release_id = str(xlUtilis.read_data(test_data_path, 'release_id', 2, 2))
+        project = "V7 Release Administration"
+        title = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 1))
+        description = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 2))
+        date = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 3))
+        v8 = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 4))
+        project_write_access = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 5))
         normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 2, 2))
         password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
         bu.login_application(normal_user, password)
+        hp.search_project(project)
+        release_id = rp.create_release(title, description, date, v8, project_write_access)
+        self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
+        rp.click_close_icon()
 
         # click on search for items and reports
         hp.click_search_for_item_and_reports()
@@ -47,7 +51,7 @@ class TestSearchForCreatedRelease:
         # validation
         if bu.is_displayed((By.CLASS_NAME, "highlighter")):
             text = bu.get_text((By.CLASS_NAME, "highlighter"))
-            self.logger.info("********Search for release successful. Displayed Release ID : " + text + "**************")
+            self.logger.info("********Search for release successful. Displayed Release ID : " + text + " ************")
             assert True, "Search for release successful. Displayed Release ID : " + text
         else:
             self.logger.info("*********Search for release unsuccessful***********")

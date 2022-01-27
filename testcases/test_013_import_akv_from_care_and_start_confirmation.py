@@ -42,20 +42,20 @@ class TestImportAkvFromCareAndStartConfirmation:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
-        self.logger.info("********care akv variant selection successful. Variant name: " + akv_variant + "************")
+        self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file_name)
-        self.logger.info("********a2l file selection successful. A2l File name : " + a2l_file + "*****************")
+        self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "*****************")
         precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful : " + precheck_data + "*****************")
+        self.logger.info("********precheck confirmation successful. Displayed : " + precheck_data + "*****************")
 
         # click on import AKV from care and start confirmation
         rp.click_import_akv_from_care_and_start_confirmation()
 
         # Validation for successful import akv from care and start confirmation
-        if bu.is_displayed((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]")):
-            text = bu.get_text((By.XPATH, "//*[@id='F11159.wrapper']/table/tbody/tr/td[1]"))
+        if bu.is_displayed((By.ID, "F11170")):
+            text = bu.get_text((By.ID, "F11170"))
             self.logger.info("******import AKV from care is successful. Displayed : " + text + "*******")
-            assert True, "013_import AKV from care is successful : " + text
+            assert True, "import AKV from care is successful : " + text
         else:
             self.logger.info("******013_import AKV from care is unsuccessful*******")
             assert False, "013_import AKV from care is unsuccessful. import unsuccessful"

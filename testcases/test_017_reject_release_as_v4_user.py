@@ -43,9 +43,9 @@ class TestRejectReleaseAsV4User:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
-        self.logger.info("********care akv variant selection successful. Variant name: " + akv_variant + "************")
+        self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file_name)
-        self.logger.info("********a2l file selection successful. A2l File name : " + a2l_file + "*****************")
+        self.logger.info("********a2l file selected. A2l File name : " + a2l_file + " ************")
         precheck_data = rp.click_precheck_care_a2l_data()
         self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_val()
@@ -57,8 +57,8 @@ class TestRejectReleaseAsV4User:
         rp.click_user_confirmation_project_v4_user()
         # click confirmation button
         rp.click_confirmation_or_reject_button()
-        # click on module confirm button as v4 user
-        rp.reject_modules_as_v4_user()
+        # click on module reject button as v4 user
+        rp.reject_part_modules_as_v4_user()
         # click on OK
         rp.click_ok()
 

@@ -41,7 +41,7 @@ class TestSelectA2lData:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
-        self.logger.info("**************care akv variant selection successful. Variant name: "+ akv_variant + "*****************")
+        self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
 
         self.logger.info("*****Select A2L Data*********")
         # click on select a2l data

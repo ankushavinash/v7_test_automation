@@ -43,7 +43,7 @@ class TestPrecheckCareA2lData:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
-        self.logger.info("********care akv variant selection successful. Variant name: " + akv_variant + "************")
+        self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file)
         self.logger.info("********a2l file selection successful. A2l File name : " + a2l_file + "*****************")
 
@@ -54,8 +54,8 @@ class TestPrecheckCareA2lData:
         if bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/table/tbody/tr[1]/th[1]")):
             text = bu.get_text((By.XPATH, "//*[@id='v7rpcc']/table/tbody/tr[1]/th[1]"))
             self.logger.info(
-                "******a2l file is selection successful. Confirmation message displayed : " + text + "*******")
-            assert True, "a2l file selection successful. Confirmation message displayed : " + text
+                "******a2l file selection successful. Displayed : " + text + "*******")
+            assert True, "a2l file selection successful. Displayed : " + text
         else:
             self.logger.info("******a2l file is selected unsuccessful*******")
             assert False, "a2l file selection unsuccessful. a2l data is not displayed"

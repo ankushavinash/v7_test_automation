@@ -45,9 +45,9 @@ class TestConfirmationReleaseAsV4User:
         xlUtilis.write_data(test_data_path, 'release_id', 3, 2, v4_approved_release_id)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
-        self.logger.info("********care akv variant selection successful. Variant name: " + akv_variant + "************")
+        self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file_name)
-        self.logger.info("********a2l file selection successful. A2l File name : " + a2l_file + "*****************")
+        self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "***********")
         precheck_data = rp.click_precheck_care_a2l_data()
         self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_val()
@@ -60,7 +60,7 @@ class TestConfirmationReleaseAsV4User:
         # click confirmation button
         rp.click_confirmation_or_reject_button()
         # click on module confirm button as v4 user
-        rp.confirm_modules_as_v4_user()
+        rp.confirm_part_modules_as_v4_user()
         # click on OK
         rp.click_ok()
 
