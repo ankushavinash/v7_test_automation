@@ -58,6 +58,8 @@ class ReleasePage:
     link_User_confirmation_record_v5_user_xpath = "//*[@id='ReportOutput']/tbody/tr[4]/td[2]/span/a"
     button_v5_user_confirm_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[1]"
     button_v5_user_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[2]"
+    checkbox_override_id = "SELECT_F12585"
+    button_accept_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[1]/span[1]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -398,7 +400,7 @@ class ReleasePage:
     # this method is use to click on import AKV from care and start confirmation while overriding v8
     # argument :
     # return :
-    def click_import_akv_from_care_and_start_confirmation_val(self):
+    def click_import_akv_from_care_and_start_confirmation_(self):
         self.click_ok()
         self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
         self.click_ok()
@@ -459,7 +461,7 @@ class ReleasePage:
         self.click_child_confirmation()
         self.click_user_confirmation_project_v4_user()
         self.click_confirmation_or_reject_button()
-        self.confirm_modules_as_v4_user()
+        self.confirm_part_modules_as_v4_user()
         self.click_ok()
         if self.bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[6]/p[2]")):
             text = self.bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[6]/p[2]"))
@@ -558,15 +560,15 @@ class ReleasePage:
 
     # author : ankush
     # since : 2022-01-11
-    # this method is use to click on  confirmation button of part modules as v4 user
+    # this method is use to click on  confirmation button of part modules as v5 user
     # argument :
     # return :
-    def confirm_part_modules_as_v5_user(self):
+    def confirm_part_modules_as_v5_user_override_v4(self):
         by_locator = (By.XPATH, self.button_v5_user_confirm_button_xpath)
         try:
             if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
-                self.driver.find_element_by_id("SELECT_F12585").click()
-                by_tick = (By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[1]/span[1]")
+                self.bu.click((By.ID, self.checkbox_override_id))
+                by_tick = (By.XPATH, self.button_accept_tick_xpath)
                 WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
                 self.bu.click((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[1]"))
                 assert True, "V5 Confirmation button displayed"
@@ -578,13 +580,13 @@ class ReleasePage:
     # this method is use to click on  reject button of part modules as v5 user
     # argument :
     # return :
-    def reject_part_modules_as_v5_user(self):
+    def reject_part_modules_as_v5_user_override_v4(self):
         by_locator = (By.XPATH, self.button_v5_user_reject_button_xpath)
         try:
             if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
                 # click on override
-                self.driver.find_element_by_id("SELECT_F12585").click()
-                by_tick = (By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[1]/span[1]")
+                self.bu.click((By.ID, self.checkbox_override_id))
+                by_tick = (By.XPATH, self.button_accept_tick_xpath)
                 WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
                 self.bu.click((By.XPATH, self.button_v5_user_reject_button_xpath))
                 assert True, "V5 reject button displayed"
@@ -592,15 +594,15 @@ class ReleasePage:
             assert False, "V5 reject button not displayed"
 
     # author : ankush
-    # since : 2022-01-18
-    # this method is use to confirm module as v5 user
+    # since : 2022-01-28
+    # this method is use for user confirmation as v5 user by overriding v4 user
     # argument :
     # return :
-    def user_confirmation_as_v5_user(self):
+    def user_confirmation_as_v5_user_override_v4(self):
         self.click_child_confirmation()
         self.click_user_confirmation_project_v5_user()
         self.click_confirmation_or_reject_button()
-        self.confirm_part_modules_as_v5_user()
+        self.confirm_part_modules_as_v5_user_override_v4()
         self.click_ok()
         if self.bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]")):
             text = self.bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]"))

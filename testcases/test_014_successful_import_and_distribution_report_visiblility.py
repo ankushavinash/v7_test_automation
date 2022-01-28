@@ -8,8 +8,8 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-# @pytest.mark.regression
-# @flaky(max_runs=3, min_passes=1)
+@pytest.mark.regression
+@flaky(max_runs=3, min_passes=1)
 class TestDistributionReportVisibility:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -46,7 +46,7 @@ class TestDistributionReportVisibility:
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "*****************")
         precheck_data = rp.click_precheck_care_a2l_data()
         self.logger.info("********precheck confirmation successful. Displayed : " + precheck_data + "*****************")
-        rp.click_import_akv_from_care_and_start_confirmation_val()
+        rp.click_import_akv_from_care_and_start_confirmation_()
 
         # click on child confirmation
         rp.click_child_confirmation()

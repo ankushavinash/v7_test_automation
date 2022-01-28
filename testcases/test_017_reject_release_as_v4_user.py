@@ -48,7 +48,7 @@ class TestRejectReleaseAsV4User:
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + " ************")
         precheck_data = rp.click_precheck_care_a2l_data()
         self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
-        import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_val()
+        import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
         self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
 
         # click on child confirmation
