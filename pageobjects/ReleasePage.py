@@ -60,6 +60,9 @@ class ReleasePage:
     button_v5_user_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[2]"
     checkbox_override_id = "SELECT_F12585"
     button_accept_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[1]/span[1]"
+    link_User_confirmation_record_v6_user_xpath = "//*[@id='ReportOutput']/tbody/tr[5]/td[2]/span/a"
+    button_v6_user_confirm_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[8]/span[1]"
+    button_v6_accept_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[8]/p[1]/span[1]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -570,7 +573,7 @@ class ReleasePage:
                 self.bu.click((By.ID, self.checkbox_override_id))
                 by_tick = (By.XPATH, self.button_accept_tick_xpath)
                 WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
-                self.bu.click((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[1]/th[7]/span[1]"))
+                self.bu.click((By.XPATH, self.button_v5_user_confirm_button_xpath))
                 assert True, "V5 Confirmation button displayed"
         except TimeoutException:
             assert False, "V5 Confirmation button not displayed"
@@ -654,4 +657,32 @@ class ReleasePage:
                 assert True, "V5 reject button displayed"
         except TimeoutException:
             assert False, "V5 reject button not displayed"
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  v6 user confirmation project as v6 user
+    # argument :
+    # return :
+    def click_user_confirmation_project_v6_user(self):
+        parent_window = self.driver.current_window_handle
+        self.driver.switch_to.frame("4ea6d89b-d573-4aa9-bfe5-1209284765c4")
+        self.bu.click((By.XPATH, self.link_User_confirmation_record_v6_user_xpath))
+        self.bu.switch_to_child_window(parent_window)
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  confirmation button of part modules as v6 user
+    # argument :
+    # return :
+    def confirm_part_modules_as_v6_user_override_v4_and_v5(self):
+        by_locator = (By.XPATH, self.button_v6_user_confirm_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                self.bu.click((By.ID, self.checkbox_override_id))
+                by_tick = (By.XPATH, self.button_v6_accept_tick_xpath)
+                WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
+                self.bu.click((By.XPATH, self.button_v6_user_confirm_button_xpath))
+                assert True, "V6 Confirmation button displayed"
+        except TimeoutException:
+            assert False, "V6 Confirmation button not displayed"
 
