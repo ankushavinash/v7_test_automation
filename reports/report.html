@@ -441,7 +441,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>V7 Test Automation Report</h1>
-    <p>Report generated on 28-Jan-2022 at 12:07:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 28-Jan-2022 at 15:35:10 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -457,7 +457,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Tester</td>
         <td>Ankush Avinash</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 326.76 seconds. </p>
+    <p>1 tests ran in 296.91 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -472,14 +472,20 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">testcases/test_024_discard_v5_confirmed_release_as_v5_user.py::TestDiscardV5ConfirmedReleaseAsV5User::test_024_discard_v5_confirmed_release_as_v5_user</td>
-          <td class="col-duration">42.73</td>
+          <td class="col-name">testcases/test_029_v5_user_rejection_of_v4_confirmed_release.py::TestV5UserRejectionOfV4ConfirmedRelease::test_029_v5_user_rejection_of_v4_confirmed_release</td>
+          <td class="col-duration">296.62</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_024_discard_v5_confirmed_release_as_v5_user.py:19 ********test_024_discard_v5_confirmed_release_as_v5_user : started********
-INFO     root:test_024_discard_v5_confirmed_release_as_v5_user.py:46 ***************create Release successful. Release ID: 1842885 ***************
-INFO     root:test_024_discard_v5_confirmed_release_as_v5_user.py:48 ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
-INFO     root:test_024_discard_v5_confirmed_release_as_v5_user.py:50 ********a2l file selected. A2l File name : V7AutomationTest.a2l **********
-INFO     root:test_024_discard_v5_confirmed_release_as_v5_user.py:52 ********precheck confirmation successful : Displayed : SW Module*****************
-INFO     root:test_024_discard_v5_confirmed_release_as_v5_user.py:54 ********import AKV from care is successful : Wait for V7 Confirmation*****************<br/></div></td></tr></tbody></table></body></html>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:19 **********test_029_v5_user_rejection_of_v4_confirmed_release : started**********
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:47 ***************create Release successful. Release ID: 1843125 ***************
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:49 *******akv variant selected. Variant name: v7_akv_variant_automation_test**********
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:51 ********a2l file selected. A2l File name : V7AutomationTest.a2l **********
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:53 ********precheck confirmation successful : Displayed : SW Module**********
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:55 ********import AKV from care is successful : Wait for V7 Confirmation*****************
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:59 *******confirm release as v4 user successful : Decided by v7_automation_v4_user*********
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:65 ********Login again as V5 user and search release: 1843125********
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:70 *************Click on user confirmation of project as v5 user **************
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:81 ******reject release as v5 user successful : Decided by v7_automation_v5_user*******
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:87 *********test_029_v5_user_rejection_of_v4_confirmed_release : passed*******
+INFO     root:test_029_v5_user_rejection_of_v4_confirmed_release.py:88 *********test_029_v5_user_rejection_of_v4_confirmed_release : completed ********<br/></div></td></tr></tbody></table></body></html>

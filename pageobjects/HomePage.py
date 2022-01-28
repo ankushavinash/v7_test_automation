@@ -137,7 +137,7 @@ class HomePage:
     # this method is to logout and again login as v8 user
     # argument : item_id
     # return :
-    def login_v8_user_and_search_release(self, username, password, release_id):
+    def login_again_and_search_release(self, username, password, release_id):
         self.bu.logout_application()
         self.bu.login_application(username, password)
         self.search_and_open_the_release_from_all_items(release_id)
@@ -145,5 +145,5 @@ class HomePage:
             text = self.bu.get_text((By.CLASS_NAME, "highlighter"))
             return text
         else:
-            assert False, "V4 confirmed release displayed. unsuccessful"
+            assert False, "confirmed release displayed. unsuccessful"
 

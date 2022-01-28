@@ -8,14 +8,15 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
+@pytest.mark.smoke
 @pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
-class TestV8UserConfirmationOfV4ConfirmedRelease:
+class TestV8UserRejectionOfV4ConfirmedRelease:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_019_v8_user_confirmation_of_v4_confirmed_release(self, setup):
-        self.logger.info("*******test_019_v8_user_confirmation_of_v4_confirmed_release : started*******")
+    def test_020_v8_user_rejection_of_v4_confirmed_release(self, setup):
+        self.logger.info("*******test_020_v8_user_rejection_of_v4_confirmed_release : started*******")
 
         # Setup
         driver = setup[0]
@@ -35,6 +36,7 @@ class TestV8UserConfirmationOfV4ConfirmedRelease:
         care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 2))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_011', 2, 1))
         internal_comment = str(xlUtilis.read_data(test_data_path, 'tc_004', 2, 2))
+        release_letter_comment = str(xlUtilis.read_data(test_data_path, 'tc_004', 2, 1))
         v8_user = str(xlUtilis.read_data(test_data_path, 'Login', 7, 2))
         v8_password = str(xlUtilis.read_data(test_data_path, 'Login', 7, 3))
         v4_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
@@ -50,9 +52,9 @@ class TestV8UserConfirmationOfV4ConfirmedRelease:
         a2l_file = rp.select_a2l_data(a2l_file_name)
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + " **********")
         precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "****************")
+        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "**********")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
-        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "***************")
+        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "***********")
         v4_confirm_release = rp.user_confirmation_as_v4_user()
         driver.switch_to.window(main_window)
         self.logger.info("********confirm release as v4 user successful : " + v4_confirm_release + "*************")
@@ -61,21 +63,21 @@ class TestV8UserConfirmationOfV4ConfirmedRelease:
         v4_confirmed_release_id = hp.login_again_and_search_release(v8_user, v8_password, release_id)
         self.logger.info("********V4 confirmed release displayed. Release id : " + v4_confirmed_release_id + " *******")
 
-        # confirm release as V8 user override pending confirmation
-        rp.confirm_release_as_v8_user(internal_comment)
+        # reject release as V8 user override pending confirmation
+        rp.reject_release_as_v8_user(internal_comment, release_letter_comment)
 
         # validation
         driver.switch_to.frame("schFrame")
         if bu.is_displayed((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b")):
             text = bu.get_text((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b"))
-            self.logger.info("*******V8 user confirmation successful. Status : " + text + "**********")
-            assert True, "V8 user confirmation successful. Status : " + text
+            self.logger.info("*******V8 user rejection successful. Status : " + text + "**********")
+            assert True, "V8 user rejection successful. Status : " + text
         else:
-            self.logger.info("*******V8 user confirmation of release unsuccessful*********")
-            assert False, "V8 user confirmation of release unsuccessful. Release is not confirmed"
+            self.logger.info("*******V8 user rejection of release unsuccessful*********")
+            assert False, "V8 user rejection of release unsuccessful. Release is not confirmed"
 
-        self.logger.info("******test_019_v8_user_confirmation_of_v4_confirmed_release : passed******")
-        self.logger.info("******test_019_v8_user_confirmation_of_v4_confirmed_release : completed ******")
+        self.logger.info("******test_020_v8_user_rejection_of_v4_confirmed_release : passed******")
+        self.logger.info("******test_020_v8_user_rejection_of_v4_confirmed_release : completed ******")
 
 
 

@@ -610,3 +610,48 @@ class ReleasePage:
         else:
             assert False, "confirm release as v5 user unsuccessful."
 
+    # author : ankush
+    # since : 2022-01-28
+    # this method is use to click on  confirmation button of part modules as v5 user
+    # argument :
+    # return :
+    def confirm_part_modules_as_v5_user(self):
+        by_locator = (By.XPATH, self.button_v5_user_confirm_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                self.bu.click((By.XPATH, self.button_v5_user_confirm_button_xpath))
+                assert True, "V5 Confirmation button displayed"
+        except TimeoutException:
+            assert False, "V5 Confirmation button not displayed"
+
+    # author : ankush
+    # since : 2022-01-28
+    # this method is use to confirm module as v5 user
+    # argument :
+    # return :
+    def user_confirmation_as_v5_user(self):
+        self.click_child_confirmation()
+        self.click_user_confirmation_project_v5_user()
+        self.click_confirmation_or_reject_button()
+        self.confirm_part_modules_as_v5_user()
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]"))
+            return text
+        else:
+            assert False, "confirm release as v5 user unsuccessful."
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  reject button of part modules as v5 user
+    # argument :
+    # return :
+    def reject_part_modules_as_v5_user(self):
+        by_locator = (By.XPATH, self.button_v5_user_reject_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                self.bu.click((By.XPATH, self.button_v5_user_reject_button_xpath))
+                assert True, "V5 reject button displayed"
+        except TimeoutException:
+            assert False, "V5 reject button not displayed"
+
