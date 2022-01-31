@@ -62,8 +62,8 @@ def setup(browser, environment, headless):
         # password = str(xlUtilis.read_data(excel_path, 'Login', 2, 3))
         # bu.login_application(login_id, password)
         yield [driver, url, excel_path]
-        #driver.close()
-        #driver.quit()
+        driver.close()
+        driver.quit()
 
 
 # phrasing and fetching data from command

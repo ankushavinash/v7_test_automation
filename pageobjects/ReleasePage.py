@@ -686,3 +686,40 @@ class ReleasePage:
         except TimeoutException:
             assert False, "V6 Confirmation button not displayed"
 
+    # author : ankush
+    # since : 2022-01-31
+    # this method is use to click on  reject button of part modules as v6 user
+    # argument :
+    # return :
+    button_v6_user_all_part_modules_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[8]/span[1]"
+    button_v6_first_part_module_reject_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[8]/p[1]/span[2]"
+    def reject_part_modules_as_v6_user_override_v4_and_v5(self):
+        by_locator = (By.XPATH, self.button_v6_user_all_part_modules_reject_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                # click on override
+                self.bu.click((By.ID, self.checkbox_override_id))
+                by_tick = (By.XPATH, self.button_v6_first_part_module_reject_tick_xpath)
+                WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
+                self.bu.click((By.XPATH, self.button_v6_user_all_part_modules_reject_button_xpath))
+                assert True, "V6 reject button displayed"
+        except TimeoutException:
+            assert False, "V6 reject button not displayed"
+
+    # author : ankush
+    # since : 2022-01-31
+    # this method is use for user confirmation as 65 user by overriding v4 user and V5 user
+    # argument :
+    # return :
+    def user_confirmation_as_v6_user_override_v4_and_v5(self):
+        self.click_child_confirmation()
+        self.click_user_confirmation_project_v6_user()
+        self.click_confirmation_or_reject_button()
+        self.confirm_part_modules_as_v6_user_override_v4_and_v5()
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[8]/p[2]")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[8]/p[2]"))
+            return text
+        else:
+            assert False, "confirm release as v6 user unsuccessful."
+
