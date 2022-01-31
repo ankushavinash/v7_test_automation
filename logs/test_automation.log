@@ -456,3 +456,84 @@
 01/31/2022 11:41:29 AM: INFO: *******V8 user discard successful. Status : Discarded**********
 01/31/2022 11:41:29 AM: INFO: ****test_035_v8_user_discard_confirmation_of_v6_confirmed_override_v4_and_v5 : passed******
 01/31/2022 11:41:29 AM: INFO: ****test_035_v8_user_discard_confirmation_of_v6_confirmed_override_v4_and_v5 : completed****
+01/31/2022 12:07:24 PM: INFO: ********test_036_confirmation_release_as_v7_user_override_v4_v5_v6 : started********
+01/31/2022 12:08:46 PM: INFO: ***************create Release successful. Release ID: 1847671 ***************
+01/31/2022 12:09:14 PM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+01/31/2022 12:09:37 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+01/31/2022 12:09:42 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+01/31/2022 12:10:10 PM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation*****************
+01/31/2022 01:01:00 PM: INFO: ********test_036_confirmation_release_as_v7_user_override_v4_v5_v6 : started********
+01/31/2022 01:02:32 PM: INFO: ***************create Release successful. Release ID: 1847686 ***************
+01/31/2022 01:03:15 PM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+01/31/2022 01:03:40 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+01/31/2022 01:03:45 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+01/31/2022 01:04:22 PM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation*****************
+01/31/2022 01:08:21 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 01:13:06 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 01:14:21 PM: INFO: ***************create Release successful. Release ID: 1847694 ***************
+01/31/2022 01:14:39 PM: INFO: ********Search for release successful. Displayed Release ID : 1847694 ************
+01/31/2022 01:14:39 PM: INFO: ********test_015_search_for_created_release : passed*******
+01/31/2022 01:14:39 PM: INFO: *********test_015_search_for_created_release : completed ********
+01/31/2022 01:20:45 PM: INFO: ********test_036_confirmation_release_as_v7_user_override_v4_v5_v6 : started********
+01/31/2022 01:22:29 PM: INFO: ***************create Release successful. Release ID: 1847696 ***************
+01/31/2022 01:23:08 PM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+01/31/2022 01:23:32 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+01/31/2022 01:23:39 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+01/31/2022 01:24:14 PM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation*****************
+01/31/2022 01:24:45 PM: INFO: *********Confirm part modules as V7 user override V4, V5 and v6 user*********
+01/31/2022 01:30:17 PM: INFO: ********test_036_confirmation_release_as_v7_user_override_v4_v5_v6 : started********
+01/31/2022 01:31:36 PM: INFO: ***************create Release successful. Release ID: 1847712 ***************
+01/31/2022 01:32:16 PM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+01/31/2022 01:32:39 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+01/31/2022 01:32:47 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+01/31/2022 01:33:20 PM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation*****************
+01/31/2022 01:33:44 PM: INFO: *********Confirm part modules as V7 user override V4, V5 and v6 user*********
+01/31/2022 01:33:54 PM: INFO: ******confirm release as v7 user successful : Decided by v7_automation_v7_user [v7_automation_v7_user]*******
+01/31/2022 01:33:54 PM: INFO: ******test_036_confirmation_release_as_v7_user_override_v4_v5_v6  : passed*******
+01/31/2022 01:33:54 PM: INFO: ******test_036_confirmation_release_as_v7_user_override_v4_v5_v6  : completed ********
+01/31/2022 01:38:13 PM: INFO: ********test_037_reject_release_as_v6_user_override_other_user : started********
+01/31/2022 01:39:10 PM: INFO: ***************create Release successful. Release ID: 1847749 ***************
+01/31/2022 01:39:46 PM: INFO: *******akv variant selected. Variant name: v7_akv_variant_automation_test*********
+01/31/2022 01:48:06 PM: INFO: ********test_037_reject_release_as_v7_user_override_other_user : started********
+01/31/2022 01:48:36 PM: INFO: ***************create Release successful. Release ID: 1847792 ***************
+01/31/2022 01:48:50 PM: INFO: *******akv variant selected. Variant name: v7_akv_variant_automation_test*********
+01/31/2022 01:49:01 PM: INFO: ******a2l file selected. A2l File name : V7AutomationTest.a2l*********
+01/31/2022 01:49:05 PM: INFO: *******precheck confirmation successful : Displayed : SW Module**********
+01/31/2022 01:49:19 PM: INFO: *******import AKV from care is successful : Wait for V7 Confirmation**********
+01/31/2022 02:27:05 PM: INFO: ********test_037_reject_release_as_v7_user_override_other_user : started********
+01/31/2022 02:28:34 PM: INFO: ***************create Release successful. Release ID: 1847806 ***************
+01/31/2022 03:20:26 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 03:21:07 PM: INFO: ***************create Release successful. Release ID: 1847858 ***************
+01/31/2022 03:26:54 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 03:27:29 PM: INFO: ***************create Release successful. Release ID: 1847859 ***************
+01/31/2022 03:27:45 PM: INFO: ********Search for release successful. Displayed Release ID : 1847859 ************
+01/31/2022 03:27:45 PM: INFO: ********test_015_search_for_created_release : passed*******
+01/31/2022 03:27:45 PM: INFO: *********test_015_search_for_created_release : completed ********
+01/31/2022 04:22:01 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 04:23:18 PM: INFO: ***************create Release successful. Release ID: 1847998 ***************
+01/31/2022 04:23:42 PM: INFO: ********Search for release successful. Displayed Release ID : 1847998 ************
+01/31/2022 04:23:42 PM: INFO: ********test_015_search_for_created_release : passed*******
+01/31/2022 04:23:42 PM: INFO: *********test_015_search_for_created_release : completed ********
+01/31/2022 04:24:18 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 04:25:39 PM: INFO: ***************create Release successful. Release ID: 1848000 ***************
+01/31/2022 04:26:09 PM: INFO: ********Search for release successful. Displayed Release ID : 1848000 ************
+01/31/2022 04:26:09 PM: INFO: ********test_015_search_for_created_release : passed*******
+01/31/2022 04:26:09 PM: INFO: *********test_015_search_for_created_release : completed ********
+01/31/2022 04:39:11 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 04:40:40 PM: INFO: ***************create Release successful. Release ID: 1848019 ***************
+01/31/2022 04:41:02 PM: INFO: ********Search for release successful. Displayed Release ID : 1848019 ************
+01/31/2022 04:41:02 PM: INFO: ********test_015_search_for_created_release : passed*******
+01/31/2022 04:41:02 PM: INFO: *********test_015_search_for_created_release : completed ********
+01/31/2022 05:30:02 PM: INFO: ********test_015_search_for_created_release : started********
+01/31/2022 05:31:36 PM: INFO: ***************create Release successful. Release ID: 1848054 ***************
+01/31/2022 05:32:10 PM: INFO: ********Search for release successful. Displayed Release ID : 1848054 ************
+01/31/2022 05:32:10 PM: INFO: ********test_015_search_for_created_release : passed*******
+01/31/2022 05:32:10 PM: INFO: *********test_015_search_for_created_release : completed ********
+01/31/2022 05:37:41 PM: INFO: *****test_027_v8_user_discard_confirmation_of_v5_confirmed_override_v4 : started******
+01/31/2022 05:38:54 PM: INFO: ***************create Release successful. Release ID: 1848060 ***************
+01/31/2022 05:39:35 PM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+01/31/2022 05:40:00 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l **********
+01/31/2022 05:40:06 PM: INFO: ********precheck confirmation successful : Displayed : SW Module**********
+01/31/2022 05:40:45 PM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation***********
+01/31/2022 05:41:32 PM: INFO: *****confirm release as v5 user successful : Decided by v7_automation_v5_user [v7_automation_v5_user]*******
+01/31/2022 05:41:51 PM: INFO: ********V5 confirmed release displayed. Release id : 1848060 *******

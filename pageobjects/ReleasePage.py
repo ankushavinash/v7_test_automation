@@ -723,3 +723,34 @@ class ReleasePage:
         else:
             assert False, "confirm release as v6 user unsuccessful."
 
+    # author : ankush
+    # since : 2022-01-31
+    # this method is use to click on  v7 user confirmation project as v7 user
+    # argument :
+    # return :
+    link_User_confirmation_record_v7_user_xpath = "//*[@id='ReportOutput']/tbody/tr[6]/td[2]/span/a"
+    def click_user_confirmation_project_v7_user(self):
+        parent_window = self.driver.current_window_handle
+        self.driver.switch_to.frame("4ea6d89b-d573-4aa9-bfe5-1209284765c4")
+        self.bu.click((By.XPATH, self.link_User_confirmation_record_v7_user_xpath))
+        self.bu.switch_to_child_window(parent_window)
+
+    # author : ankush
+    # since : 2022-01-11
+    # this method is use to click on  confirmation button of part modules as v7 user
+    # argument :
+    # return :
+    button_v7_user_all_part_modules_accept_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[9]/span[1]"
+    button_v7_first_part_module_accept_tick_button_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[1]/span[1]"
+    def confirm_part_modules_as_v7_user_override_v4_v5_and_v6(self):
+        by_locator = (By.XPATH, self.button_v7_user_all_part_modules_accept_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                self.bu.click((By.ID, self.checkbox_override_id))
+                by_tick = (By.XPATH, self.button_v7_first_part_module_accept_tick_button_xpath)
+                WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
+                self.bu.click((By.XPATH, self.button_v7_user_all_part_modules_accept_button_xpath))
+                assert True, "V7 Confirmation button displayed"
+        except TimeoutException:
+            assert False, "V7 Confirmation button not displayed"
+
