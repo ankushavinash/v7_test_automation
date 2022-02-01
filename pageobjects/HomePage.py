@@ -140,6 +140,7 @@ class HomePage:
     def login_again_and_search_release(self, username, password, release_id):
         self.bu.logout_application()
         self.bu.login_application(username, password)
+        self.search_application("V4..V8 Admin")
         self.search_and_open_the_release_from_all_items(release_id)
         if self.bu.is_displayed((By.CLASS_NAME, "highlighter")):
             text = self.bu.get_text((By.CLASS_NAME, "highlighter"))

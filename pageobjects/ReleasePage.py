@@ -754,3 +754,39 @@ class ReleasePage:
         except TimeoutException:
             assert False, "V7 Confirmation button not displayed"
 
+    # author : ankush
+    # since : 2022-02-01
+    # this method is use to click on reject button of all part modules as v7 user
+    # argument :
+    # return :
+    button_v7_user_all_part_modules_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[9]/span[2]"
+    button_v7_first_part_module_reject_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[1]/span[2]"
+    def reject_part_modules_as_v7_user_override_v4_v5_and_v6_user(self):
+        by_locator = (By.XPATH, self.button_v7_user_all_part_modules_reject_button_xpath)
+        try:
+            if WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_locator)):
+                # click on override
+                self.bu.click((By.ID, self.checkbox_override_id))
+                by_tick = (By.XPATH, self.button_v7_first_part_module_reject_tick_xpath)
+                WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(by_tick))
+                self.bu.click((By.XPATH, self.button_v7_user_all_part_modules_reject_button_xpath))
+                assert True, "V7 reject button displayed"
+        except TimeoutException:
+            assert False, "V7 reject button not displayed"
+
+    # author : ankush
+    # since : 2022-02-01
+    # this method is use for user confirmation as v7 user by overriding v4 user and V5 user
+    # argument :
+    # return :
+    def user_confirmation_as_v7_user_override_v4_v5_and_v6_user(self):
+        self.click_child_confirmation()
+        self.click_user_confirmation_project_v7_user()
+        self.click_confirmation_or_reject_button()
+        self.confirm_part_modules_as_v7_user_override_v4_v5_and_v6()
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[2]")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[2]"))
+            return text
+        else:
+            assert False, "confirm release as v7 user unsuccessful."

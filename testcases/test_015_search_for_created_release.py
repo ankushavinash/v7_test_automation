@@ -25,6 +25,7 @@ class TestSearchForCreatedRelease:
         bu = BrowserUtilities(driver)
 
         # Test data setup
+        application = "V4..V8 Admin"
         project = "V7 Release Administration"
         title = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 1))
         description = str(xlUtilis.read_data(test_data_path, 'Basic_Information_Release', 2, 2))
@@ -38,6 +39,9 @@ class TestSearchForCreatedRelease:
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         rp.click_close_icon()
+        bu.logout_application()
+        bu.login_application(normal_user, password)
+        hp.search_application(application)
 
         # click on search for items and reports
         hp.click_search_for_item_and_reports()
