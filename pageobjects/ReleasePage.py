@@ -790,3 +790,30 @@ class ReleasePage:
             return text
         else:
             assert False, "confirm release as v7 user unsuccessful."
+
+    # author : ankush
+    # since : 2022-02-01
+    # this method is use to confirm release as v8 user after v7 confirmation
+    # argument : internal comment and release letter comment
+    # return :
+    button_final_v8_confirmation_id = "TransitionId_4030"
+    def click_v8_confirmation(self, release_letter_comment, internal_comments):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_final_v8_confirmation_id))
+        self.set_release_letter_comment(release_letter_comment)
+        self.set_internal_comment(internal_comments)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-01-03
+    # this method is use to reject release as v8 user after all confirmation
+    # argument : release letter comment and internal comment
+    # return :
+    button_final_v8_rejection_id = "TransitionId_4031"
+    def click_v8_rejection(self, release_letter_comment, internal_comment):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_final_v8_rejection_id))
+        self.set_release_letter_comment(release_letter_comment)
+        self.set_internal_comment(internal_comment)
+        self.click_ok()
+
