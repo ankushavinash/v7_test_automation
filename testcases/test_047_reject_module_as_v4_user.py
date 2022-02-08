@@ -11,12 +11,12 @@ from utilities.customLogger import LogGen
 # @pytest.mark.smoke
 # @pytest.mark.regression
 # @flaky(max_runs=3, min_passes=1)
-class TestConfirmationReleaseAsV7UserOverrideOtherUser:
+class Test_047:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_036_confirmation_release_as_v7_user_override_other_user(self, setup):
-        self.logger.info("********test_036_confirmation_release_as_v7_user_override_other_user : started********")
+    def test_047_reject_module_as_v4_user(self, setup):
+        self.logger.info("********test_047_reject_module_as_v4_user : started********")
 
         # Setup
         driver = setup[0]
@@ -35,9 +35,12 @@ class TestConfirmationReleaseAsV7UserOverrideOtherUser:
         care_group = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 1))
         care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 2))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_011', 2, 1))
-        v7_user = str(xlUtilis.read_data(test_data_path, 'Login', 6, 2))
-        v7_password = str(xlUtilis.read_data(test_data_path, 'Login', 6, 3))
-        bu.login_application(v7_user, v7_password)
+        normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 2, 2))
+        password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
+        v4_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
+        v4_password = str(xlUtilis.read_data(test_data_path, 'Login', 3, 3))
+        bu.login_application(normal_user, password)
+        main_window = driver.current_window_handle
 
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
@@ -50,31 +53,38 @@ class TestConfirmationReleaseAsV7UserOverrideOtherUser:
         self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
         self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
+        rp.click_close_icon()
+        hp.login_again_and_search_release(v4_user, v4_password, release_id)
+        driver.switch_to.frame("issuedetails-frame-iframe")
 
         # click on child confirmation
         rp.click_child_confirmation()
-        # click on user confirmation record
-        rp.click_user_confirmation_project_v7_user()
-        # click confirmation button
-        rp.click_confirmation_or_reject_button()
-        # confirm part modules as v7 user override v4, v5 and v6 user
-        rp.confirm_part_modules_as_v7_user_override_v4_v5_and_v6()
-        self.logger.info("*********Confirm part modules as V7 user override V4, V5 and v6 user*********")
-        # click OK
+        # click on module confirmation as v4 user
+        rp.click_module_confirmation()
+        # click on reject button as V4 user to reject module
+        bu.switch_to_child_window(main_window)
+        driver.switch_to.frame("ViewFrame")
+        button_reject_id = "TransitionId_3581"
+        driver.find_element_by_id(button_reject_id).click()
+        textbox_reject_v4_comment_id = "F11865"
+        driver.find_element_by_id(textbox_reject_v4_comment_id).send_keys("v4 reject comment automation test")
+        # rp.reject_module_as_v4_user()
+        # rp.click_confirm(main_window)
+        # click on Ok to confirm the module
         rp.click_ok()
 
         # validation
-        if bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[2]")):
-            text = bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[2]"))
-            self.logger.info("******confirm release as v7 user successful : " + text + "*******")
-            assert True, "confirm release as v7 user successful : " + text
+        if bu.is_displayed((By.ID, "F11197")):
+            text = bu.get_text((By.ID, "F11197"))
+            self.logger.info("******reject module as v4 user successful. status : " + text + "*******")
+            assert True, "reject module as v4 user successful. status : " + text
         else:
-            self.logger.info("******confirm release as v7 user unsuccessful*******")
-            assert False, "confirm release as v7 user unsuccessful."
+            self.logger.info("******reject module as v4 user unsuccessful*******")
+            assert False, "reject module as v4 user unsuccessful."
 
-        self.logger.info("******test_036_confirmation_release_as_v7_user_override_other_user  : passed*******")
-        self.logger.info("******test_036_confirmation_release_as_v7_user_override_other_user  : completed ********")
-
-
+        self.logger.info("********test_047_reject_module_as_v4_user  : passed*******")
+        self.logger.info("*********test_047_reject_module_as_v4_user  : completed ********")
 
 
+#
+#

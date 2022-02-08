@@ -8,15 +8,14 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-# @pytest.mark.smoke
 # @pytest.mark.regression
 # @flaky(max_runs=3, min_passes=1)
-class Test_040:
+class Test_041:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_040_v8_user_rejection_of_v7_confirmed_release_override_v4_v5_v6(self, setup):
-        self.logger.info("*****test_040_v8_user_rejection_of_v7_confirmed_override_v4_v5_v6 : started*******")
+    def test_041_v8_conf_of_v7_confirmed_release_override_v4_v5_v6(self, setup):
+        self.logger.info("****test_041_v8_conf_of_v7_confirmed_release_override_v4_v5_v6 : started****")
 
         # Setup
         driver = setup[0]
@@ -46,38 +45,38 @@ class Test_040:
 
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
-        self.logger.info("*****create Release successful. Release ID: " + release_id + " *******")
+        self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
-        self.logger.info("****akv variant selected. Variant name: " + akv_variant + "*****")
+        self.logger.info("***akv variant selected. Variant name: " + akv_variant + "****")
         a2l_file = rp.select_a2l_data(a2l_file_name)
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + " **********")
         precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "**********")
+        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
         self.logger.info("****import AKV from care is successful : " + import_akv_confirmation + "******")
         v7_confirmed_release = rp.user_confirmation_as_v7_user_override_v4_v5_and_v6_user()
         driver.switch_to.window(main_window)
-        self.logger.info("***confirm release as v7 user successful : " + v7_confirmed_release + "****")
+        self.logger.info("*****confirm release as v7 user successful : " + v7_confirmed_release + "******")
         rp.click_close_icon()
-        # Do logout and login again as V8 user and search for v4 confirmed release
+        # Do logout and login again as V8 user and search for v5 confirmed release
         v7_confirmed_release_id = hp.login_again_and_search_release(v8_user, v8_password, release_id)
-        self.logger.info("*******V7 confirmed release displayed. Release id : " + v7_confirmed_release_id + " *******")
+        self.logger.info("***V7 confirmed release displayed. Release id : " + v7_confirmed_release_id + " ****")
 
-        # reject release as V8 user override pending confirmation
-        rp.click_v8_rejection(internal_comment, release_letter_comment)
+        # V8 confirmation
+        rp.click_v8_confirmation(release_letter_comment, internal_comment)
 
         # validation
         driver.switch_to.frame("schFrame")
         if bu.is_displayed((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b")):
             text = bu.get_text((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b"))
-            self.logger.info("*******V8 user rejection successful. Status : " + text + "**********")
-            assert True, "V8 user rejection successful. Status : " + text
+            self.logger.info("*******V8 user confirmation successful. Status : " + text + "**********")
+            assert True, "V8 user confirmation successful. Status : " + text
         else:
-            self.logger.info("*******V8 user rejection of release unsuccessful*********")
-            assert False, "V8 user rejection of release unsuccessful. Release is not confirmed"
+            self.logger.info("*******V8 user confirmation of release unsuccessful*********")
+            assert False, "V8 user confirmation of release unsuccessful. Release is not confirmed"
 
-        self.logger.info("***test_040_v8_user_rejection_of_v7_confirmed_override_v4_v5_v6 : passed****")
-        self.logger.info("***test_040_v8_user_rejection_of_v7_confirmed_override_v4_v5_v6 : completed ****")
+        self.logger.info("****test_041_v8_conf_of_v7_confirmed_release_override_v4_v5_v6 : passed****")
+        self.logger.info("****test_041_v8_conf_of_v7_confirmed_release_override_v4_v5_v6 : completed ****")
 
 
 

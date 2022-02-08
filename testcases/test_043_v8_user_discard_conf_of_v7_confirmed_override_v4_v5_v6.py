@@ -11,12 +11,12 @@ from utilities.customLogger import LogGen
 @pytest.mark.smoke
 @pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
-class Test_041:
+class Test_043:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_041_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6(self, setup):
-        self.logger.info("***test_041_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6 : started***")
+    def test_043_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6(self, setup):
+        self.logger.info("***test_043_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6 : started***")
 
         # Setup
         driver = setup[0]
@@ -76,8 +76,8 @@ class Test_041:
             self.logger.info("*******V8 user rejection of release unsuccessful*********")
             assert False, "V8 user rejection of release unsuccessful. Release is not confirmed"
 
-        self.logger.info("****test_041_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6 : passed****")
-        self.logger.info("****test_041_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6 : completed******")
+        self.logger.info("****test_043_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6 : passed****")
+        self.logger.info("****test_043_v8_user_discard_conf_of_v7_confirmed_override_v4_v5_v6 : completed******")
 
 
 

@@ -15,8 +15,8 @@ class Test_038:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_038_discard_v7_confirmed_release_as_v7_user(self, setup):
-        self.logger.info("********test_038_discard_v7_confirmed_release_as_v7_user : started********")
+    def test_038_confirmation_release_as_v7_user_override_other_user(self, setup):
+        self.logger.info("********test_038_confirmation_release_as_v7_user_override_other_user : started********")
 
         # Setup
         driver = setup[0]
@@ -35,43 +35,46 @@ class Test_038:
         care_group = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 1))
         care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 2))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_011', 2, 1))
-        release_letter_comment = str(xlUtilis.read_data(test_data_path, 'tc_004', 2, 1))
-        internal_comment = str(xlUtilis.read_data(test_data_path, 'tc_004', 2, 2))
         v7_user = str(xlUtilis.read_data(test_data_path, 'Login', 6, 2))
         v7_password = str(xlUtilis.read_data(test_data_path, 'Login', 6, 3))
         bu.login_application(v7_user, v7_password)
-        main_window = driver.current_window_handle
+
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
         self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file_name)
-        self.logger.info("********a2l file selected. A2l File name : " + a2l_file + " **********")
+        self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "***********")
         precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "************")
+        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
-        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "**************")
-        v7_confirm_release = rp.user_confirmation_as_v7_user_override_v4_v5_and_v6_user()
-        driver.switch_to.window(main_window)
-        driver.switch_to.frame("issuedetails-frame")
-        self.logger.info("*********confirm release as v7 user successful : " + v7_confirm_release + "*******")
+        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
 
-        # click discard complete confirmation and add comment
-        rp.discard_complete_confirmation(release_letter_comment, internal_comment)
+        # click on child confirmation
+        rp.click_child_confirmation()
+        # click on user confirmation record
+        rp.click_user_confirmation_project_v7_user()
+        # click confirmation button
+        rp.click_confirmation_or_reject_button()
+        # confirm part modules as v7 user override v4, v5 and v6 user
+        rp.confirm_part_modules_as_v7_user_override_v4_v5_and_v6()
+        self.logger.info("*********Confirm part modules as V7 user override V4, V5 and v6 user*********")
+        # click OK
+        rp.click_ok()
 
-        # Discard validation
-        driver.switch_to.frame("schFrame")
-        if bu.is_displayed((By.XPATH, "//*[@id='schdata']/tbody/tr/td[12]//tr[2]")):
-            text = bu.get_text((By.XPATH, "//*[@id='schdata']/tbody/tr/td[12]//tr[2]"))
-            self.logger.info("**********Discard release successful. Status : " + text + "**************")
-            assert True, "Discard release successful. Status : " + text
+        # validation
+        if bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[2]")):
+            text = bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[2]"))
+            v7_user_validation = text.replace("[v7_automation_v7_user]", "").strip()
+            self.logger.info("******confirm release as v7 user successful : " + v7_user_validation + "*******")
+            assert True, "confirm release as v7 user successful : " + v7_user_validation
         else:
-            self.logger.info("*********Discard release unsuccessful***********")
-            assert False, "Discard release unsuccessful. Inactive not displayed"
+            self.logger.info("******confirm release as v7 user unsuccessful*******")
+            assert False, "confirm release as v7 user unsuccessful."
 
-        self.logger.info("********test_038_discard_v7_confirmed_release_as_v7_user : passed*******")
-        self.logger.info("*********test_038_discard_v7_confirmed_release_as_v7_user : completed ********")
+        self.logger.info("******test_038_confirmation_release_as_v7_user_override_other_user  : passed*******")
+        self.logger.info("******test_038_confirmation_release_as_v7_user_override_other_user  : completed ********")
 
 
 
