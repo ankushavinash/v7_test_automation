@@ -52,19 +52,24 @@ class Test_048:
         a2l_file = rp.select_a2l_data(a2l_file_name)
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "***********")
         precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
+        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "**********")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
-        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
-        rp.click_close_icon()
+        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "************")
         hp.login_again_and_search_release(v4_user, v4_password, release_id)
+        confirm_module_as_v4 = rp.module_confirmation_as_v4_user(main_window)
+        self.logger.info("******confirm module as v4 user successful. status : " + confirm_module_as_v4 + "*******")
+        self.logger.info("**********Login as V5 user : " + v5_user + "***********")
+        driver.switch_to.window(main_window)
+        hp.login_again_and_search_release(v5_user, v5_password, release_id)
         driver.switch_to.frame("issuedetails-frame-iframe")
+        self.logger.info("*******Search for v4 confirmed module. Release ID: " + release_id + " *********")
 
         # click on child confirmation
         rp.click_child_confirmation()
         # click on module confirmation as v5 user
         rp.click_module_confirmation()
-        # click on confirm button as V4 user to confirm module
-        rp.click_confirm(main_window)
+        # click on confirm button as V5 user to confirm module
+        rp.click_confirm_as_v5_user(main_window)
         # click on Ok to confirm the module
         rp.click_ok()
 

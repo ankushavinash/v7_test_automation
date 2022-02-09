@@ -57,7 +57,6 @@ class TestV5UserRejectionOfV4ConfirmedRelease:
         v4_confirm_release = rp.user_confirmation_as_v4_user()
         driver.switch_to.window(main_window)
         self.logger.info("*******confirm release as v4 user successful : " + v4_confirm_release + "*********")
-        rp.click_close_icon()
 
         # login again as V5 user
         hp.login_again_and_search_release(v5_user, v5_password, release_id)

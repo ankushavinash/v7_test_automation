@@ -53,7 +53,6 @@ class Test_046:
         self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
         self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
-        rp.click_close_icon()
         hp.login_again_and_search_release(v4_user, v4_password, release_id)
         driver.switch_to.frame("issuedetails-frame-iframe")
 

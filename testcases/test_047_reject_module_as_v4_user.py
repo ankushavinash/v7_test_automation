@@ -35,6 +35,7 @@ class Test_047:
         care_group = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 1))
         care_akv_variant = str(xlUtilis.read_data(test_data_path, 'tc_008', 2, 2))
         a2l_file_name = str(xlUtilis.read_data(test_data_path, 'tc_011', 2, 1))
+        reject_comment_v4_user = str(xlUtilis.read_data(test_data_path, 'tc_047', 2, 1))
         normal_user = str(xlUtilis.read_data(test_data_path, 'Login', 2, 2))
         password = str(xlUtilis.read_data(test_data_path, 'Login', 2, 3))
         v4_user = str(xlUtilis.read_data(test_data_path, 'Login', 3, 2))
@@ -53,7 +54,6 @@ class Test_047:
         self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
         self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
-        rp.click_close_icon()
         hp.login_again_and_search_release(v4_user, v4_password, release_id)
         driver.switch_to.frame("issuedetails-frame-iframe")
 
@@ -61,16 +61,9 @@ class Test_047:
         rp.click_child_confirmation()
         # click on module confirmation as v4 user
         rp.click_module_confirmation()
-        # click on reject button as V4 user to reject module
-        bu.switch_to_child_window(main_window)
-        driver.switch_to.frame("ViewFrame")
-        button_reject_id = "TransitionId_3581"
-        driver.find_element_by_id(button_reject_id).click()
-        textbox_reject_v4_comment_id = "F11865"
-        driver.find_element_by_id(textbox_reject_v4_comment_id).send_keys("v4 reject comment automation test")
-        # rp.reject_module_as_v4_user()
-        # rp.click_confirm(main_window)
-        # click on Ok to confirm the module
+        # click on reject button as V4 user and enter comment to reject module
+        rp.click_reject_as_v4_user(reject_comment_v4_user, main_window)
+        # click on Ok to reject the release
         rp.click_ok()
 
         # validation

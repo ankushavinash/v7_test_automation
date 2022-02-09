@@ -26,6 +26,7 @@ class HomePage:
     def __init__(self, driver):
         self.driver = driver
         self.bu = BrowserUtilities(driver)
+        self.rp = ReleasePage(driver)
 
     # author : ankush
     # since : 2021-12-02
@@ -135,9 +136,10 @@ class HomePage:
     # author : ankush
     # since : 2022-01-27
     # this method is to logout and again login as v8 user
-    # argument : item_id
+    # argument : release_id
     # return :
     def login_again_and_search_release(self, username, password, release_id):
+        self.rp.click_close_icon()
         self.bu.logout_application()
         self.bu.login_application(username, password)
         self.search_application("V4..V8 Admin")

@@ -57,9 +57,8 @@ class Test_045:
         v6_confirm_release = rp.user_confirmation_as_v6_user_override_v4_and_v5()
         driver.switch_to.window(main_window)
         self.logger.info("*****confirm release as v6 user successful : " + v6_confirm_release + "*****")
-        rp.click_close_icon()
 
-        # login again as V6 user
+        # login again as V7 user
         hp.login_again_and_search_release(v7_user, v7_password, release_id)
         driver.switch_to.frame("issuedetails-frame")
         self.logger.info("********Login again as V5 user and search release: " + release_id + "********")
