@@ -234,7 +234,7 @@ class BrowserUtilities:
     # return :
     def refresh_browser(self):
         self.driver.refresh()
-        WebDriverWait(self.driver, 30).until((EC.element_to_be_clickable((By.XPATH, self.button_user_role_xpath))))
+        #WebDriverWait(self.driver, 30).until((EC.element_to_be_clickable((By.XPATH, self.button_user_role_xpath))))
         time.sleep(20)
 
     # author : venugopal

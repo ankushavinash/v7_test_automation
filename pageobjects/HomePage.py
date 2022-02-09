@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -139,6 +141,7 @@ class HomePage:
     # argument : release_id
     # return :
     def login_again_and_search_release(self, username, password, release_id):
+        time.sleep(5)
         self.rp.click_close_icon()
         self.bu.logout_application()
         self.bu.login_application(username, password)
