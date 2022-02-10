@@ -953,3 +953,45 @@ class ReleasePage:
         self.driver.switch_to.frame("ViewFrame")
         self.bu.click((By.ID, self.button_reject_v5_user_id))
         self.bu.send_keys((By.ID, self.textbox_reject_comment_v5_user_id), reject_comment_v5_user)
+
+    # author : ankush
+    # since : 2022-02-10
+    # this method is use to click on confirm
+    # argument :
+    # return :
+    button_confirm_v6_user_id = "TransitionId_3583"
+    def click_confirm_as_v6_user(self, main_window):
+        self.bu.switch_to_child_window(main_window)
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_confirm_v6_user_id))
+
+    # author : ankush
+    # since : 2022-02-12
+    # this method is use to confirm module as v5 user
+    # argument : main_window
+    # return : status of confirmation
+    def module_confirmation_as_v5_user(self, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.click_confirm_as_v5_user(main_window)
+        self.click_ok()
+        if self.bu.is_displayed((By.ID, "F11197")):
+            text = self.bu.get_text((By.ID, "F11197"))
+            self.driver.switch_to.parent_frame()
+            return text
+        else:
+            assert False, "confirm module as v5 user unsuccessful."
+
+    # author : ankush
+    # since : 2022-02-11
+    # this method is use to reject module as v6 user
+    # argument :
+    # return :
+    button_reject_v6_user_id = "TransitionId_3591"
+    textbox_reject_comment_v6_user_id = "F11867"
+    def click_reject_as_v6_user(self, reject_comment_v6_user, main_window):
+        self.bu.switch_to_child_window(main_window)
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_reject_v5_user_id))
+        self.bu.send_keys((By.ID, self.textbox_reject_comment_v5_user_id), reject_comment_v6_user)

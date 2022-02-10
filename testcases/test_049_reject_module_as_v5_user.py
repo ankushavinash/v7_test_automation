@@ -16,7 +16,7 @@ class Test_049:
     logger = LogGen.loggen()
 
     def test_049_reject_module_as_v5_user(self, setup):
-        self.logger.info("********test_047_reject_module_as_v5_user : started********")
+        self.logger.info("********test_049_reject_module_as_v5_user : started********")
 
         # Setup
         driver = setup[0]
@@ -83,8 +83,8 @@ class Test_049:
             self.logger.info("******reject module as v6 user unsuccessful*******")
             assert False, "reject module as v5 user unsuccessful."
 
-        self.logger.info("********test_047_reject_module_as_v5_user  : passed*******")
-        self.logger.info("*********test_047_reject_module_as_v5_user  : completed ********")
+        self.logger.info("********test_049_reject_module_as_v5_user  : passed*******")
+        self.logger.info("*********test_049_reject_module_as_v5_user  : completed ********")
 
 
 

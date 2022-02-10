@@ -15,8 +15,8 @@ class Test_050:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_050_module_confirmation_as_v6_user(self, setup):
-        self.logger.info("********test_050_module_confirmation_as_v6_user : started********")
+    def test_051_reject_module_as_v6_user(self, setup):
+        self.logger.info("********test_051_reject_module_as_v6_user : started********")
 
         # Setup
         driver = setup[0]
@@ -43,6 +43,7 @@ class Test_050:
         v5_password = str(xlUtilis.read_data(test_data_path, 'Login', 4, 3))
         v6_user = str(xlUtilis.read_data(test_data_path, 'Login', 5, 2))
         v6_password = str(xlUtilis.read_data(test_data_path, 'Login', 5, 3))
+        reject_comment_v6_user = str(xlUtilis.read_data(test_data_path, 'tc_051', 2, 1))
         bu.login_application(normal_user, password)
         main_window = driver.current_window_handle
 
@@ -76,22 +77,22 @@ class Test_050:
         rp.click_child_confirmation()
         # click on module confirmation as v5 user
         rp.click_module_confirmation()
-        # click on confirm button as V5 user to confirm module
-        rp.click_confirm_as_v6_user(main_window)
-        # click on Ok to confirm the module
+        # click on reject button as V4 user and enter comment to reject module
+        rp.click_reject_as_v6_user(reject_comment_v6_user, main_window)
+        # click on Ok to reject the release
         rp.click_ok()
 
         # validation
         if bu.is_displayed((By.ID, "F11197")):
             text = bu.get_text((By.ID, "F11197"))
-            self.logger.info("******confirm module as v6 user successful. status : " + text + "*******")
-            assert True, "confirm module as v6 user successful. status : " + text
+            self.logger.info("******reject module as v6 user successful. status : " + text + "*******")
+            assert True, "reject module as v6 user successful. status : " + text
         else:
-            self.logger.info("******confirm module as v6 user unsuccessful*******")
-            assert False, "confirm module as v6 user unsuccessful."
+            self.logger.info("******reject module as v6 user unsuccessful*******")
+            assert False, "reject module as v6 user unsuccessful."
 
-        self.logger.info("********test_050_module_confirmation_as_v6_user  : passed*******")
-        self.logger.info("*********test_050_module_confirmation_as_v6_user  : completed ********")
+        self.logger.info("********test_051_reject_module_as_v6_user  : passed*******")
+        self.logger.info("*********test_051_reject_module_as_v6_user  : completed ********")
 
 
 
