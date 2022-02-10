@@ -78,6 +78,7 @@ class HomePage:
         self.bu.click((By.CLASS_NAME, self.dropdown_applicationGroup_class))
         self.bu.send_keys((By.XPATH, self.textbox_search_xpath), application_name)
         if application_name == "V4..V8 Admin":
+            WebDriverWait(self.driver, 30).until((EC.element_to_be_clickable((By.XPATH, self.link_v4application_xpath))))
             self.bu.click((By.XPATH, self.link_v4application_xpath))
         else:
             assert False, "Invalid argument" + application_name

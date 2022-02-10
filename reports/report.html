@@ -441,7 +441,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>V7 Test Automation Report</h1>
-    <p>Report generated on 10-Feb-2022 at 11:21:59 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 10-Feb-2022 at 17:11:43 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -457,7 +457,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Tester</td>
         <td>Ankush Avinash</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 151.33 seconds. </p>
+    <p>1 tests ran in 541.85 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -472,16 +472,25 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">testcases/test_014_successful_import_and_distribution_report_visiblility.py::TestDistributionReportVisibility::test_014_distribution_report_visibility</td>
-          <td class="col-duration">150.83</td>
+          <td class="col-name">testcases/test_052_module_confirmation_as_v7_user.py::Test_052::test_052_module_confirmation_as_v7_user</td>
+          <td class="col-duration">541.50</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:18 ********test_014_distribution report visibility to release : started********
-INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:42 ***************create Release successful. Release ID: 1876323 ***************
-INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:44 ******akv variant selected. Variant name: v7_akv_variant_automation_test *****
-INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:46 ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
-INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:48 ********precheck confirmation successful. Displayed : SW Module*****************
-INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:58 ****distribution report visibility successful : Pass*****
-INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:64 *****test_014_distribution_report_visibility_to_release : passed*******
-INFO     root:test_014_successful_import_and_distribution_report_visiblility.py:65 *****test_014_distribution_report_visibility_to_release : completed *******<br/></div></td></tr></tbody></table></body></html>
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_052_module_confirmation_as_v7_user.py:19 ********test_052_module_confirmation_as_v7_user : started********
+INFO     root:test_052_module_confirmation_as_v7_user.py:53 ***************create Release successful. Release ID: 1876436 ***************
+INFO     root:test_052_module_confirmation_as_v7_user.py:55 ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+INFO     root:test_052_module_confirmation_as_v7_user.py:57 ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+INFO     root:test_052_module_confirmation_as_v7_user.py:59 ********precheck confirmation successful : Displayed : SW Module**********
+INFO     root:test_052_module_confirmation_as_v7_user.py:61 ********import AKV from care is successful : Wait for V7 Confirmation************
+INFO     root:test_052_module_confirmation_as_v7_user.py:64 **********Login as V4 user : v7_automation_v4_user***********
+INFO     root:test_052_module_confirmation_as_v7_user.py:66 ******confirm module as v4 user successful. status : V5 (confirmed by V4)*******
+INFO     root:test_052_module_confirmation_as_v7_user.py:70 **********Login as V5 user : v7_automation_v5_user***********
+INFO     root:test_052_module_confirmation_as_v7_user.py:72 ******confirm module as v5 user successful. status : V6 (confirmed by V5)*******
+INFO     root:test_052_module_confirmation_as_v7_user.py:76 **********Login as V6 user : v7_automation_v6_user***********
+INFO     root:test_052_module_confirmation_as_v7_user.py:78 ******confirm module as v5 user successful. status : V7 (confirmed by V6)*******
+INFO     root:test_052_module_confirmation_as_v7_user.py:82 **********Login as V7 user : v7_automation_v7_user***********
+INFO     root:test_052_module_confirmation_as_v7_user.py:84 *******Search for v6 confirmed module. Release ID: 1876436 *********
+INFO     root:test_052_module_confirmation_as_v7_user.py:98 ******confirm module as v7 user successful. status : Confirmed*******
+INFO     root:test_052_module_confirmation_as_v7_user.py:104 ********test_052_module_confirmation_as_v7_user  : passed*******
+INFO     root:test_052_module_confirmation_as_v7_user.py:105 *********test_052_module_confirmation_as_v7_user  : completed ********<br/></div></td></tr></tbody></table></body></html>
