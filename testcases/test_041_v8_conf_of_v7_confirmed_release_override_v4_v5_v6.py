@@ -8,8 +8,8 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-# @pytest.mark.regression
-# @flaky(max_runs=3, min_passes=1)
+@pytest.mark.regression
+@flaky(max_runs=3, min_passes=1)
 class Test_041:
     # log variable instantiation
     logger = LogGen.loggen()

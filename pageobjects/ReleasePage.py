@@ -1025,3 +1025,16 @@ class ReleasePage:
         self.driver.switch_to.frame("ViewFrame")
         self.bu.click((By.ID, self.button_confirm_v7_user_id))
 
+    # author : ankush
+    # since : 2022-02-11
+    # this method is use to reject module as v6 user
+    # argument :
+    # return :
+    button_reject_v7_user_id = "TransitionId_3593"
+    textbox_reject_comment_v7_user_id = "F11868"
+    def click_reject_as_v7_user(self, reject_comment_v7_user, main_window):
+        self.bu.switch_to_child_window(main_window)
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_reject_v7_user_id))
+        self.bu.send_keys((By.ID, self.textbox_reject_comment_v7_user_id), reject_comment_v7_user)
+
