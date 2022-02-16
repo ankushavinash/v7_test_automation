@@ -11,7 +11,7 @@ from utilities.customLogger import LogGen
 
 @pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
-class TestAddCommentAndUploadA2lFile:
+class Test_009:
     # log variable instantiation
     logger = LogGen.loggen()
 

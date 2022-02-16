@@ -1,10 +1,8 @@
 import time
-
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from utilities.browserUtilis import BrowserUtilities
 
 
@@ -20,7 +18,7 @@ class ReleasePage:
     textbox_description_xpath = "//textarea[@id='F11203']"
     textbox_v8_release_date_xpath = "//*[@id='F13445']"
     textbox_v8_xpath = "//*[@id='F12646.wrapper']/div/table/tbody/tr[1]/td/input[2]"
-    button_search_v8_name_xpath =   "//*[@id='F12646.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    button_search_v8_name_xpath = "//*[@id='F12646.wrapper']/div/table/tbody/tr[1]/td/input[1]"
     dropdown_v8_user_id = "F12646_LEFT"
     button_select_v8_xpath = "//*[@id='F12646.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     textbox_project_write_access_user_xpath = "//*[@id='F12645.wrapper']/div/table/tbody/tr[1]/td/input[2]"
@@ -36,12 +34,12 @@ class ReleasePage:
     link_upload_a2l_data_linktext = "Upload A2L Data"
     button_care_akv_varient_for_a2l_data_xpath = "//*[@id='Button20']"
     textbox_search_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
-    checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[140]/td[1]/input"
+    checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[139]/td[1]/input"
     textbox_comment_id = "a2luploadcomment"
     a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
     button_select_a2l_data_xpath = "//*[@id='Button19']"
     textbox_search_user_comment_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
-    radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[275]/td[1]/input"
+    radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[273]/td[1]/input"
     button_precheck_care_and_a2l_data_xpath = "//*[@id='Button22']"
     textbox_internal_comment_id = "H11204"
     textbox_release_letter_comment_xpath = "//*[@id='F14387']"
@@ -64,6 +62,28 @@ class ReleasePage:
     link_User_confirmation_record_v6_user_xpath = "//*[@id='ReportOutput']/tbody/tr[5]/td[2]/span/a"
     button_v6_user_confirm_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[8]/span[1]"
     button_v6_accept_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[8]/p[1]/span[1]"
+    button_v6_user_all_part_modules_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[8]/span[1]"
+    button_v6_first_part_module_reject_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[8]/p[1]/span[2]"
+    link_User_confirmation_record_v7_user_xpath = "//*[@id='ReportOutput']/tbody/tr[6]/td[2]/span/a"
+    button_v7_user_all_part_modules_accept_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[9]/span[1]"
+    button_v7_first_part_module_accept_tick_button_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[1]/span[1]"
+    button_v7_user_all_part_modules_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[9]/span[2]"
+    button_v7_first_part_module_reject_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[1]/span[2]"
+    button_final_v8_confirmation_id = "TransitionId_4030"
+    button_final_v8_rejection_id = "TransitionId_4031"
+    link_first_module_xpath = "//a[@title= 'A0 (1.0.0)']"
+    button_confirm_id = "TransitionId_3580"
+    button_reject_id = "TransitionId_3581"
+    textbox_reject_comment_v4_user_id = "F11865"
+    button_confirm_v5_user_id = "TransitionId_3582"
+    button_reject_v5_user_id = "TransitionId_3589"
+    textbox_reject_comment_v5_user_id = "F11866"
+    button_confirm_v6_user_id = "TransitionId_3583"
+    button_reject_v6_user_id = "TransitionId_3591"
+    textbox_reject_comment_v6_user_id = "F11867"
+    button_confirm_v7_user_id = "TransitionId_3586"
+    button_reject_v7_user_id = "TransitionId_3593"
+    textbox_reject_comment_v7_user_id = "F11868"
 
     def __init__(self, driver):
         self.driver = driver
@@ -694,8 +714,6 @@ class ReleasePage:
     # this method is use to click on  reject button of part modules as v6 user
     # argument :
     # return :
-    button_v6_user_all_part_modules_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[8]/span[1]"
-    button_v6_first_part_module_reject_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[8]/p[1]/span[2]"
     def reject_part_modules_as_v6_user_override_v4_and_v5(self):
         by_locator = (By.XPATH, self.button_v6_user_all_part_modules_reject_button_xpath)
         try:
@@ -732,7 +750,6 @@ class ReleasePage:
     # this method is use to click on  v7 user confirmation project as v7 user
     # argument :
     # return :
-    link_User_confirmation_record_v7_user_xpath = "//*[@id='ReportOutput']/tbody/tr[6]/td[2]/span/a"
     def click_user_confirmation_project_v7_user(self):
         parent_window = self.driver.current_window_handle
         self.driver.switch_to.frame("4ea6d89b-d573-4aa9-bfe5-1209284765c4")
@@ -744,8 +761,6 @@ class ReleasePage:
     # this method is use to click on  confirmation button of part modules as v7 user
     # argument :
     # return :
-    button_v7_user_all_part_modules_accept_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[9]/span[1]"
-    button_v7_first_part_module_accept_tick_button_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[1]/span[1]"
     def confirm_part_modules_as_v7_user_override_v4_v5_and_v6(self):
         by_locator = (By.XPATH, self.button_v7_user_all_part_modules_accept_button_xpath)
         try:
@@ -763,8 +778,6 @@ class ReleasePage:
     # this method is use to click on reject button of all part modules as v7 user
     # argument :
     # return :
-    button_v7_user_all_part_modules_reject_button_xpath = "//*[@id='ucmatrix']/tbody/tr[1]/th[9]/span[2]"
-    button_v7_first_part_module_reject_tick_xpath = "//*[@id='ucmatrix']/tbody/tr[2]/td[9]/p[1]/span[2]"
     def reject_part_modules_as_v7_user_override_v4_v5_and_v6_user(self):
         by_locator = (By.XPATH, self.button_v7_user_all_part_modules_reject_button_xpath)
         try:
@@ -800,7 +813,6 @@ class ReleasePage:
     # this method is use to confirm release as v8 user after v7 confirmation
     # argument : internal comment and release letter comment
     # return :
-    button_final_v8_confirmation_id = "TransitionId_4030"
     def click_v8_confirmation(self, release_letter_comment, internal_comments):
         self.driver.switch_to.frame("issuedetails-frame")
         self.bu.click((By.ID, self.button_final_v8_confirmation_id))
@@ -813,7 +825,6 @@ class ReleasePage:
     # this method is use to reject release as v8 user after all confirmation
     # argument : release letter comment and internal comment
     # return :
-    button_final_v8_rejection_id = "TransitionId_4031"
     def click_v8_rejection(self, release_letter_comment, internal_comment):
         self.driver.switch_to.frame("issuedetails-frame")
         self.bu.click((By.ID, self.button_final_v8_rejection_id))
@@ -882,7 +893,6 @@ class ReleasePage:
     # this method is use to clcik on first module to navigate to confirmation page
     # argument :
     # return :
-    link_first_module_xpath = "//a[@title= 'A0 (1.0.0)']"
     def click_module_confirmation(self):
         self.driver.switch_to.frame("d40aa4b3-f81d-4f82-b8bf-af6b57d91fa1")
         self.bu.click((By.XPATH, self.link_first_module_xpath))
@@ -892,7 +902,6 @@ class ReleasePage:
     # this method is use to click on confirm
     # argument :
     # return :
-    button_confirm_id = "TransitionId_3580"
     def click_confirm(self, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
@@ -903,8 +912,6 @@ class ReleasePage:
     # this method is use to reject module as v4 user
     # argument :
     # return :
-    button_reject_id = "TransitionId_3581"
-    textbox_reject_comment_v4_user_id = "F11865"
     def click_reject_as_v4_user(self, reject_comment_v4_user, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
@@ -925,7 +932,6 @@ class ReleasePage:
         if self.bu.is_displayed((By.ID, "F11197")):
             text = self.bu.get_text((By.ID, "F11197"))
             self.driver.switch_to.parent_frame()
-
             return text
         else:
             assert False, "confirm module as v4 user unsuccessful."
@@ -935,7 +941,6 @@ class ReleasePage:
     # this method is use to click on confirm
     # argument :
     # return :
-    button_confirm_v5_user_id = "TransitionId_3582"
     def click_confirm_as_v5_user(self, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
@@ -946,8 +951,6 @@ class ReleasePage:
     # this method is use to reject module as v5 user
     # argument :
     # return :
-    button_reject_v5_user_id = "TransitionId_3589"
-    textbox_reject_comment_v5_user_id = "F11866"
     def click_reject_as_v5_user(self, reject_comment_v5_user, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
@@ -959,7 +962,6 @@ class ReleasePage:
     # this method is use to click on confirm
     # argument :
     # return :
-    button_confirm_v6_user_id = "TransitionId_3583"
     def click_confirm_as_v6_user(self, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
@@ -988,8 +990,6 @@ class ReleasePage:
     # this method is use to reject module as v6 user
     # argument :
     # return :
-    button_reject_v6_user_id = "TransitionId_3591"
-    textbox_reject_comment_v6_user_id = "F11867"
     def click_reject_as_v6_user(self, reject_comment_v6_user, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
@@ -1019,7 +1019,6 @@ class ReleasePage:
     # this method is use to click on confirm
     # argument :
     # return :
-    button_confirm_v7_user_id = "TransitionId_3586"
     def click_confirm_as_v7_user(self, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
@@ -1030,11 +1029,52 @@ class ReleasePage:
     # this method is use to reject module as v6 user
     # argument :
     # return :
-    button_reject_v7_user_id = "TransitionId_3593"
-    textbox_reject_comment_v7_user_id = "F11868"
     def click_reject_as_v7_user(self, reject_comment_v7_user, main_window):
         self.bu.switch_to_child_window(main_window)
         self.driver.switch_to.frame("ViewFrame")
         self.bu.click((By.ID, self.button_reject_v7_user_id))
         self.bu.send_keys((By.ID, self.textbox_reject_comment_v7_user_id), reject_comment_v7_user)
+
+    # author : ankush
+    # since : 2022-02-18
+    # this method is use to confirm module as v7 user
+    # argument : main_window
+    # return : status of confirmation
+    def module_confirmation_as_v7_user(self, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.click_confirm_as_v7_user(main_window)
+        self.click_ok()
+        if self.bu.is_displayed((By.ID, "F11197")):
+            text = self.bu.get_text((By.ID, "F11197"))
+            self.driver.switch_to.parent_frame()
+            return text
+        else:
+            assert False, "confirm module as v7 user unsuccessful."
+
+    # author : ankush
+    # since : 2022-02-15
+    # this method is use to confirm release as v8 user after v7 confirmation
+    # argument : internal comment
+    # return :
+    button_v8_confirmation_after_other_confirmation_id = "TransitionId_4063"
+    def final_v8_confirmation(self, internal_comments):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_v8_confirmation_after_other_confirmation_id))
+        self.set_internal_comment(internal_comments)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-02-16
+    # this method is use to reject release as v8 user after v7 confirmation
+    # argument : release letter comment, internal comment
+    # return :
+    button_v8_rejection_after_all_confirmation_id = "TransitionId_4064"
+    def final_v8_rejection(self, release_letter_comment, internal_comments):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_v8_rejection_after_all_confirmation_id))
+        self.set_release_letter_comment(release_letter_comment)
+        self.set_internal_comment(internal_comments)
+        self.click_ok()
 

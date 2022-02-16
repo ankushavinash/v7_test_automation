@@ -11,7 +11,7 @@ from utilities.customLogger import LogGen
 @pytest.mark.smoke
 @pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
-class TestV8UserRejectionOfV5ConfirmedReleaseOverrideV4:
+class Test_026:
     # log variable instantiation
     logger = LogGen.loggen()
 

@@ -20,6 +20,7 @@ class BrowserUtilities:
     image_header_id = "header-logo_image"
     image_sbm_login_page_id = "solution_name_icon"
     button_user_role_id = "header_user_avatar"
+    button_user_role_xpath = "/html[1]/body[1]/header[1]/div[1]/div[3]/div[2]/div[1]/div[1]/button[1]"
     link_logout_xpath = "//a[contains(text(),'Sign Out')]"
 
     # -------------------------------object initialization----------------------
@@ -234,7 +235,7 @@ class BrowserUtilities:
     # return :
     def refresh_browser(self):
         self.driver.refresh()
-        #WebDriverWait(self.driver, 30).until((EC.element_to_be_clickable((By.XPATH, self.button_user_role_xpath))))
+        WebDriverWait(self.driver, 30).until((EC.element_to_be_clickable((By.XPATH, self.button_user_role_xpath))))
         time.sleep(20)
 
     # author : venugopal

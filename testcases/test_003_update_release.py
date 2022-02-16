@@ -10,7 +10,7 @@ from flaky import flaky
 
 @pytest.mark.regression
 @flaky(max_runs=3, min_passes=1)
-class TestUpdateRelease:
+class Test_003:
     # log variable instantiation
     logger = LogGen.loggen()
 
