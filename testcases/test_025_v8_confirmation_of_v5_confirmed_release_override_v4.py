@@ -15,7 +15,7 @@ class Test_025:
     logger = LogGen.loggen()
 
     def test_025_v8_confirmation_of_v5_confirmed_release_override_v4(self, setup):
-        self.logger.info("*******test_025_v8_confirmation_of_v5_confirmed_release_override_v4 : started*******")
+        self.logger.info("*****test_025_v8_confirmation_of_v5_confirmed_release_override_v4 : started*****")
 
         # Setup
         driver = setup[0]
@@ -44,7 +44,7 @@ class Test_025:
 
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
-        self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
+        self.logger.info("********create Release successful. Release ID: " + release_id + " ********")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
         self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file_name)

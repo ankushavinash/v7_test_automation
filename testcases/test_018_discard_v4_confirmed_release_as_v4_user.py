@@ -44,28 +44,28 @@ class Test_018:
 
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
-        self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
+        self.logger.info("***********create Release successful. Release ID: " + release_id + " *************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
         self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file_name)
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + " **********")
         precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "*****************")
+        self.logger.info("********precheck confirmation successful : Displayed : " + precheck_data + "**************")
         import_akv_confirmation = rp.click_import_akv_from_care_and_start_confirmation_()
-        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*****************")
+        self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "*************")
         v4_confirm_release = rp.user_confirmation_as_v4_user()
         driver.switch_to.window(main_window)
         driver.switch_to.frame("issuedetails-frame")
-        self.logger.info("*********confirm release as v4 user successful : " + v4_confirm_release + "****************")
+        self.logger.info("*******confirm release as v4 user successful : " + v4_confirm_release + "********")
 
         # click discard complete confirmation and add comment
         rp.discard_complete_confirmation(release_letter_comment, internal_comment)
 
         # Discard validation
-        driver.switch_to_frame("schFrame")
+        driver.switch_to.frame("schFrame")
         if bu.is_displayed((By.XPATH, "//*[@id='schdata']/tbody/tr/td[12]//tr[2]")):
             text = bu.get_text((By.XPATH, "//*[@id='schdata']/tbody/tr/td[12]//tr[2]"))
-            self.logger.info("**********Discard release successful. Status : " + text + "**************")
+            self.logger.info("**********Discard release successful. Status : " + text + "************")
             assert True, "Discard release successful. Status : " + text
         else:
             self.logger.info("*********Discard release unsuccessful***********")

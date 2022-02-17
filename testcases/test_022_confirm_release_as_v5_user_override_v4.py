@@ -65,7 +65,8 @@ class Test_022:
         # validation
         if bu.is_displayed((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]")):
             text = bu.get_text((By.XPATH, "//*[@id='ucmatrix']/tbody/tr[2]/td[7]/p[2]"))
-            self.logger.info("******confirm release as v5 user successful : " + text + "*******")
+            v5_user_validation = text.replace("[v7_automation_v5_user]", "").strip()
+            self.logger.info("****confirm release as v5 user successful : " + v5_user_validation + "******")
             assert True, "confirm release as v5 user successful : " + text
         else:
             self.logger.info("******confirm release as v5 user unsuccessful*******")

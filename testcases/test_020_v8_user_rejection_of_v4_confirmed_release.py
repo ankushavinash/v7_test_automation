@@ -60,7 +60,7 @@ class Test_020:
         self.logger.info("********confirm release as v4 user successful : " + v4_confirm_release + "*************")
         # Do logout and login again as V8 user and search for v4 confirmed release
         v4_confirmed_release_id = hp.login_again_and_search_release(v8_user, v8_password, release_id)
-        self.logger.info("********V4 confirmed release displayed. Release id : " + v4_confirmed_release_id + " *******")
+        self.logger.info("******V4 confirmed release displayed. Release id : " + v4_confirmed_release_id + " *******")
 
         # reject release as V8 user override pending confirmation
         rp.reject_release_as_v8_user(internal_comment, release_letter_comment)
@@ -69,7 +69,7 @@ class Test_020:
         driver.switch_to.frame("schFrame")
         if bu.is_displayed((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b")):
             text = bu.get_text((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b"))
-            self.logger.info("*******V8 user rejection successful. Status : " + text + "**********")
+            self.logger.info("*******V8 user rejection successful. Status : " + text + "*********")
             assert True, "V8 user rejection successful. Status : " + text
         else:
             self.logger.info("*******V8 user rejection of release unsuccessful*********")
