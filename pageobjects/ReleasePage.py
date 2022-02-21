@@ -34,7 +34,7 @@ class ReleasePage:
     link_upload_a2l_data_linktext = "Upload A2L Data"
     button_care_akv_varient_for_a2l_data_xpath = "//*[@id='Button20']"
     textbox_search_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
-    checkbox_care_akv_varient_for_a2l_data_xpath = "///*[@id='mrx2table']/tbody/tr[90]/td[1]/input"
+    checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[139]/td[1]/input"
     textbox_comment_id = "a2luploadcomment"
     a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
     button_select_a2l_data_xpath = "//*[@id='Button19']"
