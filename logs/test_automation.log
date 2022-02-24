@@ -1622,3 +1622,46 @@
 02/21/2022 11:52:37 AM: INFO: ******reject module as v7 user successful. status : Rejected*******
 02/21/2022 11:52:37 AM: INFO: ********test_053_reject_module_as_v7_user  : passed*******
 02/21/2022 11:52:37 AM: INFO: *********test_053_reject_module_as_v7_user  : completed ********
+02/22/2022 10:15:27 AM: INFO: ********test_014_distribution report visibility to release : started********
+02/22/2022 10:17:03 AM: INFO: ***************create Release successful. Release ID: 1906450 ***************
+02/22/2022 10:17:56 AM: INFO: ******akv variant selected. Variant name: v7_akv_variant_automation_test *****
+02/22/2022 10:18:23 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+02/22/2022 10:18:39 AM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
+02/22/2022 10:19:30 AM: INFO: ****distribution report visibility successful : Pass*****
+02/22/2022 10:19:30 AM: INFO: *****test_014_distribution_report_visibility_to_release : passed*******
+02/22/2022 10:19:30 AM: INFO: *****test_014_distribution_report_visibility_to_release : completed *******
+02/23/2022 10:03:05 AM: INFO: ********test_047_reject_module_as_v4_user : started********
+02/23/2022 10:03:37 AM: INFO: ***************create Release successful. Release ID: 1911811 ***************
+02/23/2022 10:04:05 AM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+02/23/2022 10:04:15 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+02/23/2022 10:04:18 AM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+02/23/2022 10:04:39 AM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation*****************
+02/23/2022 10:05:39 AM: INFO: ******reject module as v4 user successful. status : V5 (rejected by V4)*******
+02/23/2022 10:05:39 AM: INFO: ********test_047_reject_module_as_v4_user  : passed*******
+02/23/2022 10:05:39 AM: INFO: *********test_047_reject_module_as_v4_user  : completed ********
+02/23/2022 03:00:51 PM: INFO: ********test_014_distribution report visibility to release : started********
+02/23/2022 03:02:22 PM: INFO: ***************create Release successful. Release ID: 1913634 ***************
+02/23/2022 03:03:01 PM: INFO: ******akv variant selected. Variant name: v7_akv_variant_automation_test *****
+02/23/2022 03:03:27 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+02/23/2022 03:03:38 PM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
+02/23/2022 03:04:23 PM: INFO: ****distribution report visibility successful : Pass*****
+02/23/2022 03:04:23 PM: INFO: *****test_014_distribution_report_visibility_to_release : passed*******
+02/23/2022 03:04:23 PM: INFO: *****test_014_distribution_report_visibility_to_release : completed *******
+02/24/2022 07:57:17 AM: INFO: ********test_047_reject_module_as_v4_user : started********
+02/24/2022 07:58:54 AM: INFO: ***************create Release successful. Release ID: 1921630 ***************
+02/24/2022 07:59:26 AM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+02/24/2022 07:59:53 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+02/24/2022 08:00:06 AM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+02/24/2022 08:00:40 AM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation*****************
+02/24/2022 08:02:24 AM: INFO: ******reject module as v4 user successful. status : V5 (rejected by V4)*******
+02/24/2022 08:02:24 AM: INFO: ********test_047_reject_module_as_v4_user  : passed*******
+02/24/2022 08:02:24 AM: INFO: *********test_047_reject_module_as_v4_user  : completed ********
+02/24/2022 12:51:29 PM: INFO: ********test_047_reject_module_as_v4_user : started********
+02/24/2022 12:52:54 PM: INFO: ***************create Release successful. Release ID: 1921937 ***************
+02/24/2022 12:53:24 PM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+02/24/2022 12:53:47 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l***********
+02/24/2022 12:53:53 PM: INFO: ********precheck confirmation successful : Displayed : SW Module*****************
+02/24/2022 12:54:24 PM: INFO: ********import AKV from care is successful : Wait for V7 Confirmation*****************
+02/24/2022 12:56:00 PM: INFO: ******reject module as v4 user successful. status : V5 (rejected by V4)*******
+02/24/2022 12:56:00 PM: INFO: ********test_047_reject_module_as_v4_user  : passed*******
+02/24/2022 12:56:00 PM: INFO: *********test_047_reject_module_as_v4_user  : completed ********
