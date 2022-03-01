@@ -1055,7 +1055,7 @@ class ReleasePage:
             assert False, "confirm module as v7 user unsuccessful."
 
     # author : ankush
-    # since : 2022-02-15
+    # since : 2022-03-01
     # this method is use to confirm release as v8 user after v7 confirmation
     # argument : internal comment
     # return :
@@ -1067,7 +1067,7 @@ class ReleasePage:
         self.click_ok()
 
     # author : ankush
-    # since : 2022-02-16
+    # since : 2022-03-01
     # this method is use to reject release as v8 user after v7 confirmation
     # argument : release letter comment, internal comment
     # return :

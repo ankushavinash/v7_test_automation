@@ -1665,3 +1665,11 @@
 02/24/2022 12:56:00 PM: INFO: ******reject module as v4 user successful. status : V5 (rejected by V4)*******
 02/24/2022 12:56:00 PM: INFO: ********test_047_reject_module_as_v4_user  : passed*******
 02/24/2022 12:56:00 PM: INFO: *********test_047_reject_module_as_v4_user  : completed ********
+02/28/2022 09:46:08 AM: INFO: ********test_056_accept_module_without_q_group : started********
+02/28/2022 09:46:45 AM: INFO: ***************create Release successful. Release ID: 1948709 ***************
+02/28/2022 09:47:08 AM: INFO: ******akv variant selected. Variant name: v7_akv_without_q_automation_test *****
+02/28/2022 11:57:51 AM: INFO: ********test_057_reimport_a2l : started********
+02/28/2022 11:59:18 AM: INFO: ***************create Release successful. Release ID: 1948762 ***************
+02/28/2022 11:59:54 AM: INFO: ******akv variant selected. Variant name: v7_akv_variant_automation_test *****
+02/28/2022 12:00:19 PM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+02/28/2022 12:00:25 PM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
