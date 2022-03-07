@@ -1037,7 +1037,7 @@ class ReleasePage:
         self.bu.send_keys((By.ID, self.textbox_reject_comment_v7_user_id), reject_comment_v7_user)
 
     # author : ankush
-    # since : 2022-02-18
+    # since : 2022-03-03
     # this method is use to confirm module as v7 user
     # argument : main_window
     # return : status of confirmation
@@ -1055,7 +1055,7 @@ class ReleasePage:
             assert False, "confirm module as v7 user unsuccessful."
 
     # author : ankush
-    # since : 2022-03-02
+    # since : 2022-03-07
     # this method is use to confirm release as v8 user after v7 confirmation
     # argument : internal comment
     # return :
@@ -1067,7 +1067,7 @@ class ReleasePage:
         self.click_ok()
 
     # author : ankush
-    # since : 2022-03-03
+    # since : 2022-03-08
     # this method is use to reject release as v8 user after v7 confirmation
     # argument : release letter comment, internal comment
     # return :
