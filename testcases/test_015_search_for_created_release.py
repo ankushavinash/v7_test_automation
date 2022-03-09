@@ -1,3 +1,4 @@
+import time
 import pytest
 from flaky import flaky
 from selenium.webdriver.common.by import By
@@ -38,6 +39,7 @@ class Test_015:
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
+        time.sleep(20)
         rp.click_close_icon()
         bu.logout_application()
         bu.login_application(normal_user, password)

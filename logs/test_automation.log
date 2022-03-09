@@ -1690,3 +1690,8 @@
 03/07/2022 01:27:59 PM: INFO: ******confirm module as v7 user successful. status : Confirmed*******
 03/07/2022 01:27:59 PM: INFO: ********test_052_module_confirmation_as_v7_user  : passed*******
 03/07/2022 01:27:59 PM: INFO: *********test_052_module_confirmation_as_v7_user  : completed ********
+03/09/2022 05:13:33 PM: INFO: ********test_015_search_for_created_release : started********
+03/09/2022 05:14:45 PM: INFO: ***************create Release successful. Release ID: 1983346 ***************
+03/09/2022 05:15:45 PM: INFO: ********Search for release successful. Displayed Release ID : 1983346 ************
+03/09/2022 05:15:45 PM: INFO: ********test_015_search_for_created_release : passed*******
+03/09/2022 05:15:45 PM: INFO: *********test_015_search_for_created_release : completed ********
