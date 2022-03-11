@@ -15,8 +15,8 @@ class Test_035:
     # log variable instantiation
     logger = LogGen.loggen()
 
-    def test_035_v8_user_discard_confirmation_of_v6_confirmed_override_v4_v5(self, setup):
-        self.logger.info("*****test_035_v8_user_discard_conf_of_v6_confirmed_override_v4_and_v5 : started******")
+    def test_035_v8_user_discard_conf_of_v6_confirmed_override_v4_and_v5(self, setup):
+        self.logger.info("*****test_035_v8_user_discard_confirmation_of_v6_confirmed_override_v4_and_v5 : started******")
 
         # Setup
         driver = setup[0]
@@ -46,7 +46,7 @@ class Test_035:
 
         hp.search_project(project)
         release_id = rp.create_release(title, description, date, v8, project_write_access)
-        self.logger.info("******create Release successful. Release ID: " + release_id + " ********")
+        self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
         self.logger.info("********akv variant selected. Variant name: " + akv_variant + "***********")
         a2l_file = rp.select_a2l_data(a2l_file_name)
@@ -75,8 +75,8 @@ class Test_035:
             self.logger.info("*******V8 user rejection of release unsuccessful*********")
             assert False, "V8 user rejection of release unsuccessful. Release is not confirmed"
 
-        self.logger.info("****test_035_v8_user_discard_conf_of_v6_confirmed_override_v4_and_v5 : passed******")
-        self.logger.info("****test_035_v8_user_discard_conf_of_v6_confirmed_override_v4_and_v5 : completed****")
+        self.logger.info("****test_035_v8_user_discard_confirmation_of_v6_confirmed_override_v4_and_v5 : passed******")
+        self.logger.info("****test_035_v8_user_discard_confirmation_of_v6_confirmed_override_v4_and_v5 : completed****")
 
 
 

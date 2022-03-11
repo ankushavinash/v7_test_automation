@@ -1079,3 +1079,30 @@ class ReleasePage:
         self.set_internal_comment(internal_comments)
         self.click_ok()
 
+    # author : ankush
+    # since : 2021-03-11
+    # this method is use to select existing a2l data from list(based on filtering user comment selecting a2l file)
+    # argument : user comment
+    # return :
+    radiobutton_a2l_data_without_q_group_xpath = "//*[@id='mrx2table']/tbody/tr[406]/td[1]/input"
+    def set_a2l_data_without_q_group(self, user_comment):
+        self.bu.send_keys((By.XPATH, self.textbox_search_user_comment_xpath), user_comment)
+        if self.bu.is_selected((By.XPATH, self.radiobutton_a2l_data_without_q_group_xpath)):
+            pass
+        else:
+            self.bu.click((By.XPATH, self.radiobutton_a2l_data_without_q_group_xpath))
+
+    # author : ankush
+    # since : 2021-12-24
+    # this method is use to select existing a2l data(based on filtering user comment selecting a2l file)
+    # argument :
+    # return :
+    def select_a2l_data_without_q_group(self, user_comment):
+        self.click_a2l_data()
+        self.set_a2l_data_without_q_group(user_comment)
+        self.click_ok()
+        if self.bu.is_displayed((By.XPATH, "//*[@id='F14154']")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='F14154']"))
+            return text
+        else:
+            assert False, "a2l data selection unsuccessful. a2l file is not displayed"

@@ -1695,3 +1695,10 @@
 03/09/2022 05:15:45 PM: INFO: ********Search for release successful. Displayed Release ID : 1983346 ************
 03/09/2022 05:15:45 PM: INFO: ********test_015_search_for_created_release : passed*******
 03/09/2022 05:15:45 PM: INFO: *********test_015_search_for_created_release : completed ********
+03/11/2022 10:03:56 AM: INFO: ********test_056_accept_module_without_q_group : started********
+03/11/2022 10:05:37 AM: INFO: ***************create Release successful. Release ID: 2003354 ***************
+03/11/2022 10:06:30 AM: INFO: ******akv variant selected. Variant name: v7_akv_without_q_automation_test *****
+03/11/2022 10:18:28 AM: INFO: ********test_056_accept_module_without_q_group : started********
+03/11/2022 10:19:58 AM: INFO: ***************create Release successful. Release ID: 2003359 ***************
+03/11/2022 10:20:56 AM: INFO: ******akv variant selected. Variant name: v7_akv_without_q_automation_test *****
+03/11/2022 10:21:42 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************

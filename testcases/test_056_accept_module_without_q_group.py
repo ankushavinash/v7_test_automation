@@ -42,14 +42,11 @@ class Test_056:
         self.logger.info("***************create Release successful. Release ID: " + release_id + " ***************")
         akv_variant = rp.set_care_akv_variant(care_group, care_akv_variant)
         self.logger.info("******akv variant selected. Variant name: " + akv_variant + " *****")
-        a2l_file = rp.select_a2l_data(a2l_file_name)
+        a2l_file = rp.select_a2l_data_without_q_group(a2l_file_name)
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "*****************")
         precheck_data = rp.click_precheck_care_a2l_data()
         self.logger.info("********precheck confirmation successful. Displayed : " + precheck_data + "*****************")
         rp.click_import_akv_from_care_and_start_confirmation_()
-        # "//*[@id='mrx2table']/tbody/tr[407]/td[1]/input"
-        # click on child confirmation
-        rp.click_child_confirmation()
 
         # validation of Distribution report visibility
         bu.switch_to_frame("3fd7565f-0120-4acc-a488-544ca02979b7")
