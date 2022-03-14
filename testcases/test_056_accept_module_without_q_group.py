@@ -48,6 +48,11 @@ class Test_056:
         self.logger.info("********precheck confirmation successful. Displayed : " + precheck_data + "*****************")
         rp.click_import_akv_from_care_and_start_confirmation_()
 
+
+
+
+
+
         # validation of Distribution report visibility
         bu.switch_to_frame("3fd7565f-0120-4acc-a488-544ca02979b7")
         if bu.is_displayed((By.XPATH, "//*[@id='reporttitleCell']")):
