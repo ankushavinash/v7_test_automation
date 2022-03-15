@@ -1711,3 +1711,7 @@
 03/14/2022 12:05:12 PM: INFO: ******confirm module as v4 user successful. status : V5 (confirmed by V4)*******
 03/14/2022 12:05:12 PM: INFO: ********test_046_module_confirmation_as_v4_user  : passed*******
 03/14/2022 12:05:12 PM: INFO: *********test_046_module_confirmation_as_v4_user  : completed ********
+03/15/2022 10:26:44 AM: INFO: ********test_056_accept_module_without_q_group : started********
+03/15/2022 10:28:22 AM: INFO: ***************create Release successful. Release ID: 2015876 ***************
+03/15/2022 10:29:06 AM: INFO: ******akv variant selected. Variant name: v7_akv_without_q_automation_test *****
+03/15/2022 10:29:31 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
