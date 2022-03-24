@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from flaky import flaky
 from selenium.webdriver.common.by import By
@@ -6,7 +8,7 @@ from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
-
+import re
 
 @pytest.mark.regression
 #@flaky(max_runs=3, min_passes=1)
@@ -44,19 +46,25 @@ class Test_056:
         self.logger.info("******akv variant selected. Variant name: " + akv_variant + " *****")
         a2l_file = rp.select_a2l_data_without_q_group(a2l_file_name)
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "*****************")
-        precheck_data = rp.click_precheck_care_a2l_data()
-        self.logger.info("********precheck confirmation successful. Displayed : " + precheck_data + "*****************")
-        rp.click_import_akv_from_care_and_start_confirmation_()
+        driver.find_element_by_id("Button22").click()
 
-        # validation of Distribution report visibility
-        bu.switch_to_frame("3fd7565f-0120-4acc-a488-544ca02979b7")
-        if bu.is_displayed((By.XPATH, "//*[@id='reporttitleCell']")):
-            text = bu.get_text((By.XPATH, "//*[@id='reporttitleCell']"))
-            self.logger.info("****distribution report visibility successful : " + "Pass" + "*****")
-            assert True, "distribution report visibility successful : " + text
+        time.sleep(10)
+        a = driver.find_element(by=By.XPATH, value="//*[@id='v7rpcc']/pre").text
+        text = "Accept Modules without Q-Group"
+        # self.logger.info("captured text is : " + a)
+        if a.find(text):
+            self.logger.info("*******A2L data uploaded successfully : " + text + " *********")
         else:
-            self.logger.info("******distribution report visibility unsuccessful*******")
-            assert False, "distribution report visibility unsuccessful."
+            "******** Modules upload failed **********"
+        # # validation of Distribution report visibility
+        # bu.switch_to_frame("3fd7565f-0120-4acc-a488-544ca02979b7")
+        # if bu.is_displayed((By.XPATH, "//*[@id='reporttitleCell']")):
+        #     text = bu.get_text((By.XPATH, "//*[@id='reporttitleCell']"))
+        #     self.logger.info("****distribution report visibility successful : " + "Pass" + "*****")
+        #     assert True, "distribution report visibility successful : " + text
+        # else:
+        #     self.logger.info("******distribution report visibility unsuccessful*******")
+        #     assert False, "distribution report visibility unsuccessful."
 
         self.logger.info("*****test_056_accept_module_without_q_group : passed*******")
         self.logger.info("*****test_056_accept_module_without_q_group : completed *******")
