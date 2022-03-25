@@ -57,14 +57,6 @@ class Test_056:
         else:
             "******** Modules upload failed **********"
         # # validation of Distribution report visibility
-        # bu.switch_to_frame("3fd7565f-0120-4acc-a488-544ca02979b7")
-        # if bu.is_displayed((By.XPATH, "//*[@id='reporttitleCell']")):
-        #     text = bu.get_text((By.XPATH, "//*[@id='reporttitleCell']"))
-        #     self.logger.info("****distribution report visibility successful : " + "Pass" + "*****")
-        #     assert True, "distribution report visibility successful : " + text
-        # else:
-        #     self.logger.info("******distribution report visibility unsuccessful*******")
-        #     assert False, "distribution report visibility unsuccessful."
 
         self.logger.info("*****test_056_accept_module_without_q_group : passed*******")
         self.logger.info("*****test_056_accept_module_without_q_group : completed *******")
