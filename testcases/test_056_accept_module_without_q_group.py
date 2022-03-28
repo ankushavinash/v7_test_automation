@@ -1,17 +1,14 @@
-import time
-
 import pytest
 from flaky import flaky
-from selenium.webdriver.common.by import By
 from pageobjects.HomePage import HomePage
 from pageobjects.ReleasePage import ReleasePage
 from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
-import re
+
 
 @pytest.mark.regression
-#@flaky(max_runs=3, min_passes=1)
+@flaky(max_runs=3, min_passes=1)
 class Test_056:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -46,17 +43,17 @@ class Test_056:
         self.logger.info("******akv variant selected. Variant name: " + akv_variant + " *****")
         a2l_file = rp.select_a2l_data_without_q_group(a2l_file_name)
         self.logger.info("********a2l file selected. A2l File name : " + a2l_file + "*****************")
-        driver.find_element_by_id("Button22").click()
 
-        time.sleep(10)
-        a = driver.find_element(by=By.XPATH, value="//*[@id='v7rpcc']/pre").text
-        text = "Accept Modules without Q-Group"
-        # self.logger.info("captured text is : " + a)
-        if a.find(text):
-            self.logger.info("*******A2L data uploaded successfully : " + text + " *********")
+        # click precheck care and a2l data button
+        rp.click_precheck_care_and_a2l_data()
+
+        # validation of Without q group akv variant selection
+        without_q_group_validation = rp.without_q_group_text_validation()
+        validation_text = "Accept Modules without Q-Group"
+        if without_q_group_validation.find(validation_text):
+            self.logger.info("*******A2L data uploaded successfully : " + validation_text + " *********")
         else:
             "******** Modules upload failed **********"
-        # # validation of Distribution report visibility
 
         self.logger.info("*****test_056_accept_module_without_q_group : passed*******")
         self.logger.info("*****test_056_accept_module_without_q_group : completed *******")

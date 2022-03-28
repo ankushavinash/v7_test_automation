@@ -1111,3 +1111,30 @@ class ReleasePage:
         else:
             assert False, "a2l data selection unsuccessful. a2l file is not displayed"
 
+    # author : ankush
+    # since : 2022-03-28
+    # this method is use to get text for validation without q group
+    # argument :
+    # return : text for without q group validation
+    def without_q_group_text_validation(self):
+        time.sleep(10)
+        if self.bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/pre")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='v7rpcc']/pre"))
+            return text
+        else:
+            assert False, "Modules upload failed"
+
+    # author : ankush
+    # since : 2022-03-28
+    # this method is use to get text for validation without q group
+    # argument :
+    # return : text for without q group validation
+    def override_v8_assignment_and_start_confirmation(self):
+        self.click_ok()
+        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
+
+        if self.bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/pre")):
+            text = self.bu.get_text((By.XPATH, "//*[@id='v7rpcc']/pre"))
+            return text
+        else:
+            assert False, "Modules upload failed"
