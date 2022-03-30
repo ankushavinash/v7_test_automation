@@ -34,7 +34,7 @@ class ReleasePage:
     link_upload_a2l_data_linktext = "Upload A2L Data"
     button_care_akv_varient_for_a2l_data_xpath = "//*[@id='Button20']"
     textbox_search_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
-    checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[139]/td[1]/input"
+    checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[137]/td[1]/input"
     textbox_comment_id = "a2luploadcomment"
     a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
     button_select_a2l_data_xpath = "//*[@id='Button19']"
@@ -1125,16 +1125,33 @@ class ReleasePage:
             assert False, "Modules upload failed"
 
     # author : ankush
-    # since : 2022-03-28
+    # since : 2022-03-30
     # this method is use to get text for validation without q group
     # argument :
     # return : text for without q group validation
+    checkbox_accept_module_without_q_group_id = "SELECT_F13877"
     def override_v8_assignment_and_start_confirmation(self):
         self.click_ok()
         self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
+        self.bu.click((By.ID, self.checkbox_accept_module_without_q_group_id))
+        self.click_ok()
+        self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
+        self.bu.click((By.ID, self.checkbox_override_v8_id))
+        self.click_ok()
 
-        if self.bu.is_displayed((By.XPATH, "//*[@id='v7rpcc']/pre")):
-            text = self.bu.get_text((By.XPATH, "//*[@id='v7rpcc']/pre"))
-            return text
-        else:
-            assert False, "Modules upload failed"
+    # author : ankush
+    # since : 2021-12-07
+    # this method is select V8
+    # argument : v8 user need to select
+    # return :
+    textbox_v4_primary_name = "G11178_LEFT"
+    button_search_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v4_primary_id = "F11178_LEFT"
+    button_select_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def admin_update_responsibility(self, v4_primary):
+        self.bu.send_keys((By.NAME, self.textbox_v4_primary_name), v4_primary)
+        self.bu.click((By.XPATH, self.button_search_v4_primary_xpath))
+        self.bu.select(By.ID, self.dropdown_v4_primary_id, v4_primary)
+        self.bu.click((By.XPATH, self.button_select_v4_primary_xpath))
+        self.click_ok()
+

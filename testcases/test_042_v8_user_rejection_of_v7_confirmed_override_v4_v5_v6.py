@@ -16,7 +16,7 @@ class Test_042:
     logger = LogGen.loggen()
 
     def test_042_v8_user_rejection_of_v7_confirmed_release_override_v4_v5_v6(self, setup):
-        self.logger.info("*****test_042_v8_user_rejection_of_v7_confirmed_release_override_v4_v5_v6 : started*******")
+        self.logger.info("***test_042_v8_user_rejection_of_v7_confirmed_release_override_v4_v5_v6 : started***")
 
         # Setup
         driver = setup[0]
@@ -66,9 +66,8 @@ class Test_042:
         rp.click_v8_rejection(internal_comment, release_letter_comment)
 
         # validation
-        driver.switch_to.frame("schFrame")
-        if bu.is_displayed((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b")):
-            text = bu.get_text((By.XPATH, "//*[@id='schdata']//td[12]//tbody/tr[2]//b"))
+        if bu.is_displayed((By.ID, "F11170")):
+            text = bu.get_text((By.ID, "F11170"))
             self.logger.info("*******V8 user rejection successful. Status : " + text + "**********")
             assert True, "V8 user rejection successful. Status : " + text
         else:
@@ -76,7 +75,7 @@ class Test_042:
             assert False, "V8 user rejection of release unsuccessful. Release is not confirmed"
 
         self.logger.info("***test_042_v8_user_rejection_of_v7_confirmed_release_override_v4_v5_v6 : passed****")
-        self.logger.info("***test_042_v8_user_rejection_of_v7_confirmed_release_override_v4_v5_v6 : completed ****")
+        self.logger.info("***test_042_v8_user_rejection_of_v7_confirmed_release_override_v4_v5_v6 : completed***")
 
 
 

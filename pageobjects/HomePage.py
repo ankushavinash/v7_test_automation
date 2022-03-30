@@ -146,6 +146,7 @@ class HomePage:
         self.rp.click_close_icon()
         self.bu.logout_application()
         self.bu.login_application(username, password)
+        time.sleep(5)
         self.search_application("V4..V8 Admin")
         self.search_and_open_the_release_from_all_items(release_id)
         if self.bu.is_displayed((By.CLASS_NAME, "highlighter")):
