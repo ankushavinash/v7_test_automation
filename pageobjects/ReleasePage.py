@@ -1140,18 +1140,149 @@ class ReleasePage:
         self.click_ok()
 
     # author : ankush
-    # since : 2021-12-07
-    # this method is select V8
-    # argument : v8 user need to select
+    # since : 2022-03-31
+    # this method is use to click admin update responsibility button
+    # argument :
+    # return :
+    button_admin_update_responsibility_id = "TransitionId_5345"
+    def click_admin_update_responsibility(self):
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_admin_update_responsibility_id))
+
+
+
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v4 primary
+    # argument : v4 primary user
     # return :
     textbox_v4_primary_name = "G11178_LEFT"
     button_search_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[1]/td/input[1]"
     dropdown_v4_primary_id = "F11178_LEFT"
     button_select_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
-    def admin_update_responsibility(self, v4_primary):
+    def select_v4_primary(self, v4_primary):
         self.bu.send_keys((By.NAME, self.textbox_v4_primary_name), v4_primary)
         self.bu.click((By.XPATH, self.button_search_v4_primary_xpath))
         self.bu.select(By.ID, self.dropdown_v4_primary_id, v4_primary)
         self.bu.click((By.XPATH, self.button_select_v4_primary_xpath))
-        self.click_ok()
 
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v5 primary
+    # argument : v5 primary user
+    # return :
+    textbox_v5_primary_name = "G11181_LEFT"
+    button_search_v5_primary_xpath = "//*[@id='F11181.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v5_primary_id = "F11181_LEFT"
+    button_select_v5_primary_xpath = "//*[@id='F11181.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def select_v5_primary(self, v5_primary):
+        self.bu.send_keys((By.NAME, self.textbox_v5_primary_name), v5_primary)
+        self.bu.click((By.XPATH, self.button_search_v5_primary_xpath))
+        self.bu.select(By.ID, self.dropdown_v5_primary_id, v5_primary)
+        self.bu.click((By.XPATH, self.button_select_v5_primary_xpath))
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v6 primary
+    # argument : v6 primary user
+    # return :
+    textbox_v6_primary_name = "G11184_LEFT"
+    button_search_v6_primary_xpath = "//*[@id='F11184.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v6_primary_id = "F11184_LEFT"
+    button_select_v6_primary_xpath = "//*[@id='F11184.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def select_v6_primary(self, v6_primary):
+        self.bu.send_keys((By.NAME, self.textbox_v6_primary_name), v6_primary)
+        self.bu.click((By.XPATH, self.button_search_v6_primary_xpath))
+        self.bu.select(By.ID, self.dropdown_v6_primary_id, v6_primary)
+        self.bu.click((By.XPATH, self.button_select_v6_primary_xpath))
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v7 primary
+    # argument : v7 primary user
+    # return :
+    textbox_v7_primary_name = "G11187_LEFT"
+    button_search_v7_primary_xpath = "//*[@id='F11187.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v7_primary_id = "F11187_LEFT"
+    button_select_v7_primary_xpath = "//*[@id='F11187.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def select_v7_primary(self, v7_primary):
+        self.bu.send_keys((By.NAME, self.textbox_v7_primary_name), v7_primary)
+        self.bu.click((By.XPATH, self.button_search_v7_primary_xpath))
+        self.bu.select(By.ID, self.dropdown_v7_primary_id, v7_primary)
+        self.bu.click((By.XPATH, self.button_select_v7_primary_xpath))
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v4 fallback
+    # argument : v4 fallback user
+    # return :
+    textbox_v4_fallback_name = "G11176_LEFT"
+    button_search_v4_fallback_xpath = "//*[@id='F11176.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v4_fallback_id = "F11176_LEFT"
+    button_select_v4_fallback_xpath = "//*[@id='F11176.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def select_v4_fallback(self, v4_fallback):
+        self.bu.send_keys((By.NAME, self.textbox_v4_fallback_name), v4_fallback)
+        self.bu.click((By.XPATH, self.button_search_v4_fallback_xpath))
+        self.bu.select(By.ID, self.dropdown_v4_fallback_id, v4_fallback)
+        self.bu.click((By.XPATH, self.button_select_v4_fallback_xpath))
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v5 fallback
+    # argument : v5 fallback user
+    # return :
+    textbox_v5_fallback_name = "G11179_LEFT"
+    button_search_v5_fallback_xpath = "//*[@id='F11179.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v5_fallback_id = "F11179_LEFT"
+    button_select_v5_fallback_xpath = "//*[@id='F11179.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def select_v5_fallback(self, v5_fallback):
+        self.bu.send_keys((By.NAME, self.textbox_v5_fallback_name), v5_fallback)
+        self.bu.click((By.XPATH, self.button_search_v5_fallback_xpath))
+        self.bu.select(By.ID, self.dropdown_v5_fallback_id, v5_fallback)
+        self.bu.click((By.XPATH, self.button_select_v5_fallback_xpath))
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v6 fallback
+    # argument : v6 fallback user
+    # return :
+    textbox_v6_fallback_name = "G11182_LEFT"
+    button_search_v6_fallback_xpath = "//*[@id='F11182.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v6_fallback_id = "F11182_LEFT"
+    button_select_v6_fallback_xpath = "//*[@id='F11182.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def select_v6_fallback(self, v6_fallback):
+        self.bu.send_keys((By.NAME, self.textbox_v6_fallback_name), v6_fallback)
+        self.bu.click((By.XPATH, self.button_search_v6_fallback_xpath))
+        self.bu.select(By.ID, self.dropdown_v6_fallback_id, v6_fallback)
+        self.bu.click((By.XPATH, self.button_select_v6_fallback_xpath))
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to select v7 fallback
+    # argument : v7 fallback user
+    # return :
+    textbox_v7_fallback_name = "G11185_LEFT"
+    button_search_v7_fallback_xpath = "//*[@id='F11185.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v7_fallback_id = "F11185_LEFT"
+    button_select_v7_fallback_xpath = "//*[@id='F11185.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    def select_v7_fallback(self, v7_fallback):
+        self.bu.send_keys((By.NAME, self.textbox_v7_fallback_name), v7_fallback)
+        self.bu.click((By.XPATH, self.button_search_v7_fallback_xpath))
+        self.bu.select(By.ID, self.dropdown_v7_fallback_id, v7_fallback)
+        self.bu.click((By.XPATH, self.button_select_v7_fallback_xpath))
+
+    # author : ankush
+    # since : 2022-03-31
+    # this method is to fill all primary and fallback user of admin update responsibility
+    # argument : fill all v4, v5, v6, v7 user and fallback user
+    # return :
+    def admin_update_of_all_primary_and_fallback_user(self, v4_primary, v5_primary, v6_primary, v7_primary, v4_fallback, v5_fallback, v6_fallback, v7_fallback):
+        self.select_v4_primary(v4_primary)
+        self.select_v5_primary(v5_primary)
+        self.select_v6_primary(v6_primary)
+        self.select_v7_primary(v7_primary)
+        self.select_v4_fallback(v4_fallback)
+        self.select_v5_fallback(v5_fallback)
+        self.select_v6_fallback(v6_fallback)
+        self.select_v7_fallback(v7_fallback)

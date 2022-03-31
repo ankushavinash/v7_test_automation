@@ -353,3 +353,36 @@ A2L Import End 3/24/2022 5:50:06 AM
 03/30/2022 06:36:12 PM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
 03/30/2022 06:38:40 PM: INFO: *****test_058_admin_update_responsibility : passed*******
 03/30/2022 06:38:40 PM: INFO: *****test_058_admin_update_responsibility : completed ********
+03/31/2022 09:45:07 AM: INFO: ********test_058_admin_update_responsibility : started********
+03/31/2022 09:46:33 AM: INFO: ***************create Release successful. Release ID: 2121152 ***************
+03/31/2022 09:46:59 AM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+03/31/2022 09:47:22 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+03/31/2022 09:47:29 AM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
+03/31/2022 09:50:07 AM: INFO: *****test_058_admin_update_responsibility : passed*******
+03/31/2022 09:50:07 AM: INFO: *****test_058_admin_update_responsibility : completed ********
+03/31/2022 10:39:38 AM: INFO: ********test_058_admin_update_responsibility : started********
+03/31/2022 10:40:56 AM: INFO: ***************create Release successful. Release ID: 2121373 ***************
+03/31/2022 10:41:36 AM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+03/31/2022 10:41:55 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+03/31/2022 10:42:01 AM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
+03/31/2022 10:47:30 AM: INFO: ********test_058_admin_update_responsibility : started********
+03/31/2022 10:48:35 AM: INFO: ***************create Release successful. Release ID: 2121418 ***************
+03/31/2022 10:52:08 AM: INFO: ********test_058_admin_update_responsibility : started********
+03/31/2022 10:53:05 AM: INFO: ***************create Release successful. Release ID: 2121437 ***************
+03/31/2022 10:53:34 AM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+03/31/2022 10:53:53 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+03/31/2022 10:53:59 AM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
+03/31/2022 11:23:10 AM: INFO: ********test_058_admin_update_responsibility : started********
+03/31/2022 11:24:14 AM: INFO: ***************create Release successful. Release ID: 2121550 ***************
+03/31/2022 11:24:47 AM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+03/31/2022 11:25:11 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+03/31/2022 11:25:17 AM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
+03/31/2022 11:27:42 AM: INFO: *****test_058_admin_update_responsibility : passed*******
+03/31/2022 11:27:42 AM: INFO: *****test_058_admin_update_responsibility : completed ********
+03/31/2022 11:29:01 AM: INFO: ********test_058_admin_update_responsibility : started********
+03/31/2022 11:30:05 AM: INFO: ***************create Release successful. Release ID: 2121576 ***************
+03/31/2022 11:30:38 AM: INFO: ********akv variant selected. Variant name: v7_akv_variant_automation_test***********
+03/31/2022 11:31:00 AM: INFO: ********a2l file selected. A2l File name : V7AutomationTest.a2l*****************
+03/31/2022 11:31:05 AM: INFO: ********precheck confirmation successful. Displayed : SW Module*****************
+03/31/2022 11:33:26 AM: INFO: *****test_058_admin_update_responsibility : passed*******
+03/31/2022 11:33:26 AM: INFO: *****test_058_admin_update_responsibility : completed ********
