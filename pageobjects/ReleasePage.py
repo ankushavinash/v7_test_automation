@@ -88,6 +88,42 @@ class ReleasePage:
     button_confirm_v7_user_id = "TransitionId_3586"
     button_reject_v7_user_id = "TransitionId_3593"
     textbox_reject_comment_v7_user_id = "F11868"
+    textbox_v4_primary_name = "G11178_LEFT"
+    button_search_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v4_primary_id = "F11178_LEFT"
+    button_select_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    textbox_v5_primary_name = "G11181_LEFT"
+    button_search_v5_primary_xpath = "//*[@id='F11181.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v5_primary_id = "F11181_LEFT"
+    button_select_v5_primary_xpath = "//*[@id='F11181.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    textbox_v6_primary_name = "G11184_LEFT"
+    button_search_v6_primary_xpath = "//*[@id='F11184.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v6_primary_id = "F11184_LEFT"
+    button_select_v6_primary_xpath = "//*[@id='F11184.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    textbox_v7_primary_name = "G11187_LEFT"
+    button_search_v7_primary_xpath = "//*[@id='F11187.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v7_primary_id = "F11187_LEFT"
+    button_select_v7_primary_xpath = "//*[@id='F11187.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    textbox_v4_fallback_name = "G11176_LEFT"
+    button_search_v4_fallback_xpath = "//*[@id='F11176.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v4_fallback_id = "F11176_LEFT"
+    button_select_v4_fallback_xpath = "//*[@id='F11176.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    textbox_v5_fallback_name = "G11179_LEFT"
+    button_search_v5_fallback_xpath = "//*[@id='F11179.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v5_fallback_id = "F11179_LEFT"
+    button_select_v5_fallback_xpath = "//*[@id='F11179.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    textbox_v6_fallback_name = "G11182_LEFT"
+    button_search_v6_fallback_xpath = "//*[@id='F11182.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v6_fallback_id = "F11182_LEFT"
+    button_select_v6_fallback_xpath = "//*[@id='F11182.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    textbox_v7_fallback_name = "G11185_LEFT"
+    button_search_v7_fallback_xpath = "//*[@id='F11185.wrapper']/div/table/tbody/tr[1]/td/input[1]"
+    dropdown_v7_fallback_id = "F11185_LEFT"
+    button_select_v7_fallback_xpath = "//*[@id='F11185.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
+    link_first_part_module_xpath = "//a[@title='A0 (1.0.0)']"
+    button_refresh_id = "refresh_view"
+    checkbox_accept_module_without_q_group_id = "SELECT_F13877"
+    button_admin_update_responsibility_id = "TransitionId_5345"
 
     def __init__(self, driver):
         self.driver = driver
@@ -1129,7 +1165,6 @@ class ReleasePage:
     # this method is use to get text for validation without q group
     # argument :
     # return : text for without q group validation
-    checkbox_accept_module_without_q_group_id = "SELECT_F13877"
     def override_v8_assignment_and_start_confirmation(self):
         self.click_ok()
         self.bu.click((By.XPATH, self.button_import_akv_from_care_and_start_confirmation_xpath))
@@ -1144,7 +1179,6 @@ class ReleasePage:
     # this method is use to click admin update responsibility button
     # argument :
     # return :
-    button_admin_update_responsibility_id = "TransitionId_5345"
     def click_admin_update_responsibility(self):
         self.driver.switch_to.frame("ViewFrame")
         self.bu.click((By.ID, self.button_admin_update_responsibility_id))
@@ -1157,10 +1191,6 @@ class ReleasePage:
     # this method is to select v4 primary
     # argument : v4 primary user
     # return :
-    textbox_v4_primary_name = "G11178_LEFT"
-    button_search_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v4_primary_id = "F11178_LEFT"
-    button_select_v4_primary_xpath = "//*[@id='F11178.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v4_primary(self, v4_primary):
         self.bu.send_keys((By.NAME, self.textbox_v4_primary_name), v4_primary)
         self.bu.click((By.XPATH, self.button_search_v4_primary_xpath))
@@ -1172,10 +1202,6 @@ class ReleasePage:
     # this method is to select v5 primary
     # argument : v5 primary user
     # return :
-    textbox_v5_primary_name = "G11181_LEFT"
-    button_search_v5_primary_xpath = "//*[@id='F11181.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v5_primary_id = "F11181_LEFT"
-    button_select_v5_primary_xpath = "//*[@id='F11181.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v5_primary(self, v5_primary):
         self.bu.send_keys((By.NAME, self.textbox_v5_primary_name), v5_primary)
         self.bu.click((By.XPATH, self.button_search_v5_primary_xpath))
@@ -1187,10 +1213,6 @@ class ReleasePage:
     # this method is to select v6 primary
     # argument : v6 primary user
     # return :
-    textbox_v6_primary_name = "G11184_LEFT"
-    button_search_v6_primary_xpath = "//*[@id='F11184.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v6_primary_id = "F11184_LEFT"
-    button_select_v6_primary_xpath = "//*[@id='F11184.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v6_primary(self, v6_primary):
         self.bu.send_keys((By.NAME, self.textbox_v6_primary_name), v6_primary)
         self.bu.click((By.XPATH, self.button_search_v6_primary_xpath))
@@ -1202,10 +1224,6 @@ class ReleasePage:
     # this method is to select v7 primary
     # argument : v7 primary user
     # return :
-    textbox_v7_primary_name = "G11187_LEFT"
-    button_search_v7_primary_xpath = "//*[@id='F11187.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v7_primary_id = "F11187_LEFT"
-    button_select_v7_primary_xpath = "//*[@id='F11187.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v7_primary(self, v7_primary):
         self.bu.send_keys((By.NAME, self.textbox_v7_primary_name), v7_primary)
         self.bu.click((By.XPATH, self.button_search_v7_primary_xpath))
@@ -1217,10 +1235,6 @@ class ReleasePage:
     # this method is to select v4 fallback
     # argument : v4 fallback user
     # return :
-    textbox_v4_fallback_name = "G11176_LEFT"
-    button_search_v4_fallback_xpath = "//*[@id='F11176.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v4_fallback_id = "F11176_LEFT"
-    button_select_v4_fallback_xpath = "//*[@id='F11176.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v4_fallback(self, v4_fallback):
         self.bu.send_keys((By.NAME, self.textbox_v4_fallback_name), v4_fallback)
         self.bu.click((By.XPATH, self.button_search_v4_fallback_xpath))
@@ -1232,10 +1246,6 @@ class ReleasePage:
     # this method is to select v5 fallback
     # argument : v5 fallback user
     # return :
-    textbox_v5_fallback_name = "G11179_LEFT"
-    button_search_v5_fallback_xpath = "//*[@id='F11179.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v5_fallback_id = "F11179_LEFT"
-    button_select_v5_fallback_xpath = "//*[@id='F11179.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v5_fallback(self, v5_fallback):
         self.bu.send_keys((By.NAME, self.textbox_v5_fallback_name), v5_fallback)
         self.bu.click((By.XPATH, self.button_search_v5_fallback_xpath))
@@ -1247,10 +1257,6 @@ class ReleasePage:
     # this method is to select v6 fallback
     # argument : v6 fallback user
     # return :
-    textbox_v6_fallback_name = "G11182_LEFT"
-    button_search_v6_fallback_xpath = "//*[@id='F11182.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v6_fallback_id = "F11182_LEFT"
-    button_select_v6_fallback_xpath = "//*[@id='F11182.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v6_fallback(self, v6_fallback):
         self.bu.send_keys((By.NAME, self.textbox_v6_fallback_name), v6_fallback)
         self.bu.click((By.XPATH, self.button_search_v6_fallback_xpath))
@@ -1262,10 +1268,6 @@ class ReleasePage:
     # this method is to select v7 fallback
     # argument : v7 fallback user
     # return :
-    textbox_v7_fallback_name = "G11185_LEFT"
-    button_search_v7_fallback_xpath = "//*[@id='F11185.wrapper']/div/table/tbody/tr[1]/td/input[1]"
-    dropdown_v7_fallback_id = "F11185_LEFT"
-    button_select_v7_fallback_xpath = "//*[@id='F11185.wrapper']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/a"
     def select_v7_fallback(self, v7_fallback):
         self.bu.send_keys((By.NAME, self.textbox_v7_fallback_name), v7_fallback)
         self.bu.click((By.XPATH, self.button_search_v7_fallback_xpath))
@@ -1286,3 +1288,133 @@ class ReleasePage:
         self.select_v5_fallback(v5_fallback)
         self.select_v6_fallback(v6_fallback)
         self.select_v7_fallback(v7_fallback)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-04-04
+    # this method is to click on first module for admin update responsibility
+    # argument :
+    # return :
+    def select_first_module_for_admin_update_responsibility(self):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.click_child_confirmation()
+        self.driver.switch_to.frame("d40aa4b3-f81d-4f82-b8bf-af6b57d91fa1")
+        self.bu.click((By.XPATH, self.link_first_part_module_xpath))
+
+    # author : ankush
+    # since : 2022-04-04
+    # this method is to click refresh
+    # argument :
+    # return :
+    def click_refresh(self):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_refresh_id))
+
+    # author : ankush
+    # since : 2022-04-08
+    # this method is use to confirm release as v8 user after v7 confirmation
+    # argument : internal comment and release letter comment
+    # return :
+    button_v8_confirmation_post_v7_confirmation_id = "TransitionId_4063"
+    def click_v8_confirmation_post_v7_confirmation(self, internal_comments):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_v8_confirmation_post_v7_confirmation_id))
+        self.set_internal_comment(internal_comments)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-01-03
+    # this method is use to reject release as v8 user after all confirmation
+    # argument : release letter comment and internal comment
+    # return :
+    button_v8_rejection_post_v7_confirmation_id = "TransitionId_4064"
+    def click_v8_rejection_post_v7_confirmation(self, internal_comment):
+        self.driver.switch_to.frame("issuedetails-frame")
+        self.bu.click((By.ID, self.button_v8_rejection_post_v7_confirmation_id))
+        self.set_internal_comment(internal_comment)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-04-12
+    # this method is use to reject module as v4 user
+    # argument :
+    # return :
+    def reject_as_v4_user(self, reject_comment_v4_user, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.click_reject_as_v4_user(reject_comment_v4_user, main_window)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-02-10
+    # this method is use to reject module as v5 user
+    # argument :
+    # return :
+    button_reject_v5_user_post_v4_rejection_id = "TransitionId_3584"
+    def click_reject_as_v5_user_post_v4_rejection(self, reject_comment_v5_user, main_window):
+        self.bu.switch_to_child_window(main_window)
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_reject_v5_user_post_v4_rejection_id))
+        self.bu.send_keys((By.ID, self.textbox_reject_comment_v5_user_id), reject_comment_v5_user)
+
+
+    # author : ankush
+    # since : 2022-04-12
+    # this method is use to reject module as v5 user
+    # argument :
+    # return :
+    def reject_as_v5_user(self, reject_comment_v5_user, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.click_reject_as_v5_user_post_v4_rejection(reject_comment_v5_user, main_window)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-02-10
+    # this method is use to reject module as v5 user
+    # argument :
+    # return :
+    button_reject_v6_user_post_v4_and_v5_rejection_id = "TransitionId_3585"
+    def click_reject_as_v6_user_post_v4_and_v5_rejection(self, reject_comment_v6_user, main_window):
+        self.bu.switch_to_child_window(main_window)
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_reject_v6_user_post_v4_and_v5_rejection_id))
+        self.bu.send_keys((By.ID, self.textbox_reject_comment_v6_user_id), reject_comment_v6_user)
+
+    # author : ankush
+    # since : 2022-04-12
+    # this method is use to reject module as v5 user
+    # argument :
+    # return :
+    def reject_as_v6_user(self, reject_comment_v6_user, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.click_reject_as_v6_user_post_v4_and_v5_rejection(reject_comment_v6_user, main_window)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-02-10
+    # this method is use to reject module as v5 user
+    # argument :
+    # return :
+    button_reject_v7_user_post_v4_v5_and_v6_rejection_id = "TransitionId_3587"
+    def click_reject_as_v7_user_post_v4_v5_and_v6_rejection(self, reject_comment_v7_user, main_window):
+        self.bu.switch_to_child_window(main_window)
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_reject_v7_user_post_v4_v5_and_v6_rejection_id))
+        self.bu.send_keys((By.ID, self.textbox_reject_comment_v7_user_id), reject_comment_v7_user)
+
+    # author : ankush
+    # since : 2022-04-12
+    # this method is use to reject module as v5 user
+    # argument :
+    # return :
+    def reject_as_v7_user(self, reject_comment_v7_user, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.click_reject_as_v6_user_post_v4_and_v5_rejection(reject_comment_v7_user, main_window)
+        self.click_ok()

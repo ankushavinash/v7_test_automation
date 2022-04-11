@@ -7,10 +7,10 @@ from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
-
-@pytest.mark.smoke
-@pytest.mark.regression
-@flaky(max_runs=3, min_passes=1)
+#
+# @pytest.mark.smoke
+# @pytest.mark.regression
+# @flaky(max_runs=3, min_passes=1)
 class Test_042:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -63,7 +63,7 @@ class Test_042:
         self.logger.info("*******V7 confirmed release displayed. Release id : " + v7_confirmed_release_id + " *******")
 
         # reject release as V8 user override pending confirmation
-        rp.click_v8_rejection(internal_comment, release_letter_comment)
+        rp.click_v8_rejection_post_v7_confirmation(internal_comment)
 
         # validation
         if bu.is_displayed((By.ID, "F11170")):

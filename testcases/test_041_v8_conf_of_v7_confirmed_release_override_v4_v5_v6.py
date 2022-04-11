@@ -8,8 +8,8 @@ from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
 
-@pytest.mark.regression
-@flaky(max_runs=3, min_passes=1)
+# @pytest.mark.regression
+# @flaky(max_runs=3, min_passes=1)
 class Test_041:
     # log variable instantiation
     logger = LogGen.loggen()
@@ -62,7 +62,7 @@ class Test_041:
         self.logger.info("***V7 confirmed release displayed. Release id : " + v7_confirmed_release_id + " ****")
 
         # V8 confirmation
-        rp.click_v8_confirmation(release_letter_comment, internal_comment)
+        rp.click_v8_confirmation_post_v7_confirmation(internal_comment)
 
         # validation
         driver.switch_to.frame("schFrame")
