@@ -61,9 +61,9 @@ class Test_032:
         rp.discard_complete_confirmation(release_letter_comment, internal_comment)
 
         # Discard validation
-        driver.switch_to.frame("schFrame")
-        if bu.is_displayed((By.XPATH, "//*[@id='schdata']/tbody/tr/td[12]//tr[2]")):
-            text = bu.get_text((By.XPATH, "//*[@id='schdata']/tbody/tr/td[12]//tr[2]"))
+        #driver.switch_to.frame("SectionSCHNoframe")
+        if bu.is_displayed((By.ID, "F11197")):
+            text = bu.get_text((By.XPATH, "F11197"))
             self.logger.info("********Discard release successful. Status : " + text + "*********")
             assert True, "Discard release successful. Status : " + text
         else:

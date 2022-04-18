@@ -36,7 +36,7 @@ class ReleasePage:
     textbox_search_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
     checkbox_care_akv_varient_for_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[137]/td[1]/input"
     textbox_comment_id = "a2luploadcomment"
-    a2l_file_upload_xpath = "//*[@id='52d5fc10-c876-4ba2-a7b6-1f44133dd5a9']/div[3]/input[2]"
+    a2l_file_upload_id = "a2ldropzone"
     button_select_a2l_data_xpath = "//*[@id='Button19']"
     textbox_search_user_comment_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
     radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[273]/td[1]/input"
@@ -342,7 +342,7 @@ class ReleasePage:
     # argument :
     # return :
     def upload_a2l_data(self, a2l_file_path):
-        self.bu.send_keys((By.XPATH, self.a2l_file_upload_xpath), a2l_file_path)
+        self.bu.send_keys((By.ID, self.a2l_file_upload_id), a2l_file_path)
         time.sleep(15)
 
     # author : ankush
@@ -1416,5 +1416,6 @@ class ReleasePage:
         self.driver.switch_to.frame("issuedetails-frame-iframe")
         self.click_child_confirmation()
         self.click_module_confirmation()
-        self.click_reject_as_v6_user_post_v4_and_v5_rejection(reject_comment_v7_user, main_window)
+        self.click_reject_as_v7_user_post_v4_v5_and_v6_rejection(reject_comment_v7_user, main_window)
         self.click_ok()
+

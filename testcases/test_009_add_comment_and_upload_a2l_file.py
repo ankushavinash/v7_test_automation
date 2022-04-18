@@ -50,8 +50,10 @@ class Test_009:
         self.logger.info("*********a2l data selected successful: AKV Variant name: " + care_akv_variant_name + "*******")
 
         # Add comment
-        rp.set_comment(upload_comment)
+        #rp.set_comment(upload_comment)
         # Upload a2l file
+        driver.find_element_by_id("filelabel").click()
+
         rp.upload_a2l_data(a2l_file)
 
         # Upload Comment validation

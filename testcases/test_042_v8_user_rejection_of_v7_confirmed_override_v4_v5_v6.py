@@ -7,10 +7,10 @@ from utilities import xlUtilis
 from utilities.browserUtilis import BrowserUtilities
 from utilities.customLogger import LogGen
 
-#
-# @pytest.mark.smoke
-# @pytest.mark.regression
-# @flaky(max_runs=3, min_passes=1)
+
+@pytest.mark.smoke
+@pytest.mark.regression
+@flaky(max_runs=3, min_passes=1)
 class Test_042:
     # log variable instantiation
     logger = LogGen.loggen()
