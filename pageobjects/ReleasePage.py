@@ -39,7 +39,8 @@ class ReleasePage:
     a2l_file_upload_id = "a2ldropzone"
     button_select_a2l_data_xpath = "//*[@id='Button19']"
     textbox_search_user_comment_xpath = "//*[@id='mrx2table']/tbody/tr[1]/th[3]/div/input"
-    radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[273]/td[1]/input"
+    radiobutton_a2l_data_xpath = "//*[@id='mrx2table']/tbody/tr[266]/td[1]/input"
+    radiobutton_a2l_data_without_q_group_xpath = "//*[@id='mrx2table']/tbody/tr[399]/td[1]/input"
     button_precheck_care_and_a2l_data_xpath = "//*[@id='Button22']"
     textbox_internal_comment_id = "H11204"
     textbox_release_letter_comment_xpath = "//*[@id='F14387']"
@@ -1124,7 +1125,6 @@ class ReleasePage:
     # this method is use to select existing a2l data from list(based on filtering user comment selecting a2l file)
     # argument : user comment
     # return :
-    radiobutton_a2l_data_without_q_group_xpath = "//*[@id='mrx2table']/tbody/tr[406]/td[1]/input"
     def set_a2l_data_without_q_group(self, user_comment):
         self.bu.send_keys((By.XPATH, self.textbox_search_user_comment_xpath), user_comment)
         if self.bu.is_selected((By.XPATH, self.radiobutton_a2l_data_without_q_group_xpath)):
@@ -1315,7 +1315,7 @@ class ReleasePage:
     # this method is use to confirm release as v8 user after v7 confirmation
     # argument : internal comment and release letter comment
     # return :
-    button_v8_confirmation_post_v7_confirmation_id = "TransitionId_4063"
+    button_v8_confirmation_post_v7_confirmation_id = "TransitionId_4030"
     def click_v8_confirmation_post_v7_confirmation(self, internal_comments):
         self.driver.switch_to.frame("issuedetails-frame")
         self.bu.click((By.ID, self.button_v8_confirmation_post_v7_confirmation_id))
@@ -1327,7 +1327,7 @@ class ReleasePage:
     # this method is use to reject release as v8 user after all confirmation
     # argument : release letter comment and internal comment
     # return :
-    button_v8_rejection_post_v7_confirmation_id = "TransitionId_4064"
+    button_v8_rejection_post_v7_confirmation_id = "TransitionId_4031"
     def click_v8_rejection_post_v7_confirmation(self, internal_comment):
         self.driver.switch_to.frame("issuedetails-frame")
         self.bu.click((By.ID, self.button_v8_rejection_post_v7_confirmation_id))
@@ -1417,5 +1417,60 @@ class ReleasePage:
         self.click_child_confirmation()
         self.click_module_confirmation()
         self.click_reject_as_v7_user_post_v4_v5_and_v6_rejection(reject_comment_v7_user, main_window)
+        self.click_ok()
+
+
+
+    # author : ankush
+    # since : 2022-04-12
+    # this method is use to discard module as admin user
+    # argument :
+    # return :
+    button_admin_discard_module_id = "TransitionId_5159"
+    textbox_generic_comment = "H13881"
+    def admin_discard_module(self, generic_comment, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.bu.switch_to_child_window(main_window)
+        self.driver.switch_to.frame("ViewFrame")
+        self.bu.click((By.ID, self.button_admin_discard_module_id))
+        self.bu.send_keys((By.ID, self.textbox_generic_comment), generic_comment)
+        self.click_ok()
+
+    # author : ankush
+    # since : 2022-05-06
+    # this method is use to switch to view frame
+    # argument :
+    # return :
+    def switch_to_view_frame(self):
+        self.driver.switch_to.frame("ViewFrame")
+
+    # author : ankush
+    # since : 2022-05-06
+    # this method is use to switch to view frame
+    # argument :
+    # return :
+    def switch_to_button_frame(self):
+        self.driver.switch_to.frame("buttons")
+
+    # author : ankush
+    # since : 2022-05-06
+    # this method is use to reset and requery of different user
+    # argument :
+    # return :
+    button_reset_and_requery_id = "TransitionId_3601"
+    def click_reset_and_requery(self, main_window):
+        self.driver.switch_to.frame("issuedetails-frame-iframe")
+        self.click_child_confirmation()
+        self.click_module_confirmation()
+        self.bu.switch_to_child_window(main_window)
+        self.switch_to_view_frame()
+        self.bu.click((By.ID, self.button_reset_and_requery_id))
+        self.driver.switch_to.parent_frame()
+        time.sleep(3)
+        self.switch_to_view_frame()
+        time.sleep(3)
+        self.switch_to_button_frame()
         self.click_ok()
 

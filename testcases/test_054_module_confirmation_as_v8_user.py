@@ -66,11 +66,13 @@ class Test_054:
         self.logger.info("********import AKV from care is successful : " + import_akv_confirmation + "************")
         hp.login_again_and_search_release(v4_user, v4_password, release_id)
         self.logger.info("**********Login as V4 user : " + v4_user + "***********")
+        # v4 user config
         confirm_module_as_v4 = rp.module_confirmation_as_v4_user(main_window)
         self.logger.info("******confirm module as v4 user successful. status : " + confirm_module_as_v4 + "*******")
         driver.switch_to.window(main_window)
         hp.login_again_and_search_release(v5_user, v5_password, release_id)
         self.logger.info("**********Login as V5 user : " + v5_user + "***********")
+        # v5 user config
         confirm_module_as_v5 = rp.module_confirmation_as_v5_user(main_window)
         self.logger.info("******confirm module as v5 user successful. status : " + confirm_module_as_v5 + "*******")
         driver.switch_to.window(main_window)
